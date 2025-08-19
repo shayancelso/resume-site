@@ -140,7 +140,7 @@ export default function SkillsPage() {
               {/* Skills Grid */}
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
                 {category.skills.map((skill, skillIndex) => {
-                  const SkillIcon = skillIcons[skill.name] || Monitor;
+                  const SkillIcon = skillIcons[skill.name as keyof typeof skillIcons] || Monitor;
                   return (
                     <motion.div
                       key={skill.id}
