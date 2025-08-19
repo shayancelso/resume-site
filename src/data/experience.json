@@ -1,0 +1,57 @@
+[
+  {
+    "id": "vena-solutions",
+    "company": "Vena Solutions",
+    "title": "Account Manager",
+    "period": "Aug 2024 - Present",
+    "startDate": "2024-08-01",
+    "endDate": null,
+    "location": "Toronto, ON",
+    "description": "Leading account management and expansion initiatives for enterprise clients in the financial planning and analysis space.",
+    "highlights": [
+      "Achieved 280% of FY25 quota with 320% peak quarter performance",
+      "Earned Rookie of the Year, President's Club, and 100% Club recognition",
+      "Maintained 100% Gross Revenue Retention (GRR) across portfolio",
+      "Built multi-threaded executive relationships driving expansion opportunities",
+      "Led complex pricing and SLA negotiations with C-suite stakeholders",
+      "Implemented AI-driven process improvements increasing efficiency by 40%"
+    ],
+    "skills": ["Account Management", "Executive Relations", "Pricing Strategy", "SLA Negotiations", "AI Process Optimization"]
+  },
+  {
+    "id": "optimus-sbr",
+    "company": "Optimus SBR",
+    "title": "Management Consultant",
+    "period": "Mar 2020 - Jul 2024",
+    "startDate": "2020-03-01",
+    "endDate": "2024-07-31",
+    "location": "Toronto, ON",
+    "description": "Delivered strategic business consulting across diverse industries, focusing on operational excellence and growth initiatives.",
+    "highlights": [
+      "Led cross-functional teams on transformation projects for Fortune 500 clients",
+      "Developed data-driven strategies resulting in average 25% efficiency gains",
+      "Managed client relationships at executive level across 15+ concurrent projects",
+      "Specialized in process optimization and technology integration strategies",
+      "Mentored junior consultants and contributed to practice development"
+    ],
+    "skills": ["Strategic Planning", "Process Optimization", "Data Analysis", "Client Management", "Team Leadership"]
+  },
+  {
+    "id": "hyre",
+    "company": "Hyre",
+    "title": "Business Operations Analyst",
+    "period": "May 2018 - Mar 2020",
+    "startDate": "2018-05-01",
+    "endDate": "2020-03-31",
+    "location": "Vancouver, BC",
+    "description": "Supported business operations and growth initiatives for a fast-growing technology startup in the gig economy space.",
+    "highlights": [
+      "Built operational frameworks supporting 200% company growth",
+      "Developed analytics dashboards tracking key performance metrics",
+      "Collaborated with product team on feature development and user experience",
+      "Managed vendor relationships and contract negotiations",
+      "Created process documentation and training materials"
+    ],
+    "skills": ["Business Operations", "Analytics", "Vendor Management", "Process Documentation", "Startup Growth"]
+  }
+]

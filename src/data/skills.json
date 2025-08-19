@@ -1,0 +1,79 @@
+[
+  {
+    "id": "account-management",
+    "name": "Account Management",
+    "category": "Sales",
+    "proficiency": 95,
+    "description": "Expert in managing enterprise client relationships and driving expansion"
+  },
+  {
+    "id": "business-development",
+    "name": "Business Development",
+    "category": "Sales",
+    "proficiency": 90,
+    "description": "Proven track record in identifying and executing growth opportunities"
+  },
+  {
+    "id": "strategic-reviews",
+    "name": "Strategic Business Reviews",
+    "category": "Sales",
+    "proficiency": 92,
+    "description": "Leading executive-level strategic planning and review sessions"
+  },
+  {
+    "id": "expansion-renewals",
+    "name": "Expansion & Renewals",
+    "category": "Sales",
+    "proficiency": 98,
+    "description": "Specialist in driving account growth and retention strategies"
+  },
+  {
+    "id": "consultative-selling",
+    "name": "Consultative Selling",
+    "category": "GTM",
+    "proficiency": 94,
+    "description": "ROI-focused approach to solution selling and value demonstration"
+  },
+  {
+    "id": "stakeholder-management",
+    "name": "Stakeholder Management",
+    "category": "GTM",
+    "proficiency": 93,
+    "description": "Building and maintaining multi-threaded executive relationships"
+  },
+  {
+    "id": "salesforce",
+    "name": "Salesforce",
+    "category": "Platforms",
+    "proficiency": 88,
+    "description": "Advanced CRM management and sales process optimization"
+  },
+  {
+    "id": "gong",
+    "name": "Gong",
+    "category": "Platforms",
+    "proficiency": 85,
+    "description": "Conversation analytics and sales coaching platform expertise"
+  },
+  {
+    "id": "gainsight",
+    "name": "Gainsight",
+    "category": "Platforms",
+    "proficiency": 82,
+    "description": "Customer success and retention management platform"
+  },
+  {
+    "id": "artificial-intelligence",
+    "name": "Artificial Intelligence",
+    "category": "AI",
+    "proficiency": 87,
+    "description": "AI-driven workflow improvements and process automation"
+  },
+  {
+    "id": "retention",
+    "name": "Retention",
+    "category": "Sales",
+    "proficiency": 96,
+    "description": "Expert in customer retention strategies and churn prevention"
+  }
+]

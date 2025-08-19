@@ -1,0 +1,23 @@
+[
+  {
+    "id": "rookie-of-the-year",
+    "title": "Rookie of the Year",
+    "organization": "Vena Solutions",
+    "date": "2024",
+    "description": "Recognized for exceptional first-year performance and quota achievement"
+  },
+  {
+    "id": "presidents-club",
+    "title": "President's Club",
+    "organization": "Vena Solutions",
+    "date": "2024",
+    "description": "Elite recognition for top-tier sales performance and results delivery"
+  },
+  {
+    "id": "100-percent-club",
+    "title": "100% Club",
+    "organization": "Vena Solutions",
+    "date": "2024",
+    "description": "Achievement award for exceeding quota targets and maintaining excellence"
+  }
+]
