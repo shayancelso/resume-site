@@ -93,8 +93,12 @@ src/
    
    Add your environment variables:
    ```env
-   # Optional: Enable real email sending
+   # Required: Enable contact form email delivery
    RESEND_API_KEY=your_resend_api_key
+   CONTACT_EMAIL=your-email@example.com
+   
+   # Optional: Custom sender email (defaults to Resend's domain)
+   FROM_EMAIL=Resume Contact <onboarding@resend.dev>
    
    # Optional: Enable AI demos with real API
    NEXT_PUBLIC_OPENAI_ENABLED=true
@@ -110,18 +114,29 @@ src/
 
 ## 📧 Email Configuration
 
-The contact form works in two modes:
+The contact form uses **Resend** for reliable email delivery.
 
-### Demo Mode (Default)
-- Form submissions are logged to console
-- Success message shown to user
-- No actual emails sent
+### Setup Steps:
 
-### Production Mode  
-1. **Get Resend API Key**: Sign up at [resend.com](https://resend.com)
-2. **Verify Domain**: Add and verify your sending domain
-3. **Update Environment**: Add `RESEND_API_KEY` to `.env.local`
-4. **Update Email**: Change the 'from' address in `src/app/api/contact/route.ts`
+1. **Create a Resend account** at [resend.com](https://resend.com)
+2. **Get your API key** from the [API Keys page](https://resend.com/api-keys)
+3. **Add environment variables** to your deployment:
+   ```env
+   RESEND_API_KEY=re_your_api_key_here
+   CONTACT_EMAIL=your-email@example.com
+   ```
+
+### How it works:
+- Contact form submissions are sent via Resend API
+- Professional HTML email template with your branding
+- Includes sender's contact details and message
+- Reply-to field set to sender's email for easy responses
+- Fallback logging if email service fails
+
+### For Production:
+- Add environment variables in your hosting platform (Vercel, Netlify, etc.)
+- No domain verification needed (uses Resend's onboarding domain by default)
+- Optional: Verify your own domain for custom sender addresses
 
 ## 🤖 AI Demos Configuration
 
