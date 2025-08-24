@@ -105,7 +105,7 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="min-h-screen py-20 px-6">
+    <main className="min-h-screen py-12 md:py-20 px-4 md:px-6">
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -114,17 +114,17 @@ export default function ContactPage() {
       >
       <div className="container mx-auto max-w-6xl">
         {/* Header */}
-        <motion.div variants={itemVariants} className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6">
+        <motion.div variants={itemVariants} className="text-center mb-12 md:mb-16">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl font-heading font-bold mb-6">
             Get in <span className="text-gold">Touch</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Whether you're exploring opportunities in Dubai, interested in AI-enhanced sales processes, 
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Whether you're exploring new opportunities, interested in AI-enhanced sales processes, 
             or just want to connect, I'd love to hear from you.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
           {/* Contact Information */}
           <motion.div variants={itemVariants} className="space-y-8">
             <Card className="p-8">

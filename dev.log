@@ -170,16 +170,33 @@ digest: "1363575850"
  ✓ Compiled in 225ms (845 modules)
  ✓ Compiled in 334ms (845 modules)
  ✓ Compiled in 220ms (845 modules)
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       [Error: ENOENT: no such file or directory, stat '/Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/client-development/1.pack.gz'] {
-  errno: -2,
-  code: 'ENOENT',
-  syscall: 'stat',
-  path: '/Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/client-development/1.pack.gz'
-}
- ⨯ unhandledRejection: [Error: ENOENT: no such file or directory, stat '/Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/client-development/1.pack.gz'] {
-  errno: -2,
-  code: 'ENOENT',
-  syscall: 'stat',
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/client-development/0.pack.gz_' -> '/Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/client-development/0.pack.gz'
+ ✓ Compiled in 553ms (1557 modules)
+ ✓ Compiled in 295ms (1557 modules)
+ ✓ Compiled in 333ms (1557 modules)
+ ✓ Compiled in 283ms (1557 modules)
+ ✓ Compiled in 388ms (1557 modules)
+ ✓ Compiled in 235ms (1557 modules)
+ ✓ Compiled in 259ms (1557 modules)
+ ✓ Compiled in 326ms (1557 modules)
+ ✓ Compiled in 896ms (1557 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/server-development/1.pack.gz_' -> '/Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/server-development/1.pack.gz'
+ ✓ Compiled in 516ms (1557 modules)
+ ✓ Compiled in 462ms (1557 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Restoring pack failed from /Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/server-development.pack.gz: Error: incorrect header check
+ ✓ Compiled in 1003ms (1557 modules)
+ ✓ Compiled in 627ms (1557 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/server-development/0.pack.gz_' -> '/Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/server-development/0.pack.gz'
+ ✓ Compiled in 246ms (1557 modules)
+ ✓ Compiled in 363ms (1557 modules)
+ ✓ Compiled in 370ms (1557 modules)
+ ✓ Compiled in 350ms (1559 modules)
+ ✓ Compiled in 490ms (1559 modules)
+ ✓ Compiled in 549ms (1559 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/server-development/0.pack.gz_' -> '/Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/server-development/0.pack.gz'
+ ✓ Compiled in 2s (1559 modules)
+ ✓ Compiled in 1036ms (1545 modules)
+l: 'stat',
   path: '/Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/client-development/1.pack.gz'
 }
  ⨯ unhandledRejection: [Error: ENOENT: no such file or directory, stat '/Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/client-development/1.pack.gz'] {
@@ -383,3 +400,35 @@ Import trace for requested module:
  ✓ Compiled in 406ms (666 modules)
 <w> [webpack.cache.PackFileCacheStrategy] Restoring pack from /Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/client-development.pack.gz failed: TypeError: Cannot read properties of undefined (reading 'hasStartTime')
  ✓ Compiled in 239ms (666 modules)
+ ✓ Compiled in 1079ms (1337 modules)
+ ✓ Compiled in 327ms (1337 modules)
+ ✓ Compiled in 342ms (1337 modules)
+ ✓ Compiled in 319ms (1337 modules)
+ ✓ Compiled in 344ms (1337 modules)
+ ✓ Compiled in 374ms (1337 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Restoring pack from /Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/client-development.pack.gz failed: TypeError: Cannot read properties of undefined (reading 'hasStartTime')
+ ✓ Compiled in 335ms (1337 modules)
+ ✓ Compiled in 282ms (1337 modules)
+ ✓ Compiled in 710ms (1337 modules)
+ ✓ Compiled in 501ms (1337 modules)
+ ✓ Compiled in 460ms (1337 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/server-development/0.pack.gz_' -> '/Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/server-development/0.pack.gz'
+<w> [webpack.cache.PackFileCacheStrategy] Restoring pack failed from /Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/server-development.pack.gz: Error: incorrect header check
+ ✓ Compiled in 1559ms (1337 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Restoring pack from /Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/client-development.pack.gz failed: TypeError: Cannot read properties of undefined (reading 'hasStartTime')
+ ✓ Compiled in 639ms (1337 modules)
+ ✓ Compiled in 254ms (1337 modules)
+ ✓ Compiled in 389ms (1337 modules)
+ ✓ Compiled in 255ms (1337 modules)
+ ✓ Compiled in 306ms (1339 modules)
+ ✓ Compiled in 867ms (1339 modules)
+ ✓ Compiled in 542ms (1339 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Restoring pack from /Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/client-development.pack.gz failed: TypeError: Cannot read properties of undefined (reading 'hasStartTime')
+ ✓ Compiled in 2s (1339 modules)
+ ✓ Compiled in 479ms (1325 modules)
+ ✓ Compiled in 431ms (1339 modules)
+ ✓ Compiled in 231ms (1339 modules)
+ ✓ Compiled in 283ms (1339 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Restoring pack from /Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/client-development.pack.gz failed: TypeError: Cannot read properties of undefined (reading 'hasStartTime')
+ ✓ Compiled in 504ms (1339 modules)
+ ✓ Compiled in 245ms (1339 modules)

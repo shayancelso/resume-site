@@ -70,11 +70,11 @@ export default function HomePage() {
         className="min-h-screen"
       >
       {/* Hero Section */}
-      <section className="py-20 px-6 gradient-luxury">
+      <section className="py-12 md:py-20 px-4 md:px-6 gradient-luxury">
         <div className="container mx-auto max-w-7xl">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Hero Content */}
-            <motion.div variants={itemVariants} className="space-y-8">
+            <motion.div variants={itemVariants} className="space-y-6 md:space-y-8 text-center lg:text-left">
               <div className="space-y-4">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
@@ -82,11 +82,11 @@ export default function HomePage() {
                   transition={{ duration: 0.5 }}
                 >
                   <Badge variant="outline" className="mb-4">
-                    Relocating to Dubai 2025
+                    Account Manager & AI Enthusiast
                   </Badge>
                 </motion.div>
                 
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold leading-tight">
+                <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-heading font-bold leading-tight">
                   <motion.span
                     className="block text-balance"
                     initial={{ opacity: 0, x: -50 }}
@@ -119,14 +119,14 @@ export default function HomePage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.8 }}
                 >
-                  Account Manager moving from Toronto to Dubai, focused on measurable ROI 
-                  and executive alignment. Delivered 280% FY25 performance with AI-driven 
-                  process improvements.
+                  Account Manager focused on measurable ROI and executive alignment. 
+                  Delivered 280% FY25 performance with AI-driven process improvements 
+                  and strategic client expansion.
                 </motion.p>
               </div>
               
               <motion.div
-                className="flex flex-col sm:flex-row gap-4"
+                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1 }}
@@ -155,11 +155,11 @@ export default function HomePage() {
       </section>
 
       {/* Quick Stats */}
-      <section className="py-16 px-6 gradient-executive">
+      <section className="py-12 md:py-16 px-4 md:px-6 gradient-executive">
         <div className="container mx-auto max-w-7xl">
           <motion.div
             variants={itemVariants}
-            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8"
           >
             <CardTilt>
               <Card className="text-center p-8 !bg-transparent border-gold/20 border-2 shadow-lg">
@@ -259,35 +259,35 @@ export default function HomePage() {
       )}
 
       {/* Skills Preview */}
-      <section className="py-20 px-6 gradient-executive">
+      <section className="py-12 md:py-20 px-4 md:px-6 gradient-executive">
         <div className="container mx-auto max-w-7xl">
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+          <motion.div variants={itemVariants} className="text-center mb-12 md:mb-16">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold mb-4">
               Core Expertise
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
               Proven skills in account management, strategic sales, and AI-powered workflows
             </p>
           </motion.div>
 
           <motion.div
             variants={itemVariants}
-            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 mb-12"
+            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 mb-8 md:mb-12"
           >
             {skills.map((skill) => {
               const IconComponent = getSkillIcon(skill.name);
               return (
                 <motion.div
                   key={skill.id}
-                  className="text-center p-4 rounded-xl bg-transparent border-gold/20 border hover:bg-gold/5 hover:border-gold/40 transition-all duration-300"
+                  className="text-center p-3 md:p-4 rounded-xl bg-transparent border-gold/20 border hover:bg-gold/5 hover:border-gold/40 transition-all duration-300"
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <div className="w-16 h-16 bg-gold/20 rounded-xl flex items-center justify-center mx-auto mb-3">
-                    <IconComponent className="w-8 h-8 text-gold" />
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-gold/20 rounded-xl flex items-center justify-center mx-auto mb-2 md:mb-3">
+                    <IconComponent className="w-6 h-6 md:w-8 md:h-8 text-gold" />
                   </div>
-                  <h4 className="font-semibold text-sm mb-1 text-white">{skill.name}</h4>
-                  <p className="text-xs text-white/70">{skill.description}</p>
+                  <h4 className="font-semibold text-xs md:text-sm mb-1 text-white leading-tight">{skill.name}</h4>
+                  <p className="text-xs text-white/70 leading-tight">{skill.description}</p>
                 </motion.div>
               );
             })}
@@ -305,19 +305,19 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-6 gradient-premium">
+      <section className="py-12 md:py-20 px-4 md:px-6 gradient-premium">
         <div className="container mx-auto max-w-4xl">
           <motion.div
             variants={itemVariants}
-            className="text-center space-y-8"
+            className="text-center space-y-6 md:space-y-8"
           >
             <div>
-              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold mb-4">
                 Ready to Connect?
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
                 Whether you're looking for an experienced account manager or want to discuss 
-                opportunities in Dubai, I'd love to hear from you.
+                new opportunities, I'd love to hear from you.
               </p>
             </div>
             

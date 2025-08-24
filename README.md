@@ -1,6 +1,6 @@
 # Shayan Mirzazadeh - Interactive Resume Website
 
-A premium, interactive resume website built with Next.js 14, showcasing the journey from Toronto to Dubai with beautiful animations, AI-powered demos, and clean design.
+A premium, interactive resume website built with Next.js 14, showcasing professional achievements with beautiful animations, AI-powered demos, and clean design.
 
 ## 🚀 Features
 
@@ -8,7 +8,7 @@ A premium, interactive resume website built with Next.js 14, showcasing the jour
 - **Premium Animations**: Framer Motion with tasteful micro-interactions
 - **AI Demonstrations**: Interactive showcases of AI-enhanced workflows
 - **Responsive Design**: Perfect on all devices with glass morphism effects
-- **Toronto → Dubai Story**: Animated map visualization of relocation journey
+- **Achievement Showcase**: Animated achievement cards with performance metrics
 - **Dark/Light Mode**: System-aware theme with smooth transitions
 - **Contact Form**: Integrated with Resend for email delivery
 - **Performance Optimized**: Lighthouse 95+ scores

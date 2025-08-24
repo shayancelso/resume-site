@@ -18,7 +18,7 @@ export function PasswordGate({ children }: PasswordGateProps) {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(true);
 
-  const correctPassword = 'dubai';
+  const correctPassword = 'access2024';
 
   useEffect(() => {
     // Check if user is already authenticated (stored in sessionStorage)

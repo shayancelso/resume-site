@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { CardTilt } from '@/components/CardTilt';
 import { getProfile, getYearsOfExperience } from '@/lib/data';
-import { MapPin, Calendar, GraduationCap, Briefcase, ArrowRight, Globe } from 'lucide-react';
+import { MapPin, Calendar, GraduationCap, Briefcase, ArrowRight, Globe, Brain } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -52,8 +52,8 @@ export default function AboutPage() {
           </h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             A strategic account manager with {yearsOfExperience} years of experience, 
-            currently making the exciting transition from Toronto's vibrant tech scene to 
-            Dubai's dynamic business landscape.
+            specializing in AI-enhanced sales processes and delivering exceptional results 
+            in Toronto's vibrant tech ecosystem.
           </p>
         </motion.div>
 
@@ -176,32 +176,33 @@ export default function AboutPage() {
               </CardContent>
             </Card>
 
-            {/* Dubai Transition */}
+            {/* AI Innovation */}
             <Card className="p-8 border-gold/30 gradient-premium">
               <CardContent className="p-0">
                 <h3 className="text-2xl font-heading font-bold mb-4 flex items-center gap-2">
-                  <MapPin className="w-6 h-6 text-gold" />
-                  Why Dubai?
+                  <Brain className="w-6 h-6 text-gold" />
+                  AI & Innovation
                 </h3>
                 <div className="space-y-4 text-muted-foreground leading-relaxed">
                   <p>
-                    Dubai represents the perfect convergence of my professional aspirations and personal growth. 
-                    As the Middle East's business hub, it offers unparalleled opportunities to work with 
-                    international enterprises while being at the forefront of technological innovation.
+                    I'm passionate about leveraging artificial intelligence to revolutionize sales processes 
+                    and deliver superior client outcomes. By integrating AI tools into traditional account 
+                    management practices, I've achieved exceptional performance metrics while enhancing 
+                    the customer experience.
                   </p>
                   
                   <p>
-                    The city's vision for AI integration and digital transformation aligns perfectly with my 
-                    expertise in leveraging technology for business growth. I'm excited to bring my 
-                    North American sales experience to this dynamic market while learning from its 
-                    unique business culture.
+                    My approach combines data-driven insights with personalized relationship building, 
+                    using AI to identify opportunities, predict client needs, and optimize engagement 
+                    strategies. This methodology has consistently delivered results that exceed 
+                    traditional quota expectations.
                   </p>
                   
                   <div className="flex flex-wrap gap-2 pt-4">
-                    <Badge variant="outline">Global Business Hub</Badge>
-                    <Badge variant="outline">Tech Innovation</Badge>
-                    <Badge variant="outline">Cultural Diversity</Badge>
-                    <Badge variant="outline">Strategic Location</Badge>
+                    <Badge variant="outline">Machine Learning</Badge>
+                    <Badge variant="outline">Process Automation</Badge>
+                    <Badge variant="outline">Data Analytics</Badge>
+                    <Badge variant="outline">Predictive Insights</Badge>
                   </div>
                 </div>
               </CardContent>
@@ -246,8 +247,8 @@ export default function AboutPage() {
                     can enhance human capabilities rather than replace them.
                   </p>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    I'm also an avid traveler and cultural enthusiast, which has prepared me well for the 
-                    international move to Dubai. I believe that diverse experiences make for better business insights.
+                    I'm also an avid traveler and cultural enthusiast, always seeking new perspectives 
+                    that inform better business strategies. I believe diverse experiences create more innovative solutions.
                   </p>
                 </div>
               </CardContent>
@@ -263,8 +264,8 @@ export default function AboutPage() {
                 Let's Connect
               </h2>
               <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Whether you're interested in discussing opportunities, sharing insights about the Dubai market, 
-                or exploring how AI can transform sales processes, I'd love to have a conversation.
+                Whether you're interested in discussing opportunities, exploring how AI can transform sales processes, 
+                or sharing insights about innovative account management strategies, I'd love to have a conversation.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
