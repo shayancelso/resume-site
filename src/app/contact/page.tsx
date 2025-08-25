@@ -104,15 +104,15 @@ export default function ContactPage() {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="min-h-screen bg-luxury"
+      className="min-h-screen bg-white"
     >
       <div className="container">
         {/* Header */}
         <motion.div variants={itemVariants} className="text-center section-padding">
           <h1 className="mb-6">
-            Let's <span className="text-gradient">Connect</span>
+            Let's <span className="text-chocolate">Connect</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted max-w-3xl mx-auto">
             Ready to discuss AI-enhanced account management strategies, collaboration opportunities, 
             or just want to say hello? I'd love to hear from you.
           </p>
@@ -121,7 +121,7 @@ export default function ContactPage() {
         <div className="grid lg:grid-cols-2 gap-12 pb-20">
           {/* Contact Form */}
           <motion.div variants={itemVariants}>
-            <div className="card-premium">
+            <div className="card-clean">
               <h2 className="text-2xl font-heading font-bold mb-6">Send a Message</h2>
               
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -176,7 +176,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-center justify-between">
-                  <div className="text-sm text-muted-foreground">
+                  <div className="text-sm text-muted">
                     I typically respond within 24 hours
                   </div>
                   
@@ -227,17 +227,17 @@ export default function ContactPage() {
           {/* Contact Information */}
           <motion.div variants={itemVariants} className="space-y-6">
             {/* Direct Contact */}
-            <div className="card-premium">
+            <div className="card-clean">
               <h3 className="text-xl font-heading font-bold mb-4">Direct Contact</h3>
               <div className="space-y-4">
                 <div className="flex items-center justify-between group">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
-                      <Mail className="w-5 h-5 text-primary" />
+                    <div className="w-10 h-10 bg-neutral-100 rounded-lg flex items-center justify-center">
+                      <Mail className="w-5 h-5 text-chocolate" />
                     </div>
                     <div>
                       <div className="font-medium">Email</div>
-                      <div className="text-sm text-muted-foreground">{profile.email}</div>
+                      <div className="text-sm text-muted">{profile.email}</div>
                     </div>
                   </div>
                   <Button
@@ -256,12 +256,12 @@ export default function ContactPage() {
 
                 <div className="flex items-center justify-between group">
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
-                      <Phone className="w-5 h-5 text-primary" />
+                    <div className="w-10 h-10 bg-neutral-100 rounded-lg flex items-center justify-center">
+                      <Phone className="w-5 h-5 text-chocolate" />
                     </div>
                     <div>
                       <div className="font-medium">Phone</div>
-                      <div className="text-sm text-muted-foreground">{profile.phone}</div>
+                      <div className="text-sm text-muted">{profile.phone}</div>
                     </div>
                   </div>
                   <Button
@@ -279,19 +279,19 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
-                    <MapPin className="w-5 h-5 text-primary" />
+                  <div className="w-10 h-10 bg-neutral-100 rounded-lg flex items-center justify-center">
+                    <MapPin className="w-5 h-5 text-chocolate" />
                   </div>
                   <div>
                     <div className="font-medium">Location</div>
-                    <div className="text-sm text-muted-foreground">{profile.location}</div>
+                    <div className="text-sm text-muted">{profile.location}</div>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Social Links */}
-            <div className="card-premium">
+            <div className="card-clean">
               <h3 className="text-xl font-heading font-bold mb-4">Professional Links</h3>
               <div className="space-y-3">
                 <a
@@ -300,45 +300,45 @@ export default function ContactPage() {
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted/50 transition-colors group"
                 >
-                  <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
-                    <Linkedin className="w-5 h-5 text-primary" />
+                  <div className="w-10 h-10 bg-neutral-100 rounded-lg flex items-center justify-center">
+                    <Linkedin className="w-5 h-5 text-chocolate" />
                   </div>
                   <div className="flex-1">
                     <div className="font-medium">LinkedIn</div>
-                    <div className="text-sm text-muted-foreground">Professional network</div>
+                    <div className="text-sm text-muted">Professional network</div>
                   </div>
-                  <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                  <ExternalLink className="w-4 h-4 text-muted group-hover:text-chocolate transition-colors" />
                 </a>
               </div>
             </div>
 
             {/* Availability */}
-            <div className="card-premium">
+            <div className="card-clean">
               <h3 className="text-xl font-heading font-bold mb-4">Availability</h3>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <Clock className="w-5 h-5 text-primary" />
+                  <Clock className="w-5 h-5 text-chocolate" />
                   <div>
                     <div className="font-medium">Response Time</div>
-                    <div className="text-sm text-muted-foreground">Usually within 24 hours</div>
+                    <div className="text-sm text-muted">Usually within 24 hours</div>
                   </div>
                 </div>
                 
                 <div className="flex items-center gap-3">
-                  <Globe className="w-5 h-5 text-primary" />
+                  <Globe className="w-5 h-5 text-chocolate" />
                   <div>
                     <div className="font-medium">Time Zone</div>
-                    <div className="text-sm text-muted-foreground">Eastern Time (ET)</div>
+                    <div className="text-sm text-muted">Eastern Time (ET)</div>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Download Resume */}
-            <div className="card-premium border-primary/30 bg-primary/5">
+            <div className="card-clean border-neutral-300 bg-neutral-50">
               <div className="text-center">
                 <h3 className="text-xl font-heading font-bold mb-2">Resume Download</h3>
-                <p className="text-sm text-muted-foreground mb-4">
+                <p className="text-sm text-muted mb-4">
                   Get a comprehensive overview of my experience and achievements
                 </p>
                 <Button

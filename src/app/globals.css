@@ -254,9 +254,29 @@
   .bg-orange-50,
   .bg-amber-50,
   .bg-yellow-50,
+  .bg-yellow-100,
+  .bg-yellow-200,
+  .bg-yellow-300,
+  .bg-yellow-400,
+  .bg-yellow-500,
+  .bg-amber-100,
+  .bg-amber-200,
+  .bg-amber-300,
+  .bg-amber-400,
+  .bg-amber-500,
   .bg-lime-50,
-  .bg-primary\/10 {
+  .bg-primary\/10,
+  .bg-luxury,
+  .bg-gradient-to-br {
     background-color: #f0f0f0 !important;
+  }
+
+  /* Override any yellow/gold gradients */
+  .bg-gradient-to-r,
+  .bg-gradient-to-l,
+  .bg-gradient-to-t,
+  .bg-gradient-to-b {
+    background: #ffffff !important;
   }
 }
 

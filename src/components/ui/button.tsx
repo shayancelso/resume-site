@@ -8,13 +8,13 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-gradient-to-r from-rich-gold to-warm-copper text-slate-900 hover:from-warm-copper hover:to-rich-gold shadow-xl hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 font-semibold',
+        default: 'bg-gradient-to-r from-chocolate to-chocolate-600 text-slate-900 hover:from-warm-copper hover:to-rich-gold shadow-xl hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 font-semibold',
         destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
-        outline: 'border-2 border-rich-gold bg-transparent text-rich-gold hover:bg-rich-gold hover:text-slate-900 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium',
+        outline: 'border-2 border-chocolate bg-transparent text-chocolate hover:bg-chocolate hover:text-slate-900 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium',
         secondary: 'bg-gradient-to-r from-sage-gray to-platinum text-slate-900 hover:from-platinum hover:to-sage-gray shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 font-medium',
-        ghost: 'hover:bg-champagne/20 hover:text-rich-gold transition-colors',
-        link: 'text-rich-gold underline-offset-4 hover:underline font-medium',
-        premium: 'bg-gradient-to-r from-rich-gold via-warm-copper to-rich-gold text-slate-900 shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 hover:scale-105 font-bold border border-warm-copper/20',
+        ghost: 'hover:bg-neutral-100/20 hover:text-chocolate transition-colors',
+        link: 'text-chocolate underline-offset-4 hover:underline font-medium',
+        premium: 'bg-gradient-to-r from-chocolate via-warm-copper to-rich-gold text-slate-900 shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 hover:scale-105 font-bold border border-warm-copper/20',
       },
       size: {
         default: 'h-11 px-8 py-2',

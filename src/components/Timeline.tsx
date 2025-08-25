@@ -17,7 +17,7 @@ export function Timeline({ experiences }: TimelineProps) {
   return (
     <div className="relative">
       {/* Vertical line */}
-      <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-gold via-gold/50 to-transparent" />
+      <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-chocolate via-gold/50 to-transparent" />
       
       <div className="space-y-8">
         {experiences.map((experience, index) => (
@@ -67,9 +67,9 @@ function TimelineItem({ experience, index, isLast }: TimelineItemProps) {
           stiffness: 200
         }}
       >
-        <div className="w-3 h-3 bg-gold rounded-full shadow-lg" />
+        <div className="w-3 h-3 bg-chocolate rounded-full shadow-lg" />
         <motion.div
-          className="absolute inset-0 bg-gold rounded-full"
+          className="absolute inset-0 bg-chocolate rounded-full"
           animate={{
             scale: [1, 1.5, 1],
             opacity: [0.7, 0.3, 0.7]
@@ -95,7 +95,7 @@ function TimelineItem({ experience, index, isLast }: TimelineItemProps) {
                 <CardTitle className="text-lg mb-1">
                   {experience.title}
                 </CardTitle>
-                <CardDescription className="text-base font-medium text-gold mb-2">
+                <CardDescription className="text-base font-medium text-chocolate mb-2">
                   {experience.company}
                 </CardDescription>
               </div>
@@ -144,7 +144,7 @@ function TimelineItem({ experience, index, isLast }: TimelineItemProps) {
                     delay: index * 0.2 + 0.5 + highlightIndex * 0.1
                   }}
                 >
-                  <div className="w-1.5 h-1.5 bg-gold rounded-full mt-2 flex-shrink-0" />
+                  <div className="w-1.5 h-1.5 bg-chocolate rounded-full mt-2 flex-shrink-0" />
                   <p className="text-sm">{highlight}</p>
                 </motion.div>
               ))}
@@ -165,7 +165,7 @@ function TimelineItem({ experience, index, isLast }: TimelineItemProps) {
                     <Badge
                       key={skill}
                       variant="outline"
-                      className="text-xs hover:bg-gold/10"
+                      className="text-xs hover:bg-chocolate/10"
                     >
                       {skill}
                     </Badge>

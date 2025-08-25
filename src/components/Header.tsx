@@ -77,7 +77,7 @@ export function Header() {
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-2">
               <motion.div
-                className="text-2xl font-heading font-bold text-gold"
+                className="text-2xl font-heading font-bold text-chocolate"
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.2 }}
               >
@@ -99,7 +99,7 @@ export function Header() {
                     className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-200 relative group"
                   >
                     {item.name}
-                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold transition-all duration-200 group-hover:w-full" />
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-chocolate transition-all duration-200 group-hover:w-full" />
                   </Link>
                 </motion.div>
               ))}
@@ -111,7 +111,7 @@ export function Header() {
                 variant="ghost"
                 size="icon"
                 onClick={handleEmailCopy}
-                className="hover:bg-gold/10"
+                className="hover:bg-chocolate/10"
               >
                 <Mail className="h-4 w-4" />
               </Button>
@@ -120,7 +120,7 @@ export function Header() {
                 variant="ghost"
                 size="icon"
                 onClick={handleResumeDownload}
-                className="hover:bg-gold/10"
+                className="hover:bg-chocolate/10"
               >
                 <Download className="h-4 w-4" />
               </Button>
@@ -129,7 +129,7 @@ export function Header() {
                 variant="ghost"
                 size="icon"
                 onClick={toggleTheme}
-                className="hover:bg-gold/10"
+                className="hover:bg-chocolate/10"
               >
                 {theme === 'light' ? (
                   <Moon className="h-4 w-4" />
