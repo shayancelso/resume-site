@@ -2,11 +2,10 @@
 
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { AnimatedMapArc } from '@/components/AnimatedMapArc';
 import { CardTilt } from '@/components/CardTilt';
-// Removed SkillRing component - using icon-based approach instead
 import { getProfile, getCurrentRole, getAwards, getSkills } from '@/lib/data';
 import Link from 'next/link';
 import { ArrowRight, Award, TrendingUp, Users, Zap, Target, MessageSquare, BarChart3, Monitor, Brain, Settings } from 'lucide-react';
@@ -59,286 +58,202 @@ export default function HomePage() {
   };
 
   return (
-    <main
-      id="main-content"
-      className="min-h-screen"
-    >
+    <main className="min-h-screen bg-luxury">
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
         className="min-h-screen"
       >
-      {/* Hero Section */}
-      <section className="py-12 md:py-20 px-4 md:px-6 gradient-luxury">
-        <div className="container mx-auto max-w-7xl">
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-            {/* Hero Content */}
-            <motion.div variants={itemVariants} className="space-y-6 md:space-y-8 text-center lg:text-left">
-              <div className="space-y-4">
+        {/* Hero Section */}
+        <section className="section-padding">
+          <div className="container">
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
+              {/* Hero Content */}
+              <motion.div variants={itemVariants} className="space-y-6 text-center lg:text-left">
+                <div className="space-y-4">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <div className="badge-outline mb-4 inline-block">
+                      Account Manager & AI Enthusiast
+                    </div>
+                  </motion.div>
+                  
+                  <h1 className="text-balance">
+                    <motion.span
+                      className="block"
+                      initial={{ opacity: 0, x: -50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.8, delay: 0.2 }}
+                    >
+                      Expansions,
+                    </motion.span>
+                    <motion.span
+                      className="block"
+                      initial={{ opacity: 0, x: -50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.8, delay: 0.4 }}
+                    >
+                      renewals, and
+                    </motion.span>
+                    <motion.span
+                      className="block text-gradient"
+                      initial={{ opacity: 0, x: -50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.8, delay: 0.6 }}
+                    >
+                      AI-boosted workflows
+                    </motion.span>
+                  </h1>
+                  
+                  <motion.p
+                    className="text-lg text-muted-foreground max-w-2xl text-balance"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.8 }}
+                  >
+                    Account Manager focused on measurable ROI and executive alignment. 
+                    Delivered 280% FY25 performance with AI-driven process improvements 
+                    and strategic client expansion.
+                  </motion.p>
+                </div>
+                
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <Badge variant="outline" className="mb-4">
-                    Account Manager & AI Enthusiast
-                  </Badge>
-                </motion.div>
-                
-                <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-heading font-bold leading-tight">
-                  <motion.span
-                    className="block text-balance"
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                  >
-                    Expansions,
-                  </motion.span>
-                  <motion.span
-                    className="block text-balance"
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                  >
-                    renewals, and
-                  </motion.span>
-                  <motion.span
-                    className="block text-gold text-balance"
-                    initial={{ opacity: 0, x: -50 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.6 }}
-                  >
-                    AI-boosted workflows
-                  </motion.span>
-                </h1>
-                
-                <motion.p
-                  className="text-xl text-muted-foreground max-w-2xl text-balance leading-relaxed"
+                  className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.8 }}
+                  transition={{ duration: 0.6, delay: 1 }}
                 >
-                  Account Manager focused on measurable ROI and executive alignment. 
-                  Delivered 280% FY25 performance with AI-driven process improvements 
-                  and strategic client expansion.
-                </motion.p>
-              </div>
-              
-              <motion.div
-                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1 }}
-              >
-                <Link href="/experience">
-                  <Button size="lg" className="group">
-                    View Experience
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </Link>
-                
-                <Link href="/contact">
-                  <Button size="lg" variant="outline">
-                    Get in Touch
-                  </Button>
-                </Link>
+                  <Link href="/experience">
+                    <div className="btn-primary group">
+                      View Experience
+                      <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                    </div>
+                  </Link>
+                  
+                  <Link href="/contact">
+                    <div className="btn-outline">
+                      Get in Touch
+                    </div>
+                  </Link>
+                </motion.div>
               </motion.div>
-            </motion.div>
 
-            {/* Animated Map */}
-            <motion.div variants={itemVariants}>
-              <AnimatedMapArc />
-            </motion.div>
+              {/* Animated Achievement Cards */}
+              <motion.div variants={itemVariants}>
+                <AnimatedMapArc />
+              </motion.div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Quick Stats */}
-      <section className="py-12 md:py-16 px-4 md:px-6 gradient-executive">
-        <div className="container mx-auto max-w-7xl">
-          <motion.div
-            variants={itemVariants}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8"
-          >
-            <CardTilt>
-              <Card className="text-center p-8 !bg-transparent border-gold/20 border-2 shadow-lg">
-                <CardContent className="p-0">
-                  <div className="mb-4">
-                    <TrendingUp className="w-12 h-12 mx-auto text-gold" />
-                  </div>
-                  <h3 className="text-3xl font-bold mb-2 !text-white">280%</h3>
-                  <p className="!text-white/80">FY25 Quota Achievement</p>
-                </CardContent>
-              </Card>
-            </CardTilt>
-
-            <CardTilt>
-              <Card className="text-center p-8 !bg-transparent border-gold/20 border-2 shadow-lg">
-                <CardContent className="p-0">
-                  <div className="mb-4">
-                    <Award className="w-12 h-12 mx-auto text-gold" />
-                  </div>
-                  <h3 className="text-3xl font-bold mb-2 !text-white">{awards.length}</h3>
-                  <p className="!text-white/80">Awards in 2024</p>
-                </CardContent>
-              </Card>
-            </CardTilt>
-
-            <CardTilt>
-              <Card className="text-center p-8 !bg-transparent border-gold/20 border-2 shadow-lg">
-                <CardContent className="p-0">
-                  <div className="mb-4">
-                    <Users className="w-12 h-12 mx-auto text-gold" />
-                  </div>
-                  <h3 className="text-3xl font-bold mb-2 !text-white">100%</h3>
-                  <p className="!text-white/80">Gross Revenue Retention</p>
-                </CardContent>
-              </Card>
-            </CardTilt>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Current Role Highlight */}
-      {currentRole && (
-        <section className="py-20 px-6 gradient-luxury">
-          <div className="container mx-auto max-w-4xl">
-            <motion.div variants={itemVariants} className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-                Current Focus
-              </h2>
-              <p className="text-xl text-muted-foreground">
-                Making an impact at {currentRole.company}
-              </p>
-            </motion.div>
-
-            <motion.div variants={itemVariants}>
+        {/* Quick Stats */}
+        <section className="section-padding bg-executive">
+          <div className="container">
+            <motion.div
+              variants={itemVariants}
+              className="grid grid-cols-1 md:grid-cols-3 gap-6"
+            >
               <CardTilt>
-                <Card className="p-8">
-                  <CardHeader className="text-center">
-                    <CardTitle className="text-2xl">{currentRole.title}</CardTitle>
-                    <CardDescription className="text-lg text-gold">
-                      {currentRole.company} • {currentRole.location}
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <p className="text-center text-muted-foreground mb-6">
-                      {currentRole.description}
-                    </p>
-                    
-                    <div className="grid gap-3">
-                      {currentRole.highlights.slice(0, 3).map((highlight, index) => (
-                        <motion.div
-                          key={index}
-                          className="flex items-start gap-3 p-3 rounded-xl bg-muted/50"
-                          initial={{ opacity: 0, x: -20 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.4, delay: 1.2 + index * 0.1 }}
-                        >
-                          <Zap className="w-5 h-5 text-gold mt-0.5 flex-shrink-0" />
-                          <p className="text-sm">{highlight}</p>
-                        </motion.div>
-                      ))}
-                    </div>
+                <div className="card-glass text-center text-white border-primary/20 border-2">
+                  <div className="mb-4">
+                    <TrendingUp className="w-12 h-12 mx-auto text-primary" />
+                  </div>
+                  <h3 className="text-3xl font-bold mb-2">280%</h3>
+                  <p className="text-white/80">FY25 Quota Achievement</p>
+                </div>
+              </CardTilt>
 
-                    <div className="pt-6 text-center">
-                      <Link href="/experience">
-                        <Button variant="outline">
-                          View Full Experience
-                          <ArrowRight className="ml-2 h-4 w-4" />
-                        </Button>
-                      </Link>
-                    </div>
-                  </CardContent>
-                </Card>
+              <CardTilt>
+                <div className="card-glass text-center text-white border-primary/20 border-2">
+                  <div className="mb-4">
+                    <Award className="w-12 h-12 mx-auto text-primary" />
+                  </div>
+                  <h3 className="text-3xl font-bold mb-2">{awards.length}</h3>
+                  <p className="text-white/80">Awards in 2024</p>
+                </div>
+              </CardTilt>
+
+              <CardTilt>
+                <div className="card-glass text-center text-white border-primary/20 border-2">
+                  <div className="mb-4">
+                    <Users className="w-12 h-12 mx-auto text-primary" />
+                  </div>
+                  <h3 className="text-3xl font-bold mb-2">100%</h3>
+                  <p className="text-white/80">Gross Revenue Retention</p>
+                </div>
               </CardTilt>
             </motion.div>
           </div>
         </section>
-      )}
 
-      {/* Skills Preview */}
-      <section className="py-12 md:py-20 px-4 md:px-6 gradient-executive">
-        <div className="container mx-auto max-w-7xl">
-          <motion.div variants={itemVariants} className="text-center mb-12 md:mb-16">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold mb-4">
-              Core Expertise
-            </h2>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-              Proven skills in account management, strategic sales, and AI-powered workflows
-            </p>
-          </motion.div>
+        {/* Core Competencies */}
+        <section className="section-padding bg-premium">
+          <div className="container">
+            <motion.div variants={itemVariants} className="text-center mb-12">
+              <div className="badge-skill mb-4 inline-block">Sales Excellence</div>
+              <h2 className="mb-4">Core competencies in account management, expansion, and relationship building</h2>
+            </motion.div>
 
-          <motion.div
-            variants={itemVariants}
-            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 mb-8 md:mb-12"
-          >
-            {skills.map((skill) => {
-              const IconComponent = getSkillIcon(skill.name);
-              return (
-                <motion.div
-                  key={skill.id}
-                  className="text-center p-3 md:p-4 rounded-xl bg-transparent border-gold/20 border hover:bg-gold/5 hover:border-gold/40 transition-all duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  <div className="w-12 h-12 md:w-16 md:h-16 bg-gold/20 rounded-xl flex items-center justify-center mx-auto mb-2 md:mb-3">
-                    <IconComponent className="w-6 h-6 md:w-8 md:h-8 text-gold" />
-                  </div>
-                  <h4 className="font-semibold text-xs md:text-sm mb-1 text-white leading-tight">{skill.name}</h4>
-                  <p className="text-xs text-white/70 leading-tight">{skill.description}</p>
-                </motion.div>
-              );
-            })}
-          </motion.div>
+            <motion.div
+              variants={itemVariants}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            >
+              {skills.map((skill, index) => {
+                const IconComponent = getSkillIcon(skill.name);
+                return (
+                  <CardTilt key={skill.id}>
+                    <motion.div
+                      className="card-premium text-center group hover:shadow-lg transition-all duration-300"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                    >
+                      <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
+                        <IconComponent className="w-8 h-8 text-primary" />
+                      </div>
+                      <h3 className="text-lg font-semibold mb-2">{skill.name}</h3>
+                      <p className="text-sm text-muted-foreground">{skill.description || 'Professional expertise and proven results'}</p>
+                    </motion.div>
+                  </CardTilt>
+                );
+              })}
+            </motion.div>
+          </div>
+        </section>
 
-          <motion.div variants={itemVariants} className="text-center">
-            <Link href="/skills">
-              <Button size="lg">
-                Explore All Skills
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-12 md:py-20 px-4 md:px-6 gradient-premium">
-        <div className="container mx-auto max-w-4xl">
-          <motion.div
-            variants={itemVariants}
-            className="text-center space-y-6 md:space-y-8"
-          >
-            <div>
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold mb-4">
-                Ready to Connect?
-              </h2>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-                Whether you're looking for an experienced account manager or want to discuss 
-                new opportunities, I'd love to hear from you.
-              </p>
-            </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact">
-                <Button size="lg">
-                  Start a Conversation
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
-              
-              <Link href="/about">
-                <Button size="lg" variant="outline">
-                  Learn More About Me
-                </Button>
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-    </motion.div>
-  </main>
+        {/* Call to Action */}
+        <section className="section-padding">
+          <div className="container">
+            <motion.div variants={itemVariants} className="text-center max-w-3xl mx-auto">
+              <div className="card-glass p-12">
+                <h2 className="mb-4">Ready to connect?</h2>
+                <p className="text-lg text-muted-foreground mb-8">
+                  Let's discuss how AI-enhanced account management can drive results for your organization.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Link href="/contact">
+                    <div className="btn-primary">
+                      Start a Conversation
+                      <ArrowRight className="w-4 h-4" />
+                    </div>
+                  </Link>
+                  
+                  <Link href="/experience">
+                    <div className="btn-outline">
+                      View My Track Record
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+      </motion.div>
+    </main>
   );
 }

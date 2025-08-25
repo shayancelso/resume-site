@@ -6,26 +6,34 @@
 
 @layer base {
   :root {
+    /* Unified Color System */
     --background: 255 255 255;
     --foreground: 15 23 42;
     --card: 255 255 255;
     --card-foreground: 15 23 42;
     --popover: 255 255 255;
     --popover-foreground: 15 23 42;
-    --primary: 184 139 44;
-    --primary-foreground: 255 255 255;
+    --primary: 212 175 55;
+    --primary-foreground: 15 23 42;
     --secondary: 248 250 252;
     --secondary-foreground: 15 23 42;
     --muted: 248 250 252;
-    --muted-foreground: 62 39 35;
-    --accent: 184 139 44;
-    --accent-foreground: 255 255 255;
+    --muted-foreground: 100 116 139;
+    --accent: 212 175 55;
+    --accent-foreground: 15 23 42;
     --destructive: 220 38 38;
     --destructive-foreground: 248 250 252;
     --border: 226 232 240;
     --input: 226 232 240;
-    --ring: 184 139 44;
+    --ring: 212 175 55;
     --radius: 0.75rem;
+    
+    /* Premium Brand Colors */
+    --gold: 212 175 55;
+    --navy: 15 23 42;
+    --slate: 51 65 85;
+    --pearl: 248 250 252;
+    --warm-gray: 100 116 139;
   }
 
   .dark {
@@ -40,7 +48,7 @@
     --secondary: 51 65 85;
     --secondary-foreground: 203 213 225;
     --muted: 51 65 85;
-    --muted-foreground: 62 39 35;
+    --muted-foreground: 148 163 184;
     --accent: 212 175 55;
     --accent-foreground: 15 23 42;
     --destructive: 220 38 38;
@@ -55,24 +63,146 @@
   * {
     @apply border-border;
   }
+  
   body {
     @apply bg-background text-foreground font-sans;
     font-feature-settings: "rlig" 1, "calt" 1;
     overflow-x: hidden;
+    line-height: 1.6;
   }
+  
   html {
     scroll-behavior: smooth;
   }
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+  
+  /* Unified Typography Scale */
+  h1 {
+    @apply font-heading text-4xl md:text-6xl font-bold leading-tight;
+  }
+  
+  h2 {
+    @apply font-heading text-3xl md:text-4xl font-bold leading-tight;
+  }
+  
+  h3 {
+    @apply font-heading text-2xl md:text-3xl font-bold leading-tight;
+  }
+  
+  h4 {
+    @apply font-heading text-xl md:text-2xl font-semibold leading-tight;
+  }
+  
+  h5 {
+    @apply font-heading text-lg md:text-xl font-semibold leading-tight;
+  }
+  
+  h6 {
+    @apply font-heading text-base md:text-lg font-semibold leading-tight;
+  }
+  
+  p {
+    @apply text-base leading-relaxed;
+  }
+  
+  /* Responsive Container */
+  .container {
+    @apply mx-auto px-4 sm:px-6 lg:px-8;
+    max-width: 1200px;
   }
 }
 
-@layer utilities {
+@layer components {
+  /* Unified Background System */
+  .bg-luxury {
+    background: linear-gradient(135deg, 
+      hsl(var(--background)) 0%, 
+      hsl(var(--secondary)) 50%, 
+      hsl(var(--muted)) 100%
+    );
+  }
+  
+  .bg-executive {
+    background: linear-gradient(135deg, 
+      hsl(var(--navy)) 0%, 
+      hsl(var(--slate)) 50%, 
+      hsl(var(--navy)) 100%
+    );
+    @apply text-white;
+  }
+  
+  .bg-premium {
+    background: linear-gradient(135deg, 
+      hsl(var(--gold) / 0.1) 0%, 
+      hsl(var(--background)) 50%, 
+      hsl(var(--secondary)) 100%
+    );
+  }
+  
+  /* Glass Morphism */
+  .glass {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(229, 231, 235, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dark .glass {
+    background: rgba(30, 41, 59, 0.85);
+    border: 1px solid rgba(51, 65, 85, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Card Variants */
+  .card-premium {
+    @apply bg-card border border-border/50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300;
+  }
+  
+  .card-glass {
+    @apply glass rounded-xl p-6 hover:shadow-xl transition-all duration-300;
+  }
+  
+  /* Button Variants */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 rounded-lg font-medium transition-all duration-200 inline-flex items-center justify-center gap-2;
+  }
+  
+  .btn-outline {
+    @apply border border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3 rounded-lg font-medium transition-all duration-200 inline-flex items-center justify-center gap-2;
+  }
+  
+  .btn-ghost {
+    @apply text-foreground hover:bg-secondary px-6 py-3 rounded-lg font-medium transition-all duration-200 inline-flex items-center justify-center gap-2;
+  }
+  
+  /* Badge Variants */
+  .badge-skill {
+    @apply bg-primary/10 text-primary border border-primary/20 px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  .badge-outline {
+    @apply bg-background border border-border text-foreground px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  /* Section Spacing */
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  /* Text Utilities */
   .text-balance {
     text-wrap: balance;
   }
   
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+@layer utilities {
+  /* Grain Texture */
   .grain {
     position: relative;
   }
@@ -84,228 +214,91 @@
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.06;
+    opacity: 0.03;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     animation: grain 8s steps(10) infinite;
     pointer-events: none;
   }
-
-  .glass {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(229, 231, 235, 0.3);
-    box-shadow: 0 8px 32px rgba(26, 26, 26, 0.1);
+  
+  /* Animation Classes */
+  .animate-in {
+    animation: fadeInUp 0.6s ease-out;
   }
-
-  .dark .glass {
-    background: rgba(30, 41, 59, 0.85);
-    border: 1px solid rgba(51, 65, 85, 0.3);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  
+  /* Responsive Utilities */
+  .mobile-only {
+    @apply block md:hidden;
   }
-
-  .gradient-luxury {
-    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
-    color: #0f172a;
-    min-height: 100vh;
-    position: relative;
+  
+  .desktop-only {
+    @apply hidden md:block;
   }
+}
 
-  .gradient-luxury h1, .gradient-luxury h2, .gradient-luxury h3, .gradient-luxury h4, .gradient-luxury h5, .gradient-luxury h6 {
-    color: #0f172a !important;
+/* Animation Keyframes */
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  20% { transform: translate(-15%, 5%); }
+  30% { transform: translate(7%, -25%); }
+  40% { transform: translate(-5%, 25%); }
+  50% { transform: translate(-15%, 10%); }
+  60% { transform: translate(15%, 0%); }
+  70% { transform: translate(0%, 15%); }
+  80% { transform: translate(3%, 35%); }
+  90% { transform: translate(-10%, 10%); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
   }
-
-  .gradient-luxury p, .gradient-luxury span {
-    color: #334155 !important;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
+}
 
-  .gradient-luxury .text-muted-foreground {
-    color: #64748b !important;
+/* Responsive Design - Mobile First */
+@media (max-width: 640px) {
+  .container {
+    @apply px-4;
   }
-
-  .gradient-luxury .text-gold {
-    color: #b88b2c !important;
+  
+  .section-padding {
+    @apply py-12;
   }
+}
 
-  /* Ensure consistent mobile colors */
-  @media (max-width: 768px) {
-    .gradient-luxury {
-      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%) !important;
-      color: #0f172a !important;
-    }
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
-
-  .gradient-executive {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-    color: #f8fafc;
-    min-height: 100vh;
-    position: relative;
+  
+  .grain::before {
+    animation: none;
   }
+}
 
-  .gradient-executive h1, .gradient-executive h2, .gradient-executive h3, .gradient-executive h4, .gradient-executive h5, .gradient-executive h6 {
-    color: #f8fafc !important;
+/* Touch Devices */
+@media (hover: none) and (pointer: coarse) {
+  .btn-primary,
+  .btn-outline,
+  .btn-ghost {
+    @apply min-h-[44px] min-w-[44px];
   }
+}
 
-  .gradient-executive p, .gradient-executive span {
-    color: #e2e8f0 !important;
-  }
-
-  .gradient-executive .text-muted-foreground {
-    color: #cbd5e1 !important;
-  }
-
-  .gradient-executive .text-gold {
-    color: #fbbf24 !important;
-  }
-
-  .gradient-executive .bg-background\/50 {
-    background-color: rgba(248, 250, 252, 0.95) !important;
-    color: #0f172a !important;
-  }
-
-  .gradient-executive .bg-background\/50 * {
-    color: #0f172a !important;
-  }
-
-  /* Ensure consistent mobile colors */
-  @media (max-width: 768px) {
-    .gradient-executive {
-      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%) !important;
-      color: #f8fafc !important;
-    }
-  }
-
-  .gradient-premium {
-    background: linear-gradient(135deg, #3e2723 0%, #5d4037 25%, #6d4c41 50%, #5d4037 75%, #3e2723 100%);
-    color: #ffffff;
-    min-height: 100vh;
-    position: relative;
-  }
-
-  .gradient-premium h1, .gradient-premium h2, .gradient-premium h3, .gradient-premium h4, .gradient-premium h5, .gradient-premium h6 {
-    color: #ffffff !important;
-  }
-
-  .gradient-premium p, .gradient-premium span {
-    color: #f8fafc !important;
-  }
-
-  .gradient-premium .text-muted-foreground {
-    color: #e2e8f0 !important;
-  }
-
-  .gradient-premium .text-gold {
-    color: #fbbf24 !important;
-  }
-
-  /* Ensure consistent mobile colors */
-  @media (max-width: 768px) {
-    .gradient-premium {
-      background: linear-gradient(135deg, #3e2723 0%, #5d4037 25%, #6d4c41 50%, #5d4037 75%, #3e2723 100%) !important;
-      color: #ffffff !important;
-    }
-  }
-
-  /* Fix card backgrounds within gradients */
-  .gradient-luxury .bg-card\/80,
-  .gradient-executive .bg-card\/80,
-  .gradient-premium .bg-card\/80 {
-    background-color: rgba(255, 255, 255, 0.95) !important;
-    color: #0f172a !important;
-  }
-
-  .gradient-luxury .bg-card\/80 *,
-  .gradient-executive .bg-card\/80 *,
-  .gradient-premium .bg-card\/80 * {
-    color: #0f172a !important;
-  }
-
-  /* Mobile-specific improvements */
-  @media (max-width: 768px) {
-    /* Improved spacing for mobile */
-    .container {
-      padding-left: 1rem !important;
-      padding-right: 1rem !important;
-    }
-
-    /* Better text sizing on mobile */
-    h1 {
-      font-size: 2.5rem !important;
-      line-height: 1.2 !important;
-    }
-
-    h2 {
-      font-size: 2rem !important;
-      line-height: 1.3 !important;
-    }
-
-    h3 {
-      font-size: 1.5rem !important;
-      line-height: 1.4 !important;
-    }
-
-    /* Improved section padding for mobile */
-    section {
-      padding-top: 3rem !important;
-      padding-bottom: 3rem !important;
-    }
-
-    /* Card improvements for mobile */
-    .grid {
-      gap: 1rem !important;
-    }
-
-    /* Better button sizing for touch */
-    button, .button {
-      min-height: 44px !important;
-      padding: 0.75rem 1rem !important;
-    }
-
-    /* Improve text readability */
-    p {
-      font-size: 1rem !important;
-      line-height: 1.6 !important;
-    }
-
-    /* Fix sticky contact button on mobile */
-    .fixed.bottom-6.right-6 {
-      bottom: 1rem !important;
-      right: 1rem !important;
-    }
-
-    /* Ensure gradients maintain consistency */
-    body {
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-  }
-
-  /* Small mobile devices */
-  @media (max-width: 480px) {
-    .container {
-      padding-left: 0.75rem !important;
-      padding-right: 0.75rem !important;
-    }
-
-    h1 {
-      font-size: 2rem !important;
-    }
-
-    section {
-      padding-top: 2rem !important;
-      padding-bottom: 2rem !important;
-    }
-
-    /* Single column grids on small screens */
-    .grid {
-      grid-template-columns: 1fr !important;
-    }
-  }
-
-  /* Improve touch targets */
-  @media (hover: none) and (pointer: coarse) {
-    button, a, .cursor-pointer {
-      min-height: 44px !important;
-      min-width: 44px !important;
-    }
+/* High DPI Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }

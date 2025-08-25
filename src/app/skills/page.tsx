@@ -1,8 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { getSkills, getSkillsByCategory } from '@/lib/data';
 import { 
@@ -49,125 +48,96 @@ export default function SkillsPage() {
     'Account Management': Target,
     'Business Development': TrendingUp,
     'Strategic Business Reviews': BarChart3,
-    'Consultative Selling': MessageSquare,
-    'Relationship Building': UserCheck,
-    'Stakeholder Management': Users,
-    'Negotiation': Award,
-    'Salesforce': Database,
-    'HubSpot': Globe,
-    'Outreach': Mail,
-    'Gong': Phone,
-    'Calendly': Calendar,
-    'Notion': FileText,
-    'Revenue Growth': DollarSign,
-    'Team Leadership': Star,
-    'Project Management': Briefcase,
-    'Problem Solving': Lightbulb,
+    'Client Relationship Management': MessageSquare,
+    'Go-to-Market Strategy': Zap,
+    'Sales Enablement': Users,
+    'CRM Platforms': Monitor,
+    'AI Integration': Brain,
+    'Process Optimization': Settings,
+    'Consultative Selling': Award,
+    'Revenue Operations': DollarSign,
+    'Customer Success': UserCheck,
     'Data Analysis': PieChart,
+    'Project Management': Briefcase,
+    'Strategic Planning': Lightbulb,
     'Market Research': Search,
-    'Client Retention': Shield,
-    'Process Optimization': Workflow,
-    'AI Tools': Brain,
-    'Sales Automation': Settings
+    'Risk Management': Shield,
+    'Workflow Automation': Workflow,
+    'Communication': MessageSquare,
+    'Presentation Skills': Monitor,
+    'Negotiation': Award,
+    'Leadership': Users,
+    'Problem Solving': Settings,
+    'Analytics': BarChart3
   };
 
-  const skillCategories = [
-    {
-      title: 'Sales Excellence',
-      icon: Target,
-      description: 'Core competencies in account management, expansion, and relationship building',
-      skills: salesSkills
-    },
-    {
-      title: 'Go-to-Market',
-      icon: TrendingUp,
-      description: 'Strategic approaches to consultative selling and stakeholder management',
-      skills: gtmSkills
-    },
-    {
-      title: 'Platforms & Tools',
-      icon: Monitor,
-      description: 'Proficiency with industry-leading sales and customer success platforms',
-      skills: platformSkills
-    },
-    {
-      title: 'AI & Innovation',
-      icon: Brain,
-      description: 'Leveraging artificial intelligence and automation for enhanced workflows',
-      skills: aiSkills
-    }
+  const getSkillIcon = (skillName: string) => {
+    return skillIcons[skillName as keyof typeof skillIcons] || Target;
+  };
+
+  const categories = [
+    { name: 'Sales & Account Management', skills: salesSkills, color: 'bg-primary/10 border-primary/20' },
+    { name: 'Go-to-Market Strategy', skills: gtmSkills, color: 'bg-blue-50 border-blue-200' },
+    { name: 'Platforms & Tools', skills: platformSkills, color: 'bg-green-50 border-green-200' },
+    { name: 'AI & Automation', skills: aiSkills, color: 'bg-purple-50 border-purple-200' },
   ];
 
   return (
-    <main className="min-h-screen py-20 px-6">
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="min-h-screen"
-      >
-      <div className="container mx-auto max-w-7xl">
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="min-h-screen bg-luxury"
+    >
+      <div className="container">
         {/* Header */}
-        <motion.div variants={itemVariants} className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6">
-            Skills & <span className="text-gold">Expertise</span>
+        <motion.div variants={itemVariants} className="text-center section-padding">
+          <h1 className="mb-6">
+            Professional <span className="text-gradient">Skills</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            A comprehensive toolkit built through years of experience in account management, 
-            strategic consulting, and innovative problem-solving across diverse industries.
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            A comprehensive overview of my technical expertise, sales methodologies, 
+            and AI-enhanced workflow capabilities developed through years of hands-on experience.
           </p>
         </motion.div>
 
-        {/* Skills by Category */}
-        <div className="space-y-16">
-          {skillCategories.map((category, categoryIndex) => (
-            <motion.div
-              key={category.title}
-              variants={itemVariants}
-              className="space-y-8"
-            >
-              {/* Category Header */}
-              <div className="text-center">
-                <div className={`inline-flex items-center gap-3 px-6 py-3 rounded-2xl gradient-premium mb-4`}>
-                  <category.icon className="w-6 h-6 text-gold" />
-                  <h2 className="text-2xl font-heading font-bold">{category.title}</h2>
-                </div>
-                <p className="text-muted-foreground max-w-2xl mx-auto">
-                  {category.description}
-                </p>
+        {/* Skills Categories */}
+        <div className="space-y-16 pb-20">
+          {categories.map((category, categoryIndex) => (
+            <motion.div key={category.name} variants={itemVariants}>
+              <div className="text-center mb-8">
+                <div className="badge-skill mb-4 inline-block">{category.name}</div>
+                <h2 className="mb-4">{category.skills.length} Core Competencies</h2>
               </div>
 
-              {/* Skills Grid */}
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-                {category.skills.map((skill, skillIndex) => {
-                  const SkillIcon = skillIcons[skill.name as keyof typeof skillIcons] || Monitor;
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {category.skills.map((skill, index) => {
+                  const IconComponent = getSkillIcon(skill.name);
                   return (
                     <motion.div
                       key={skill.id}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{
-                        duration: 0.5,
-                        delay: categoryIndex * 0.2 + skillIndex * 0.1,
-                        type: "spring",
-                        stiffness: 200
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ 
+                        duration: 0.5, 
+                        delay: categoryIndex * 0.2 + index * 0.1 
                       }}
+                      className="group"
                     >
-                      <Card className="p-4 h-full bg-card/80 hover:bg-card transition-colors text-center group cursor-pointer">
-                        <div className="flex flex-col items-center gap-3">
-                          <div className="w-12 h-12 bg-rich-gold/10 rounded-xl flex items-center justify-center group-hover:bg-rich-gold/20 transition-colors">
-                            <SkillIcon className="w-6 h-6 text-rich-gold" />
+                      <div className={`card-premium hover:shadow-lg transition-all duration-300 ${category.color}`}>
+                        <div className="flex items-start gap-4">
+                          <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:bg-primary/30 transition-colors">
+                            <IconComponent className="w-6 h-6 text-primary" />
                           </div>
-                          <div>
-                            <h4 className="font-semibold text-sm text-foreground mb-1">{skill.name}</h4>
-                            {skill.description && (
-                              <p className="text-xs text-muted-foreground line-clamp-2">
-                                {skill.description}
-                              </p>
-                            )}
+                          
+                          <div className="flex-1">
+                            <h3 className="font-semibold mb-2">{skill.name}</h3>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              {skill.description || 'Professional expertise with proven track record of success'}
+                            </p>
                           </div>
                         </div>
-                      </Card>
+                      </div>
                     </motion.div>
                   );
                 })}
@@ -176,133 +146,63 @@ export default function SkillsPage() {
           ))}
         </div>
 
-        {/* AI Showcase Highlight */}
-        <motion.div variants={itemVariants} className="mt-20 mb-20">
-          <Card className="p-8 gradient-executive border-gold/30">
-            <CardContent className="p-0">
-              <div className="text-center mb-8">
-                <div className="inline-flex items-center gap-3 mb-4">
-                  <Brain className="w-8 h-8 text-gold" />
-                  <h2 className="text-3xl font-heading font-bold">AI-Enhanced Workflows</h2>
-                </div>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                  See how I leverage artificial intelligence to transform sales processes and 
-                  deliver exceptional results through interactive demonstrations.
-                </p>
-              </div>
-
-              <div className="grid md:grid-cols-2 gap-6 mb-8">
-                <div className="text-center p-6 rounded-xl bg-background/50">
-                  <h4 className="font-semibold mb-2">Email Summarizer</h4>
-                  <p className="text-sm text-muted-foreground mb-3">
-                    AI-powered tool for extracting key insights from client communications
-                  </p>
-                  <Badge variant="skill">TLDR Generation</Badge>
-                </div>
-                
-                <div className="text-center p-6 rounded-xl bg-background/50">
-                  <h4 className="font-semibold mb-2">Discovery Assistant</h4>
-                  <p className="text-sm text-muted-foreground mb-3">
-                    Smart question generator for deeper client needs analysis
-                  </p>
-                  <Badge variant="skill">Industry-Specific</Badge>
-                </div>
-              </div>
-
-              <div className="text-center">
-                <Link href="/demos">
-                  <Button size="lg">
-                    Try Interactive Demos
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
-
-        {/* Skill Development Philosophy */}
+        {/* Skills Summary */}
         <motion.div variants={itemVariants} className="mb-20">
-          <Card className="p-8">
-            <CardHeader className="text-center">
-              <CardTitle className="text-2xl font-heading">
-                Continuous Learning Philosophy
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="grid md:grid-cols-3 gap-6 text-center">
-                <div className="p-4">
-                  <div className="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center mx-auto mb-3">
-                    <span className="text-xl font-bold text-gold">1</span>
-                  </div>
-                  <h4 className="font-semibold mb-2">Stay Current</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Regularly update skills with latest industry trends, tools, and methodologies
-                  </p>
-                </div>
-                
-                <div className="p-4">
-                  <div className="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center mx-auto mb-3">
-                    <span className="text-xl font-bold text-gold">2</span>
-                  </div>
-                  <h4 className="font-semibold mb-2">Practice Daily</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Apply new concepts immediately in real-world scenarios for deeper understanding
-                  </p>
-                </div>
-                
-                <div className="p-4">
-                  <div className="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center mx-auto mb-3">
-                    <span className="text-xl font-bold text-gold">3</span>
-                  </div>
-                  <h4 className="font-semibold mb-2">Share Knowledge</h4>
-                  <p className="text-sm text-muted-foreground">
-                    Mentor others and contribute to team learning for collective growth
-                  </p>
-                </div>
+          <div className="card-glass p-12 text-center">
+            <h2 className="mb-4">Skills in Action</h2>
+            <p className="text-lg text-muted-foreground mb-8 max-w-3xl mx-auto">
+              These skills combine to create a unique approach to account management that consistently 
+              delivers results beyond traditional expectations. From AI-powered insights to executive 
+              relationship building, every capability serves the goal of exceptional client outcomes.
+            </p>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+              <div className="text-center">
+                <div className="text-2xl font-bold mb-1">15+</div>
+                <div className="text-sm text-muted-foreground">Years Experience</div>
               </div>
-              
-              <div className="pt-6 border-t border-border text-center">
-                <p className="text-muted-foreground italic">
-                  "The intersection of human insight and artificial intelligence creates 
-                  the most powerful solutions for complex business challenges."
-                </p>
+              <div className="text-center">
+                <div className="text-2xl font-bold mb-1">280%</div>
+                <div className="text-sm text-muted-foreground">Quota Achievement</div>
               </div>
-            </CardContent>
-          </Card>
+              <div className="text-center">
+                <div className="text-2xl font-bold mb-1">100%</div>
+                <div className="text-sm text-muted-foreground">Client Retention</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold mb-1">5+</div>
+                <div className="text-sm text-muted-foreground">AI Tools Mastered</div>
+              </div>
+            </div>
+          </div>
         </motion.div>
 
         {/* CTA Section */}
-        <motion.div variants={itemVariants} className="text-center">
-          <Card className="p-12 gradient-luxury">
-            <CardContent className="p-0">
-              <h2 className="text-3xl font-heading font-bold mb-4">
-                Let's Collaborate
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Interested in discussing how these skills can drive results for your organization? 
-                Or curious about my approach to AI-enhanced sales processes? Let's connect.
-              </p>
+        <motion.div variants={itemVariants} className="text-center pb-20">
+          <div className="card-premium max-w-4xl mx-auto">
+            <h2 className="mb-4">Ready to See These Skills in Action?</h2>
+            <p className="text-lg text-muted-foreground mb-8">
+              Let's discuss how these capabilities can drive results for your organization. 
+              From strategic account planning to AI-powered process optimization.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/contact">
+                <div className="btn-primary">
+                  Start a Conversation
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+              </Link>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/contact">
-                  <Button size="lg">
-                    Discuss Opportunities
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-                
-                <Link href="/experience">
-                  <Button size="lg" variant="outline">
-                    View Experience
-                  </Button>
-                </Link>
-              </div>
-            </CardContent>
-          </Card>
+              <Link href="/experience">
+                <div className="btn-outline">
+                  View My Track Record
+                </div>
+              </Link>
+            </div>
+          </div>
         </motion.div>
       </div>
-      </motion.div>
-    </main>
+    </motion.div>
   );
 }

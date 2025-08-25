@@ -2,8 +2,6 @@
 
 import { motion } from 'framer-motion';
 import { Card, CardContent } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 import { CardTilt } from '@/components/CardTilt';
 import { getProfile, getYearsOfExperience } from '@/lib/data';
 import { MapPin, Calendar, GraduationCap, Briefcase, ArrowRight, Globe, Brain } from 'lucide-react';
@@ -42,15 +40,15 @@ export default function AboutPage() {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="min-h-screen py-20 px-6"
+      className="min-h-screen bg-luxury"
     >
-      <div className="container mx-auto max-w-7xl">
+      <div className="container">
         {/* Header */}
-        <motion.div variants={itemVariants} className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-heading font-bold mb-6">
-            About <span className="text-gold">Me</span>
+        <motion.div variants={itemVariants} className="text-center section-padding">
+          <h1 className="mb-6">
+            About <span className="text-gradient">Me</span>
           </h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             A strategic account manager with {yearsOfExperience} years of experience, 
             specializing in AI-enhanced sales processes and delivering exceptional results 
             in Toronto's vibrant tech ecosystem.
@@ -62,58 +60,56 @@ export default function AboutPage() {
           {/* Profile Image & Quick Info */}
           <motion.div variants={itemVariants} className="lg:col-span-1">
             <CardTilt>
-              <Card className="p-8 text-center">
-                <CardContent className="p-0">
-                  {/* Profile image */}
-                  <div className="w-48 h-48 mx-auto mb-6 rounded-2xl overflow-hidden bg-gradient-to-br from-gold/20 to-sand/40">
-                    {profile.photo ? (
-                      <Image
-                        src={profile.photo}
-                        alt={`${profile.name} profile picture`}
-                        width={192}
-                        height={192}
-                        className="w-full h-full object-cover"
-                        priority
-                      />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center">
-                        <div className="text-6xl font-heading font-bold text-gold">
-                          {profile.name.split(' ').map(n => n[0]).join('')}
-                        </div>
+              <div className="card-premium text-center">
+                {/* Profile image */}
+                <div className="w-48 h-48 mx-auto mb-6 rounded-2xl overflow-hidden bg-gradient-to-br from-primary/20 to-secondary/40">
+                  {profile.photo ? (
+                    <Image
+                      src={profile.photo}
+                      alt={`${profile.name} profile picture`}
+                      width={192}
+                      height={192}
+                      className="w-full h-full object-cover"
+                      priority
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <div className="text-6xl font-heading font-bold text-primary">
+                        {profile.name.split(' ').map(n => n[0]).join('')}
                       </div>
-                    )}
+                    </div>
+                  )}
+                </div>
+                
+                <h2 className="text-2xl font-heading font-bold mb-2">
+                  {profile.name}
+                </h2>
+                <p className="text-primary font-medium mb-4">
+                  {profile.title}
+                </p>
+                
+                <div className="space-y-3 text-sm">
+                  <div className="flex items-center justify-center gap-2 text-muted-foreground">
+                    <MapPin className="w-4 h-4" />
+                    <span>{profile.location}</span>
                   </div>
                   
-                  <h2 className="text-2xl font-heading font-bold mb-2">
-                    {profile.name}
-                  </h2>
-                  <p className="text-gold font-medium mb-4">
-                    {profile.title}
-                  </p>
-                  
-                  <div className="space-y-3 text-sm">
-                    <div className="flex items-center justify-center gap-2 text-muted-foreground">
-                      <MapPin className="w-4 h-4" />
-                      <span>{profile.location}</span>
-                    </div>
-                    
-                    <div className="flex items-center justify-center gap-2 text-muted-foreground">
-                      <Briefcase className="w-4 h-4" />
-                      <span>{yearsOfExperience} years experience</span>
-                    </div>
+                  <div className="flex items-center justify-center gap-2 text-muted-foreground">
+                    <Briefcase className="w-4 h-4" />
+                    <span>{yearsOfExperience} years experience</span>
                   </div>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             </CardTilt>
           </motion.div>
 
           {/* Story & Values */}
           <motion.div variants={itemVariants} className="lg:col-span-2 space-y-8">
-            <Card className="p-8">
-              <CardContent className="p-0 space-y-6">
+            <div className="card-premium">
+              <div className="space-y-6">
                 <div>
                   <h3 className="text-2xl font-heading font-bold mb-4 flex items-center gap-2">
-                    <Globe className="w-6 h-6 text-gold" />
+                    <Globe className="w-6 h-6 text-primary" />
                     My Journey
                   </h3>
                   <div className="space-y-4 text-muted-foreground leading-relaxed">
@@ -135,7 +131,7 @@ export default function AboutPage() {
                       Today, as an Account Manager at Vena Solutions, I've found my sweet spot in 
                       <strong className="text-foreground"> expansions and renewals</strong>. My approach combines deep 
                       technical understanding with genuine relationship building, resulting in 
-                      <strong className="text-gold"> 280% FY25 quota achievement</strong> and recognition as 
+                      <strong className="text-primary"> 280% FY25 quota achievement</strong> and recognition as 
                       Rookie of the Year.
                     </p>
                   </div>
@@ -145,145 +141,135 @@ export default function AboutPage() {
                   <h4 className="text-lg font-semibold mb-4">Core Values</h4>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Badge variant="skill">🎯 Results-Driven</Badge>
+                      <div className="badge-skill">🎯 Results-Driven</div>
                       <p className="text-sm text-muted-foreground">
                         Every interaction should deliver measurable value
                       </p>
                     </div>
                     
                     <div className="space-y-2">
-                      <Badge variant="skill">🤝 Relationship-First</Badge>
+                      <div className="badge-skill">🤝 Relationship-First</div>
                       <p className="text-sm text-muted-foreground">
                         Trust and transparency build lasting partnerships
                       </p>
                     </div>
                     
                     <div className="space-y-2">
-                      <Badge variant="skill">🚀 Innovation Mindset</Badge>
+                      <div className="badge-skill">🚀 Innovation Mindset</div>
                       <p className="text-sm text-muted-foreground">
                         Continuously improving processes with AI and automation
                       </p>
                     </div>
                     
                     <div className="space-y-2">
-                      <Badge variant="skill">📈 Growth Oriented</Badge>
+                      <div className="badge-skill">📈 Growth Oriented</div>
                       <p className="text-sm text-muted-foreground">
                         Always seeking opportunities to expand and improve
                       </p>
                     </div>
                   </div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
             {/* AI Innovation */}
-            <Card className="p-8 border-gold/30 gradient-premium">
-              <CardContent className="p-0">
-                <h3 className="text-2xl font-heading font-bold mb-4 flex items-center gap-2">
-                  <Brain className="w-6 h-6 text-gold" />
-                  AI & Innovation
-                </h3>
-                <div className="space-y-4 text-muted-foreground leading-relaxed">
-                  <p>
-                    I'm passionate about leveraging artificial intelligence to revolutionize sales processes 
-                    and deliver superior client outcomes. By integrating AI tools into traditional account 
-                    management practices, I've achieved exceptional performance metrics while enhancing 
-                    the customer experience.
-                  </p>
-                  
-                  <p>
-                    My approach combines data-driven insights with personalized relationship building, 
-                    using AI to identify opportunities, predict client needs, and optimize engagement 
-                    strategies. This methodology has consistently delivered results that exceed 
-                    traditional quota expectations.
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-2 pt-4">
-                    <Badge variant="outline">Machine Learning</Badge>
-                    <Badge variant="outline">Process Automation</Badge>
-                    <Badge variant="outline">Data Analytics</Badge>
-                    <Badge variant="outline">Predictive Insights</Badge>
-                  </div>
+            <div className="card-premium border-primary/30 bg-primary/5">
+              <h3 className="text-2xl font-heading font-bold mb-4 flex items-center gap-2">
+                <Brain className="w-6 h-6 text-primary" />
+                AI & Innovation
+              </h3>
+              <div className="space-y-4 text-muted-foreground leading-relaxed">
+                <p>
+                  I'm passionate about leveraging artificial intelligence to revolutionize sales processes 
+                  and deliver superior client outcomes. By integrating AI tools into traditional account 
+                  management practices, I've achieved exceptional performance metrics while enhancing 
+                  the customer experience.
+                </p>
+                
+                <p>
+                  My approach combines data-driven insights with personalized relationship building, 
+                  using AI to identify opportunities, predict client needs, and optimize engagement 
+                  strategies. This methodology has consistently delivered results that exceed 
+                  traditional quota expectations.
+                </p>
+                
+                <div className="flex flex-wrap gap-2 pt-4">
+                  <div className="badge-outline">Machine Learning</div>
+                  <div className="badge-outline">Process Automation</div>
+                  <div className="badge-outline">Data Analytics</div>
+                  <div className="badge-outline">Predictive Insights</div>
                 </div>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </motion.div>
         </div>
 
         {/* Education & Background */}
         <motion.div variants={itemVariants} className="mb-20">
           <div className="grid md:grid-cols-2 gap-8">
-            <Card className="p-8">
-              <CardContent className="p-0">
-                <h3 className="text-xl font-heading font-bold mb-4 flex items-center gap-2">
-                  <GraduationCap className="w-5 h-5 text-gold" />
-                  Education
-                </h3>
-                <div className="space-y-3">
-                  <div>
-                    <h4 className="font-semibold">Bachelor of Cognitive Systems</h4>
-                    <p className="text-sm text-gold">AI and Cognition Specialization</p>
-                    <p className="text-sm text-muted-foreground">University of British Columbia</p>
-                  </div>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    Studied the intersection of artificial intelligence, cognitive science, and human-computer 
-                    interaction. This interdisciplinary program provided a unique foundation for understanding 
-                    both the technical and human aspects of business relationships.
-                  </p>
+            <div className="card-premium">
+              <h3 className="text-xl font-heading font-bold mb-4 flex items-center gap-2">
+                <GraduationCap className="w-5 h-5 text-primary" />
+                Education
+              </h3>
+              <div className="space-y-3">
+                <div>
+                  <h4 className="font-semibold">Bachelor of Cognitive Systems</h4>
+                  <p className="text-sm text-primary">AI and Cognition Specialization</p>
+                  <p className="text-sm text-muted-foreground">University of British Columbia</p>
                 </div>
-              </CardContent>
-            </Card>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Studied the intersection of artificial intelligence, cognitive science, and human-computer 
+                  interaction. This interdisciplinary program provided a unique foundation for understanding 
+                  both the technical and human aspects of business relationships.
+                </p>
+              </div>
+            </div>
 
-            <Card className="p-8">
-              <CardContent className="p-0">
-                <h3 className="text-xl font-heading font-bold mb-4 flex items-center gap-2">
-                  <Calendar className="w-5 h-5 text-gold" />
-                  Beyond Work
-                </h3>
-                <div className="space-y-3">
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    When I'm not optimizing sales processes or building client relationships, you'll find me 
-                    exploring new AI tools and automation possibilities. I'm passionate about how technology 
-                    can enhance human capabilities rather than replace them.
-                  </p>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    I'm also an avid traveler and cultural enthusiast, always seeking new perspectives 
-                    that inform better business strategies. I believe diverse experiences create more innovative solutions.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+            <div className="card-premium">
+              <h3 className="text-xl font-heading font-bold mb-4 flex items-center gap-2">
+                <Calendar className="w-5 h-5 text-primary" />
+                Beyond Work
+              </h3>
+              <div className="space-y-3">
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  When I'm not optimizing sales processes or building client relationships, you'll find me 
+                  exploring new AI tools and automation possibilities. I'm passionate about how technology 
+                  can enhance human capabilities rather than replace them.
+                </p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  I'm also an avid traveler and cultural enthusiast, always seeking new perspectives 
+                  that inform better business strategies. I believe diverse experiences create more innovative solutions.
+                </p>
+              </div>
+            </div>
           </div>
         </motion.div>
 
         {/* CTA Section */}
-        <motion.div variants={itemVariants} className="text-center">
-          <Card className="p-12 gradient-executive">
-            <CardContent className="p-0">
-              <h2 className="text-3xl font-heading font-bold mb-4">
-                Let's Connect
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                Whether you're interested in discussing opportunities, exploring how AI can transform sales processes, 
-                or sharing insights about innovative account management strategies, I'd love to have a conversation.
-              </p>
+        <motion.div variants={itemVariants} className="text-center pb-20">
+          <div className="card-glass p-12 max-w-4xl mx-auto">
+            <h2 className="mb-4">Let's Connect</h2>
+            <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Whether you're interested in discussing opportunities, exploring how AI can transform sales processes, 
+              or sharing insights about innovative account management strategies, I'd love to have a conversation.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/contact">
+                <div className="btn-primary">
+                  Get in Touch
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+              </Link>
               
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link href="/contact">
-                  <Button size="lg">
-                    Get in Touch
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-                
-                <Link href="/experience">
-                  <Button size="lg" variant="outline">
-                    View My Experience
-                  </Button>
-                </Link>
-              </div>
-            </CardContent>
-          </Card>
+              <Link href="/experience">
+                <div className="btn-outline">
+                  View My Experience
+                </div>
+              </Link>
+            </div>
+          </div>
         </motion.div>
       </div>
     </motion.div>

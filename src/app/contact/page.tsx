@@ -2,11 +2,9 @@
 
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Badge } from '@/components/ui/badge';
 import { getProfile } from '@/lib/data';
 import { copyToClipboard, downloadFile } from '@/lib/utils';
 import { 
@@ -20,7 +18,8 @@ import {
   Globe,
   CheckCircle,
   XCircle,
-  ExternalLink
+  ExternalLink,
+  Linkedin
 } from 'lucide-react';
 
 export default function ContactPage() {
@@ -58,17 +57,17 @@ export default function ContactPage() {
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+    setSubmitStatus('idle');
+
     try {
       const response = await fetch('/api/contact', {
         method: 'POST',
@@ -85,11 +84,11 @@ export default function ContactPage() {
         setSubmitStatus('error');
       }
     } catch (error) {
+      console.error('Error submitting form:', error);
       setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
     }
-
-    setIsSubmitting(false);
-    setTimeout(() => setSubmitStatus('idle'), 5000);
   };
 
   const handleCopy = async (text: string, field: string) => {
@@ -100,48 +99,146 @@ export default function ContactPage() {
     }
   };
 
-  const handleResumeDownload = () => {
-    downloadFile('/resume.pdf', 'Shayan_Mirzazadeh_Resume.pdf');
-  };
-
   return (
-    <main className="min-h-screen py-12 md:py-20 px-4 md:px-6">
-      <motion.div
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-        className="min-h-screen"
-      >
-      <div className="container mx-auto max-w-6xl">
+    <motion.div
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+      className="min-h-screen bg-luxury"
+    >
+      <div className="container">
         {/* Header */}
-        <motion.div variants={itemVariants} className="text-center mb-12 md:mb-16">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-heading font-bold mb-6">
-            Get in <span className="text-gold">Touch</span>
+        <motion.div variants={itemVariants} className="text-center section-padding">
+          <h1 className="mb-6">
+            Let's <span className="text-gradient">Connect</span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Whether you're exploring new opportunities, interested in AI-enhanced sales processes, 
-            or just want to connect, I'd love to hear from you.
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Ready to discuss AI-enhanced account management strategies, collaboration opportunities, 
+            or just want to say hello? I'd love to hear from you.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-8 md:gap-12">
-          {/* Contact Information */}
-          <motion.div variants={itemVariants} className="space-y-8">
-            <Card className="p-8">
-              <CardHeader>
-                <CardTitle className="text-2xl font-heading">
-                  Contact Information
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                {/* Email */}
-                <div className="flex items-center gap-4 group">
-                  <div className="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center">
-                    <Mail className="w-5 h-5 text-gold" />
+        <div className="grid lg:grid-cols-2 gap-12 pb-20">
+          {/* Contact Form */}
+          <motion.div variants={itemVariants}>
+            <div className="card-premium">
+              <h2 className="text-2xl font-heading font-bold mb-6">Send a Message</h2>
+              
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium mb-2">
+                      Your Name
+                    </label>
+                    <Input
+                      id="name"
+                      name="name"
+                      type="text"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      placeholder="John Smith"
+                      className="w-full"
+                    />
                   </div>
-                  <div className="flex-1">
-                    <p className="font-medium">Email</p>
-                    <p className="text-muted-foreground">{profile.email}</p>
+                  
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium mb-2">
+                      Email Address
+                    </label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      placeholder="john@company.com"
+                      className="w-full"
+                    />
+                  </div>
+                </div>
+                
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                    Message
+                  </label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    placeholder="Tell me about your project, opportunity, or just say hello..."
+                    rows={6}
+                    className="w-full"
+                  />
+                </div>
+
+                <div className="flex items-center justify-between">
+                  <div className="text-sm text-muted-foreground">
+                    I typically respond within 24 hours
+                  </div>
+                  
+                  <Button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="btn-primary"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Send Message
+                        <Send className="ml-2 h-4 w-4" />
+                      </>
+                    )}
+                  </Button>
+                </div>
+
+                {submitStatus === 'success' && (
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="flex items-center gap-2 text-green-600 bg-green-50 p-3 rounded-lg"
+                  >
+                    <CheckCircle className="h-5 w-5" />
+                    <span>Message sent successfully! I'll get back to you soon.</span>
+                  </motion.div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="flex items-center gap-2 text-red-600 bg-red-50 p-3 rounded-lg"
+                  >
+                    <XCircle className="h-5 w-5" />
+                    <span>Failed to send message. Please try again or use direct email.</span>
+                  </motion.div>
+                )}
+              </form>
+            </div>
+          </motion.div>
+
+          {/* Contact Information */}
+          <motion.div variants={itemVariants} className="space-y-6">
+            {/* Direct Contact */}
+            <div className="card-premium">
+              <h3 className="text-xl font-heading font-bold mb-4">Direct Contact</h3>
+              <div className="space-y-4">
+                <div className="flex items-center justify-between group">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
+                      <Mail className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <div className="font-medium">Email</div>
+                      <div className="text-sm text-muted-foreground">{profile.email}</div>
+                    </div>
                   </div>
                   <Button
                     variant="ghost"
@@ -150,21 +247,22 @@ export default function ContactPage() {
                     className="opacity-0 group-hover:opacity-100 transition-opacity"
                   >
                     {copiedField === 'email' ? (
-                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <CheckCircle className="h-4 w-4 text-green-600" />
                     ) : (
-                      <Copy className="w-4 h-4" />
+                      <Copy className="h-4 w-4" />
                     )}
                   </Button>
                 </div>
 
-                {/* Phone */}
-                <div className="flex items-center gap-4 group">
-                  <div className="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center">
-                    <Phone className="w-5 h-5 text-gold" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="font-medium">Phone</p>
-                    <p className="text-muted-foreground">{profile.phone}</p>
+                <div className="flex items-center justify-between group">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
+                      <Phone className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <div className="font-medium">Phone</div>
+                      <div className="text-sm text-muted-foreground">{profile.phone}</div>
+                    </div>
                   </div>
                   <Button
                     variant="ghost"
@@ -173,258 +271,88 @@ export default function ContactPage() {
                     className="opacity-0 group-hover:opacity-100 transition-opacity"
                   >
                     {copiedField === 'phone' ? (
-                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <CheckCircle className="h-4 w-4 text-green-600" />
                     ) : (
-                      <Copy className="w-4 h-4" />
+                      <Copy className="h-4 w-4" />
                     )}
                   </Button>
                 </div>
 
-                {/* Location */}
-                <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center">
-                    <MapPin className="w-5 h-5 text-gold" />
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
+                    <MapPin className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <div className="font-medium">Location</div>
+                    <div className="text-sm text-muted-foreground">{profile.location}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Social Links */}
+            <div className="card-premium">
+              <h3 className="text-xl font-heading font-bold mb-4">Professional Links</h3>
+              <div className="space-y-3">
+                <a
+                  href={`https://${profile.linkedin}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 p-3 rounded-lg hover:bg-muted/50 transition-colors group"
+                >
+                  <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
+                    <Linkedin className="w-5 h-5 text-primary" />
                   </div>
                   <div className="flex-1">
-                    <p className="font-medium">Location</p>
-                    <p className="text-muted-foreground">{profile.location}</p>
+                    <div className="font-medium">LinkedIn</div>
+                    <div className="text-sm text-muted-foreground">Professional network</div>
                   </div>
-                  <Badge variant="outline" className="text-xs">
-                    Relocating 2025
-                  </Badge>
-                </div>
-
-                {/* LinkedIn */}
-                <div className="flex items-center gap-4 group">
-                  <div className="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center">
-                    <ExternalLink className="w-5 h-5 text-gold" />
-                  </div>
-                  <div className="flex-1">
-                    <p className="font-medium">LinkedIn</p>
-                    <p className="text-muted-foreground">{profile.linkedin}</p>
-                  </div>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={() => handleCopy(`https://${profile.linkedin}`, 'linkedin')}
-                    className="opacity-0 group-hover:opacity-100 transition-opacity"
-                  >
-                    {copiedField === 'linkedin' ? (
-                      <CheckCircle className="w-4 h-4 text-green-500" />
-                    ) : (
-                      <Copy className="w-4 h-4" />
-                    )}
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Quick Actions */}
-            <Card className="p-8">
-              <CardContent className="p-0 space-y-4">
-                <h3 className="text-lg font-semibold mb-4">Quick Actions</h3>
-                
-                <Button
-                  onClick={handleResumeDownload}
-                  variant="outline"
-                  className="w-full justify-start"
-                >
-                  <Download className="w-4 h-4 mr-3" />
-                  Download Resume (PDF)
-                </Button>
-
-                <Button
-                  onClick={() => window.open(`https://${profile.linkedin}`, '_blank')}
-                  variant="outline"
-                  className="w-full justify-start"
-                >
-                  <ExternalLink className="w-4 h-4 mr-3" />
-                  Connect on LinkedIn
-                </Button>
-
-                <Button
-                  onClick={() => window.open(`mailto:${profile.email}`, '_blank')}
-                  variant="outline"
-                  className="w-full justify-start"
-                >
-                  <Mail className="w-4 h-4 mr-3" />
-                  Send Email
-                </Button>
-              </CardContent>
-            </Card>
+                  <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                </a>
+              </div>
+            </div>
 
             {/* Availability */}
-            <Card className="p-8 gradient-executive">
-              <CardContent className="p-0">
-                <div className="flex items-center gap-3 mb-4">
-                  <Clock className="w-5 h-5 text-gold" />
-                  <h3 className="text-lg font-semibold">Availability</h3>
-                </div>
-                <p className="text-sm text-muted-foreground mb-4">
-                  Currently based in Toronto (EST) and typically respond within 24 hours. 
-                  Planning Dubai relocation for 2025.
-                </p>
-                <div className="flex items-center gap-2">
-                  <Globe className="w-4 h-4 text-gold" />
-                  <span className="text-sm">Open to global opportunities</span>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-
-          {/* Contact Form */}
-          <motion.div variants={itemVariants}>
-            <Card className="p-8">
-              <CardHeader>
-                <CardTitle className="text-2xl font-heading">
-                  Send a Message
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <form onSubmit={handleSubmit} className="space-y-6" role="form" aria-label="Contact form">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="name" className="block text-sm font-medium mb-2">
-                        Name *
-                      </label>
-                      <Input
-                        id="name"
-                        name="name"
-                        type="text"
-                        placeholder="Your name"
-                        value={formData.name}
-                        onChange={handleInputChange}
-                        required
-                        aria-required="true"
-                        aria-describedby="name-help"
-                      />
-                      <div id="name-help" className="sr-only">
-                        Enter your full name for identification
-                      </div>
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="block text-sm font-medium mb-2">
-                        Email *
-                      </label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder="your.email@example.com"
-                        value={formData.email}
-                        onChange={handleInputChange}
-                        required
-                        aria-required="true"
-                        aria-describedby="email-help"
-                      />
-                      <div id="email-help" className="sr-only">
-                        Enter a valid email address for response
-                      </div>
-                    </div>
-                  </div>
-
+            <div className="card-premium">
+              <h3 className="text-xl font-heading font-bold mb-4">Availability</h3>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <Clock className="w-5 h-5 text-primary" />
                   <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-2">
-                      Message *
-                    </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      placeholder="Tell me about your opportunity, question, or how we might collaborate..."
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      rows={6}
-                      required
-                      aria-required="true"
-                      aria-describedby="message-help"
-                    />
-                    <div id="message-help" className="sr-only">
-                      Describe your inquiry, opportunity, or how we might work together
-                    </div>
+                    <div className="font-medium">Response Time</div>
+                    <div className="text-sm text-muted-foreground">Usually within 24 hours</div>
                   </div>
+                </div>
+                
+                <div className="flex items-center gap-3">
+                  <Globe className="w-5 h-5 text-primary" />
+                  <div>
+                    <div className="font-medium">Time Zone</div>
+                    <div className="text-sm text-muted-foreground">Eastern Time (ET)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-                  <Button
-                    type="submit"
-                    size="lg"
-                    className="w-full"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <motion.div
-                          className="w-4 h-4 border-2 border-current border-t-transparent rounded-full mr-3"
-                          animate={{ rotate: 360 }}
-                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                        />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="w-4 h-4 mr-3" />
-                        Send Message
-                      </>
-                    )}
-                  </Button>
-
-                  {/* Status Messages */}
-                  {submitStatus === 'success' && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="flex items-center gap-2 text-green-600 text-sm"
-                      role="status"
-                      aria-live="polite"
-                      aria-label="Form submission success"
-                    >
-                      <CheckCircle className="w-4 h-4" aria-hidden="true" />
-                      Message sent successfully! I'll get back to you soon.
-                    </motion.div>
-                  )}
-
-                  {submitStatus === 'error' && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="flex items-center gap-2 text-red-600 text-sm"
-                      role="alert"
-                      aria-live="assertive"
-                      aria-label="Form submission error"
-                    >
-                      <XCircle className="w-4 h-4" aria-hidden="true" />
-                      Failed to send message. Please try again or email me directly.
-                    </motion.div>
-                  )}
-                </form>
-              </CardContent>
-            </Card>
+            {/* Download Resume */}
+            <div className="card-premium border-primary/30 bg-primary/5">
+              <div className="text-center">
+                <h3 className="text-xl font-heading font-bold mb-2">Resume Download</h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Get a comprehensive overview of my experience and achievements
+                </p>
+                <Button
+                  onClick={() => downloadFile('/resume.pdf', 'Shayan_Mirzazadeh_Resume.pdf')}
+                  className="btn-outline w-full"
+                >
+                  <Download className="mr-2 h-4 w-4" />
+                  Download Resume (PDF)
+                </Button>
+              </div>
+            </div>
           </motion.div>
         </div>
-
-        {/* Alternative Contact Methods */}
-        <motion.div variants={itemVariants} className="mt-16 text-center">
-          <Card className="p-8 gradient-premium">
-            <CardContent className="p-0">
-              <h3 className="text-xl font-heading font-bold mb-4">
-                Prefer a Different Approach?
-              </h3>
-              <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-                No problem! Feel free to reach out through any method that works best for you. 
-                I'm always open to meaningful conversations about opportunities, AI in sales, 
-                or insights about the Dubai market.
-              </p>
-              
-              <div className="flex flex-wrap justify-center gap-3">
-                <Badge variant="outline">Account Management</Badge>
-                <Badge variant="outline">Sales Strategy</Badge>
-                <Badge variant="outline">AI Workflows</Badge>
-                <Badge variant="outline">Dubai Opportunities</Badge>
-                <Badge variant="outline">Consulting</Badge>
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
       </div>
-      </motion.div>
-    </main>
+    </motion.div>
   );
 }
