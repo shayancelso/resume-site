@@ -94,8 +94,8 @@ src/
    Add your environment variables:
    ```env
    # Required: Enable contact form email delivery
-   RESEND_API_KEY=your_resend_api_key
-   CONTACT_EMAIL=your-email@example.com
+   RESEND_API_KEY=re_GXJ9jzYn_2oQHJHVopP1L1uCU9gLNxfzo
+   CONTACT_EMAIL=shayan.mirzazadeh@gmail.com
    
    # Optional: Custom sender email (defaults to Resend's domain)
    FROM_EMAIL=Resume Contact <onboarding@resend.dev>
