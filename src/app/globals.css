@@ -6,56 +6,59 @@
 
 @layer base {
   :root {
-    /* Unified Color System */
+    /* Clean, Professional Color System */
     --background: 255 255 255;
-    --foreground: 15 23 42;
+    --foreground: 0 0 0;
     --card: 255 255 255;
-    --card-foreground: 15 23 42;
+    --card-foreground: 0 0 0;
     --popover: 255 255 255;
-    --popover-foreground: 15 23 42;
-    --primary: 212 175 55;
-    --primary-foreground: 15 23 42;
-    --secondary: 248 250 252;
-    --secondary-foreground: 15 23 42;
-    --muted: 248 250 252;
-    --muted-foreground: 100 116 139;
-    --accent: 212 175 55;
-    --accent-foreground: 15 23 42;
+    --popover-foreground: 0 0 0;
+    --primary: 92 64 51;
+    --primary-foreground: 255 255 255;
+    --secondary: 248 249 250;
+    --secondary-foreground: 0 0 0;
+    --muted: 248 249 250;
+    --muted-foreground: 107 114 128;
+    --accent: 92 64 51;
+    --accent-foreground: 255 255 255;
     --destructive: 220 38 38;
     --destructive-foreground: 248 250 252;
-    --border: 226 232 240;
-    --input: 226 232 240;
-    --ring: 212 175 55;
-    --radius: 0.75rem;
+    --border: 229 231 235;
+    --input: 229 231 235;
+    --ring: 92 64 51;
+    --radius: 0.5rem;
     
-    /* Premium Brand Colors */
-    --gold: 212 175 55;
-    --navy: 15 23 42;
-    --slate: 51 65 85;
-    --pearl: 248 250 252;
-    --warm-gray: 100 116 139;
+    /* Brand Colors - Clean & Professional */
+    --chocolate: 92 64 51;    /* #5C4033 */
+    --neutral-50: 249 250 251;
+    --neutral-100: 243 244 246;
+    --neutral-200: 229 231 235;
+    --neutral-300: 209 213 219;
+    --neutral-500: 107 114 128;
+    --neutral-800: 31 41 55;
+    --neutral-900: 17 24 39;
   }
 
   .dark {
-    --background: 15 23 42;
-    --foreground: 248 250 252;
-    --card: 30 41 59;
-    --card-foreground: 248 250 252;
-    --popover: 30 41 59;
-    --popover-foreground: 248 250 252;
-    --primary: 212 175 55;
-    --primary-foreground: 15 23 42;
-    --secondary: 51 65 85;
-    --secondary-foreground: 203 213 225;
-    --muted: 51 65 85;
-    --muted-foreground: 148 163 184;
-    --accent: 212 175 55;
-    --accent-foreground: 15 23 42;
+    --background: 255 255 255;
+    --foreground: 0 0 0;
+    --card: 255 255 255;
+    --card-foreground: 0 0 0;
+    --popover: 255 255 255;
+    --popover-foreground: 0 0 0;
+    --primary: 92 64 51;
+    --primary-foreground: 255 255 255;
+    --secondary: 248 249 250;
+    --secondary-foreground: 0 0 0;
+    --muted: 248 249 250;
+    --muted-foreground: 107 114 128;
+    --accent: 92 64 51;
+    --accent-foreground: 255 255 255;
     --destructive: 220 38 38;
     --destructive-foreground: 248 250 252;
-    --border: 51 65 85;
-    --input: 51 65 85;
-    --ring: 212 175 55;
+    --border: 229 231 235;
+    --input: 229 231 235;
+    --ring: 92 64 51;
   }
 }
 
@@ -65,7 +68,7 @@
   }
   
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-white text-black font-sans;
     font-feature-settings: "rlig" 1, "calt" 1;
     overflow-x: hidden;
     line-height: 1.6;
@@ -75,117 +78,90 @@
     scroll-behavior: smooth;
   }
   
-  /* Unified Typography Scale */
+  /* Clean Typography Scale */
   h1 {
-    @apply font-heading text-4xl md:text-6xl font-bold leading-tight;
+    @apply font-heading text-3xl md:text-5xl font-bold leading-tight text-black;
   }
   
   h2 {
-    @apply font-heading text-3xl md:text-4xl font-bold leading-tight;
+    @apply font-heading text-2xl md:text-3xl font-bold leading-tight text-black;
   }
   
   h3 {
-    @apply font-heading text-2xl md:text-3xl font-bold leading-tight;
+    @apply font-heading text-xl md:text-2xl font-semibold leading-tight text-black;
   }
   
   h4 {
-    @apply font-heading text-xl md:text-2xl font-semibold leading-tight;
+    @apply font-heading text-lg md:text-xl font-semibold leading-tight text-black;
   }
   
   h5 {
-    @apply font-heading text-lg md:text-xl font-semibold leading-tight;
+    @apply font-heading text-base md:text-lg font-semibold leading-tight text-black;
   }
   
   h6 {
-    @apply font-heading text-base md:text-lg font-semibold leading-tight;
+    @apply font-heading text-sm md:text-base font-semibold leading-tight text-black;
   }
   
   p {
-    @apply text-base leading-relaxed;
+    @apply text-base leading-relaxed text-black;
   }
   
   /* Responsive Container */
   .container {
-    @apply mx-auto px-4 sm:px-6 lg:px-8;
+    @apply mx-auto px-6 sm:px-8 lg:px-12;
     max-width: 1200px;
   }
 }
 
 @layer components {
-  /* Unified Background System */
-  .bg-luxury {
-    background: linear-gradient(135deg, 
-      hsl(var(--background)) 0%, 
-      hsl(var(--secondary)) 50%, 
-      hsl(var(--muted)) 100%
-    );
+  /* Clean Background System */
+  .bg-neutral {
+    @apply bg-white;
   }
   
-  .bg-executive {
-    background: linear-gradient(135deg, 
-      hsl(var(--navy)) 0%, 
-      hsl(var(--slate)) 50%, 
-      hsl(var(--navy)) 100%
-    );
-    @apply text-white;
+  .bg-section-alt {
+    @apply bg-neutral-50;
   }
   
-  .bg-premium {
-    background: linear-gradient(135deg, 
-      hsl(var(--gold) / 0.1) 0%, 
-      hsl(var(--background)) 50%, 
-      hsl(var(--secondary)) 100%
-    );
+  /* Clean Card System */
+  .card-clean {
+    @apply bg-white border border-neutral-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-200;
   }
   
-  /* Glass Morphism */
-  .glass {
-    background: rgba(255, 255, 255, 0.85);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(229, 231, 235, 0.3);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  .card-minimal {
+    @apply bg-neutral-50 border-0 rounded-lg p-6;
   }
   
-  .dark .glass {
-    background: rgba(30, 41, 59, 0.85);
-    border: 1px solid rgba(51, 65, 85, 0.3);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* Card Variants */
-  .card-premium {
-    @apply bg-card border border-border/50 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300;
-  }
-  
-  .card-glass {
-    @apply glass rounded-xl p-6 hover:shadow-xl transition-all duration-300;
-  }
-  
-  /* Button Variants */
+  /* Professional Button System */
   .btn-primary {
-    @apply bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 rounded-lg font-medium transition-all duration-200 inline-flex items-center justify-center gap-2;
+    @apply bg-black text-white hover:bg-neutral-800 px-6 py-3 rounded-lg font-medium transition-all duration-200 inline-flex items-center justify-center gap-2 border-0;
   }
   
   .btn-outline {
-    @apply border border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3 rounded-lg font-medium transition-all duration-200 inline-flex items-center justify-center gap-2;
+    @apply border-2 border-black text-black hover:bg-black hover:text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 inline-flex items-center justify-center gap-2;
   }
   
-  .btn-ghost {
-    @apply text-foreground hover:bg-secondary px-6 py-3 rounded-lg font-medium transition-all duration-200 inline-flex items-center justify-center gap-2;
+  .btn-chocolate {
+    @apply bg-primary text-white hover:bg-primary/90 px-6 py-3 rounded-lg font-medium transition-all duration-200 inline-flex items-center justify-center gap-2 border-0;
   }
   
-  /* Badge Variants */
-  .badge-skill {
+  /* Clean Badge System */
+  .badge-minimal {
+    @apply bg-neutral-100 text-neutral-800 border border-neutral-200 px-3 py-1 rounded-full text-sm font-medium;
+  }
+  
+  .badge-chocolate {
     @apply bg-primary/10 text-primary border border-primary/20 px-3 py-1 rounded-full text-sm font-medium;
   }
   
   .badge-outline {
-    @apply bg-background border border-border text-foreground px-3 py-1 rounded-full text-sm font-medium;
+    @apply bg-white border border-neutral-300 text-neutral-700 px-3 py-1 rounded-full text-sm font-medium;
   }
   
   /* Section Spacing */
   .section-padding {
-    @apply py-16 md:py-24;
+    @apply py-12 md:py-20;
   }
   
   /* Text Utilities */
@@ -193,16 +169,17 @@
     text-wrap: balance;
   }
   
-  .text-gradient {
-    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  .text-chocolate {
+    @apply text-primary;
+  }
+  
+  .text-muted {
+    @apply text-neutral-600;
   }
 }
 
 @layer utilities {
-  /* Grain Texture */
+  /* Minimal grain texture */
   .grain {
     position: relative;
   }
@@ -214,9 +191,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.03;
+    opacity: 0.015;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    animation: grain 8s steps(10) infinite;
     pointer-events: none;
   }
   
@@ -235,24 +211,11 @@
   }
 }
 
-/* Animation Keyframes */
-@keyframes grain {
-  0%, 100% { transform: translate(0, 0); }
-  10% { transform: translate(-5%, -10%); }
-  20% { transform: translate(-15%, 5%); }
-  30% { transform: translate(7%, -25%); }
-  40% { transform: translate(-5%, 25%); }
-  50% { transform: translate(-15%, 10%); }
-  60% { transform: translate(15%, 0%); }
-  70% { transform: translate(0%, 15%); }
-  80% { transform: translate(3%, 35%); }
-  90% { transform: translate(-10%, 10%); }
-}
-
+/* Simple Animation Keyframes */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
@@ -267,7 +230,15 @@
   }
   
   .section-padding {
-    @apply py-12;
+    @apply py-8;
+  }
+  
+  h1 {
+    @apply text-2xl;
+  }
+  
+  h2 {
+    @apply text-xl;
   }
 }
 
@@ -290,7 +261,7 @@
 @media (hover: none) and (pointer: coarse) {
   .btn-primary,
   .btn-outline,
-  .btn-ghost {
+  .btn-chocolate {
     @apply min-h-[44px] min-w-[44px];
   }
 }
@@ -301,4 +272,14 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+}
+
+/* Form styling */
+input, textarea {
+  @apply border border-neutral-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary;
+}
+
+/* Link styling */
+a {
+  @apply text-primary hover:text-primary/80 transition-colors;
 }
