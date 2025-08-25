@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    /* Clean, Professional Color System */
+    /* Ultra Clean Color System - ONLY Black, White, Gray, Chocolate */
     --background: 255 255 255;
     --foreground: 0 0 0;
     --card: 255 255 255;
@@ -15,28 +15,21 @@
     --popover-foreground: 0 0 0;
     --primary: 92 64 51;
     --primary-foreground: 255 255 255;
-    --secondary: 248 249 250;
+    --secondary: 248 248 248;
     --secondary-foreground: 0 0 0;
-    --muted: 248 249 250;
-    --muted-foreground: 107 114 128;
+    --muted: 248 248 248;
+    --muted-foreground: 64 64 64;
     --accent: 92 64 51;
     --accent-foreground: 255 255 255;
     --destructive: 220 38 38;
     --destructive-foreground: 248 250 252;
-    --border: 229 231 235;
-    --input: 229 231 235;
+    --border: 229 229 229;
+    --input: 229 229 229;
     --ring: 92 64 51;
     --radius: 0.5rem;
     
-    /* Brand Colors - Clean & Professional */
+    /* Brand Colors - ONLY Chocolate Brown */
     --chocolate: 92 64 51;    /* #5C4033 */
-    --neutral-50: 249 250 251;
-    --neutral-100: 243 244 246;
-    --neutral-200: 229 231 235;
-    --neutral-300: 209 213 219;
-    --neutral-500: 107 114 128;
-    --neutral-800: 31 41 55;
-    --neutral-900: 17 24 39;
   }
 
   .dark {
@@ -48,16 +41,16 @@
     --popover-foreground: 0 0 0;
     --primary: 92 64 51;
     --primary-foreground: 255 255 255;
-    --secondary: 248 249 250;
+    --secondary: 248 248 248;
     --secondary-foreground: 0 0 0;
-    --muted: 248 249 250;
-    --muted-foreground: 107 114 128;
+    --muted: 248 248 248;
+    --muted-foreground: 64 64 64;
     --accent: 92 64 51;
     --accent-foreground: 255 255 255;
     --destructive: 220 38 38;
     --destructive-foreground: 248 250 252;
-    --border: 229 231 235;
-    --input: 229 231 235;
+    --border: 229 229 229;
+    --input: 229 229 229;
     --ring: 92 64 51;
   }
 }
@@ -72,39 +65,46 @@
     font-feature-settings: "rlig" 1, "calt" 1;
     overflow-x: hidden;
     line-height: 1.6;
+    color: #000000;
   }
   
   html {
     scroll-behavior: smooth;
   }
   
-  /* Clean Typography Scale */
+  /* High Contrast Typography */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold text-black;
+    color: #000000 !important;
+  }
+  
   h1 {
-    @apply font-heading text-3xl md:text-5xl font-bold leading-tight text-black;
+    @apply text-3xl md:text-5xl leading-tight;
   }
   
   h2 {
-    @apply font-heading text-2xl md:text-3xl font-bold leading-tight text-black;
+    @apply text-2xl md:text-3xl leading-tight;
   }
   
   h3 {
-    @apply font-heading text-xl md:text-2xl font-semibold leading-tight text-black;
+    @apply text-xl md:text-2xl leading-tight;
   }
   
   h4 {
-    @apply font-heading text-lg md:text-xl font-semibold leading-tight text-black;
+    @apply text-lg md:text-xl leading-tight;
   }
   
   h5 {
-    @apply font-heading text-base md:text-lg font-semibold leading-tight text-black;
+    @apply text-base md:text-lg leading-tight;
   }
   
   h6 {
-    @apply font-heading text-sm md:text-base font-semibold leading-tight text-black;
+    @apply text-sm md:text-base leading-tight;
   }
   
   p {
     @apply text-base leading-relaxed text-black;
+    color: #000000 !important;
   }
   
   /* Responsive Container */
@@ -121,42 +121,76 @@
   }
   
   .bg-section-alt {
-    @apply bg-neutral-50;
+    background-color: #f8f8f8;
   }
   
   /* Clean Card System */
   .card-clean {
-    @apply bg-white border border-neutral-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-all duration-200;
+    @apply bg-white rounded-lg p-6;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.2s ease;
+  }
+  
+  .card-clean:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
   
   .card-minimal {
-    @apply bg-neutral-50 border-0 rounded-lg p-6;
+    background-color: #f8f8f8;
+    @apply rounded-lg p-6;
   }
   
-  /* Professional Button System */
+  /* High Contrast Button System */
   .btn-primary {
-    @apply bg-black text-white hover:bg-neutral-800 px-6 py-3 rounded-lg font-medium transition-all duration-200 inline-flex items-center justify-center gap-2 border-0;
+    background-color: #000000;
+    color: #ffffff;
+    @apply px-6 py-3 rounded-lg font-medium transition-all duration-200 inline-flex items-center justify-center gap-2 border-0;
+  }
+  
+  .btn-primary:hover {
+    background-color: #333333;
   }
   
   .btn-outline {
-    @apply border-2 border-black text-black hover:bg-black hover:text-white px-6 py-3 rounded-lg font-medium transition-all duration-200 inline-flex items-center justify-center gap-2;
+    border: 2px solid #000000;
+    color: #000000;
+    background-color: transparent;
+    @apply px-6 py-3 rounded-lg font-medium transition-all duration-200 inline-flex items-center justify-center gap-2;
+  }
+  
+  .btn-outline:hover {
+    background-color: #000000;
+    color: #ffffff;
   }
   
   .btn-chocolate {
-    @apply bg-primary text-white hover:bg-primary/90 px-6 py-3 rounded-lg font-medium transition-all duration-200 inline-flex items-center justify-center gap-2 border-0;
+    background-color: #5C4033;
+    color: #ffffff;
+    @apply px-6 py-3 rounded-lg font-medium transition-all duration-200 inline-flex items-center justify-center gap-2 border-0;
   }
   
-  /* Clean Badge System */
+  .btn-chocolate:hover {
+    background-color: #4a3329;
+  }
+  
+  /* High Contrast Badge System */
   .badge-minimal {
-    @apply bg-neutral-100 text-neutral-800 border border-neutral-200 px-3 py-1 rounded-full text-sm font-medium;
+    background-color: #f0f0f0;
+    color: #000000;
+    border: 1px solid #d0d0d0;
+    @apply px-3 py-1 rounded-full text-sm font-medium;
   }
   
   .badge-chocolate {
-    @apply bg-primary/10 text-primary border border-primary/20 px-3 py-1 rounded-full text-sm font-medium;
+    background-color: #5C4033;
+    color: #ffffff;
+    @apply px-3 py-1 rounded-full text-sm font-medium;
   }
   
   .badge-outline {
-    @apply bg-white border border-neutral-300 text-neutral-700 px-3 py-1 rounded-full text-sm font-medium;
+    @apply bg-white border border-gray-300 px-3 py-1 rounded-full text-sm font-medium;
+    color: #000000;
   }
   
   /* Section Spacing */
@@ -164,66 +198,106 @@
     @apply py-12 md:py-20;
   }
   
-  /* Text Utilities */
+  /* Text Utilities - HIGH CONTRAST ONLY */
   .text-balance {
     text-wrap: balance;
   }
   
   .text-chocolate {
-    @apply text-primary;
+    color: #5C4033 !important;
   }
   
   .text-muted {
-    @apply text-neutral-600;
+    color: #404040 !important;
+  }
+  
+  /* Override any unwanted colors */
+  .text-green-600,
+  .text-blue-600,
+  .text-emerald-600,
+  .text-teal-600,
+  .text-cyan-600,
+  .text-sky-600,
+  .text-indigo-600,
+  .text-purple-600,
+  .text-pink-600,
+  .text-rose-600,
+  .text-red-600,
+  .text-orange-600,
+  .text-amber-600,
+  .text-yellow-600,
+  .text-lime-600 {
+    color: #000000 !important;
+  }
+  
+  /* Force remove any background colors */
+  .bg-green-50,
+  .bg-blue-50,
+  .bg-emerald-50,
+  .bg-teal-50,
+  .bg-cyan-50,
+  .bg-sky-50,
+  .bg-indigo-50,
+  .bg-purple-50,
+  .bg-pink-50,
+  .bg-rose-50,
+  .bg-red-50,
+  .bg-orange-50,
+  .bg-amber-50,
+  .bg-yellow-50,
+  .bg-lime-50 {
+    background-color: #f8f8f8 !important;
   }
 }
 
 @layer utilities {
-  /* Minimal grain texture */
-  .grain {
-    position: relative;
+  /* Remove all unwanted colors */
+  .text-primary {
+    color: #5C4033 !important;
   }
   
-  .grain::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 0.015;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    pointer-events: none;
+  .text-secondary {
+    color: #404040 !important;
   }
   
-  /* Animation Classes */
-  .animate-in {
-    animation: fadeInUp 0.6s ease-out;
+  .text-foreground {
+    color: #000000 !important;
   }
   
-  /* Responsive Utilities */
-  .mobile-only {
-    @apply block md:hidden;
-  }
-  
-  .desktop-only {
-    @apply hidden md:block;
+  .text-muted-foreground {
+    color: #404040 !important;
   }
 }
 
-/* Simple Animation Keyframes */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Force override any system colors */
+* {
+  color: inherit;
 }
 
-/* Responsive Design - Mobile First */
+/* High contrast form elements */
+input, textarea, select {
+  @apply border rounded-lg px-4 py-2;
+  border-color: #d0d0d0;
+  color: #000000 !important;
+  background-color: #ffffff;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: 2px solid #5C4033;
+  border-color: #5C4033;
+}
+
+/* Links */
+a {
+  color: #5C4033;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #4a3329;
+}
+
+/* Responsive Design */
 @media (max-width: 640px) {
   .container {
     @apply px-4;
@@ -242,7 +316,7 @@
   }
 }
 
-/* Accessibility */
+/* Accessibility - ensure high contrast */
 @media (prefers-reduced-motion: reduce) {
   *,
   ::before,
@@ -251,13 +325,9 @@
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  
-  .grain::before {
-    animation: none;
-  }
 }
 
-/* Touch Devices */
+/* Touch targets */
 @media (hover: none) and (pointer: coarse) {
   .btn-primary,
   .btn-outline,
@@ -266,20 +336,11 @@
   }
 }
 
-/* High DPI Displays */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-  body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+/* Remove any remaining unwanted styling */
+svg {
+  color: inherit;
 }
 
-/* Form styling */
-input, textarea {
-  @apply border border-neutral-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary;
-}
-
-/* Link styling */
-a {
-  @apply text-primary hover:text-primary/80 transition-colors;
+.lucide {
+  color: inherit;
 }
