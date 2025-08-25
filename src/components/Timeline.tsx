@@ -17,7 +17,7 @@ export function Timeline({ experiences }: TimelineProps) {
   return (
     <div className="relative">
       {/* Vertical line */}
-      <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-chocolate via-gold/50 to-transparent" />
+      <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-chocolate via-chocolate/50 to-transparent" />
       
       <div className="space-y-8">
         {experiences.map((experience, index) => (

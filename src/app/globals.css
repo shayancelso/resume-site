@@ -278,6 +278,21 @@
   .bg-gradient-to-b {
     background: #ffffff !important;
   }
+
+  /* Catch any remaining gold/amber/yellow classes */
+  [class*="gold"],
+  [class*="amber"],
+  [class*="yellow"] {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  /* Override any Tailwind default button/badge variants that might have colors */
+  .bg-default,
+  .bg-primary {
+    background-color: #5C4033 !important;
+    color: #ffffff !important;
+  }
 }
 
 @layer utilities {
