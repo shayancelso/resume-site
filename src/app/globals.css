@@ -144,12 +144,13 @@
   /* High Contrast Button System */
   .btn-primary {
     background-color: #000000;
-    color: #ffffff;
+    color: #ffffff !important;
     @apply px-6 py-3 rounded-lg font-medium transition-all duration-200 inline-flex items-center justify-center gap-2 border-0;
   }
   
   .btn-primary:hover {
     background-color: #333333;
+    color: #ffffff !important;
   }
   
   .btn-outline {
@@ -230,7 +231,7 @@
     color: #000000 !important;
   }
   
-  /* Force remove any background colors */
+  /* Force remove any background colors - make them light gray like preferred sections */
   .bg-green-50,
   .bg-blue-50,
   .bg-emerald-50,
@@ -245,8 +246,9 @@
   .bg-orange-50,
   .bg-amber-50,
   .bg-yellow-50,
-  .bg-lime-50 {
-    background-color: #f8f8f8 !important;
+  .bg-lime-50,
+  .bg-primary\/10 {
+    background-color: #f0f0f0 !important;
   }
 }
 
@@ -272,6 +274,12 @@
 /* Force override any system colors */
 * {
   color: inherit;
+}
+
+/* Ensure all skill card icon backgrounds match the preferred sections */
+.bg-primary\/10,
+.bg-primary\/5 {
+  background-color: #f0f0f0 !important;
 }
 
 /* High contrast form elements */
