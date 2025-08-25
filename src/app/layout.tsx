@@ -2,7 +2,6 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/Header';
-import { PasswordGate } from '@/components/PasswordGate';
 import { cn } from '@/lib/utils';
 
 const inter = Inter({ 
@@ -56,12 +55,10 @@ export default function RootLayout({
         inter.variable,
         'min-h-screen bg-background font-sans antialiased grain'
       )}>
-        <PasswordGate>
-          <Header />
-          <main className="pt-20">
-            {children}
-          </main>
-        </PasswordGate>
+        <Header />
+        <main className="pt-20">
+          {children}
+        </main>
       </body>
     </html>
   );
