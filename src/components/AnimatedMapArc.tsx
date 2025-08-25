@@ -27,7 +27,7 @@ export function AnimatedMapArc() {
   }
 
   return (
-    <div className="relative w-full h-64 gradient-executive rounded-2xl overflow-hidden glass p-6">
+    <div className="relative w-full h-64 bg-neutral-50 rounded-2xl overflow-hidden p-6 border border-neutral-200">
       {/* Achievements Grid */}
       <div className="grid grid-cols-2 gap-4 h-full">
         {achievements.map((achievement, index) => {
@@ -35,19 +35,19 @@ export function AnimatedMapArc() {
           return (
             <motion.div
               key={achievement.label}
-              className="flex flex-col items-center justify-center text-center bg-gold/10 rounded-xl backdrop-blur-sm border border-gold/20"
+              className="flex flex-col items-center justify-center text-center bg-white rounded-xl border border-neutral-200 shadow-sm"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, boxShadow: "0 4px 12px rgba(92, 64, 51, 0.15)" }}
             >
-              <div className="mb-2 p-3 bg-gold/20 rounded-full">
-                <IconComponent className="w-6 h-6 text-gold" />
+              <div className="mb-2 p-3 bg-neutral-100 rounded-full">
+                <IconComponent className="w-6 h-6 text-chocolate" />
               </div>
-              <div className="text-white font-semibold text-sm">
+              <div className="text-black font-semibold text-sm">
                 {achievement.label}
               </div>
-              <div className="text-gold/80 text-xs font-medium">
+              <div className="text-muted text-xs font-medium">
                 {achievement.value}
               </div>
             </motion.div>
