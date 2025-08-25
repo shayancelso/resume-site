@@ -206,10 +206,18 @@
   
   .text-chocolate {
     color: #5C4033 !important;
+    font-weight: 600;
   }
   
   .text-muted {
     color: #404040 !important;
+  }
+  
+  /* Ensure headline text is always readable */
+  h1 .text-chocolate,
+  .hero-title .text-chocolate {
+    color: #5C4033 !important;
+    font-weight: 700;
   }
   
   /* Override any unwanted colors */
@@ -280,6 +288,29 @@
 .bg-primary\/10,
 .bg-primary\/5 {
   background-color: #f0f0f0 !important;
+}
+
+/* Enhanced interactive elements */
+.card-clean {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-clean:hover {
+  transform: translateY(-2px);
+}
+
+/* Smooth animations for hero elements */
+.hero-title {
+  perspective: 1000px;
+}
+
+/* Performance optimizations for animations */
+.card-clean,
+.btn-primary,
+.btn-outline,
+.btn-chocolate {
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 /* High contrast form elements */

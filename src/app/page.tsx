@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { AnimatedMapArc } from '@/components/AnimatedMapArc';
+import { AnimatedCounter } from '@/components/AnimatedCounter';
+import { FloatingElements } from '@/components/FloatingElements';
 import { CardTilt } from '@/components/CardTilt';
 import { getProfile, getCurrentRole, getAwards, getSkills } from '@/lib/data';
 import Link from 'next/link';
@@ -56,7 +58,8 @@ export default function HomePage() {
   };
 
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white relative">
+      <FloatingElements />
       <motion.div
         variants={containerVariants}
         initial="hidden"
@@ -73,8 +76,16 @@ export default function HomePage() {
                     Account Manager & AI Enthusiast
                   </div>
                   
-                  <h1 className="text-balance">
-                    Expansions, renewals, and <span className="text-chocolate">AI-enhanced workflows</span>
+                  <h1 className="text-balance hero-title">
+                    Expansions, renewals, and{' '}
+                    <motion.span 
+                      className="text-chocolate"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.6, delay: 0.8 }}
+                    >
+                      AI-enhanced workflows
+                    </motion.span>
                   </h1>
                   
                   <p className="text-lg text-muted max-w-2xl text-balance">
@@ -116,27 +127,72 @@ export default function HomePage() {
               className="grid grid-cols-1 md:grid-cols-3 gap-6"
             >
               <CardTilt>
-                <div className="card-clean text-center">
-                  <TrendingUp className="w-12 h-12 mx-auto text-chocolate mb-4" />
-                  <h3 className="text-3xl font-bold mb-2 text-black">280%</h3>
+                <motion.div 
+                  className="card-clean text-center group"
+                  whileHover={{ 
+                    scale: 1.05,
+                    boxShadow: "0 10px 30px rgba(92, 64, 51, 0.15)"
+                  }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <motion.div
+                    initial={{ rotate: 0 }}
+                    whileHover={{ rotate: 12, scale: 1.1 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <TrendingUp className="w-12 h-12 mx-auto text-chocolate mb-4" />
+                  </motion.div>
+                  <h3 className="text-3xl font-bold mb-2 text-black">
+                    <AnimatedCounter from={0} to={280} suffix="%" duration={2.5} />
+                  </h3>
                   <p className="text-muted">FY25 Quota Achievement</p>
-                </div>
+                </motion.div>
               </CardTilt>
 
               <CardTilt>
-                <div className="card-clean text-center">
-                  <Award className="w-12 h-12 mx-auto text-chocolate mb-4" />
-                  <h3 className="text-3xl font-bold mb-2 text-black">{awards.length}</h3>
+                <motion.div 
+                  className="card-clean text-center group"
+                  whileHover={{ 
+                    scale: 1.05,
+                    boxShadow: "0 10px 30px rgba(92, 64, 51, 0.15)"
+                  }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <motion.div
+                    initial={{ rotate: 0 }}
+                    whileHover={{ rotate: -12, scale: 1.1 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Award className="w-12 h-12 mx-auto text-chocolate mb-4" />
+                  </motion.div>
+                  <h3 className="text-3xl font-bold mb-2 text-black">
+                    <AnimatedCounter from={0} to={awards.length} duration={1.8} />
+                  </h3>
                   <p className="text-muted">Awards in 2024</p>
-                </div>
+                </motion.div>
               </CardTilt>
 
               <CardTilt>
-                <div className="card-clean text-center">
-                  <Users className="w-12 h-12 mx-auto text-chocolate mb-4" />
-                  <h3 className="text-3xl font-bold mb-2 text-black">100%</h3>
+                <motion.div 
+                  className="card-clean text-center group"
+                  whileHover={{ 
+                    scale: 1.05,
+                    boxShadow: "0 10px 30px rgba(92, 64, 51, 0.15)"
+                  }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <motion.div
+                    initial={{ rotate: 0 }}
+                    whileHover={{ rotate: 12, scale: 1.1 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Users className="w-12 h-12 mx-auto text-chocolate mb-4" />
+                  </motion.div>
+                  <h3 className="text-3xl font-bold mb-2 text-black">
+                    <AnimatedCounter from={0} to={100} suffix="%" duration={2.2} />
+                  </h3>
                   <p className="text-muted">Client Retention Rate</p>
-                </div>
+                </motion.div>
               </CardTilt>
             </motion.div>
           </div>
@@ -159,17 +215,37 @@ export default function HomePage() {
                 return (
                   <CardTilt key={skill.id}>
                     <motion.div
-                      className="card-clean group hover:shadow-md transition-all duration-200"
+                      className="card-clean group"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.4, delay: index * 0.1 }}
+                      whileHover={{ 
+                        scale: 1.02,
+                        boxShadow: "0 8px 25px rgba(92, 64, 51, 0.12)"
+                      }}
                     >
                       <div className="flex items-start gap-4">
-                        <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                          <IconComponent className="w-6 h-6 text-chocolate" />
-                        </div>
-                        <div>
-                          <h3 className="font-semibold mb-2 text-black">{skill.name}</h3>
+                        <motion.div 
+                          className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0"
+                          whileHover={{ 
+                            scale: 1.15,
+                            backgroundColor: "rgba(92, 64, 51, 0.1)"
+                          }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <motion.div
+                            whileHover={{ rotate: 5, scale: 1.1 }}
+                            transition={{ duration: 0.2 }}
+                          >
+                            <IconComponent className="w-6 h-6 text-chocolate" />
+                          </motion.div>
+                        </motion.div>
+                        <div className="flex-1">
+                          <motion.h3 
+                            className="font-semibold mb-2 text-black group-hover:text-chocolate transition-colors duration-200"
+                          >
+                            {skill.name}
+                          </motion.h3>
                           <p className="text-sm text-muted">
                             {skill.description || 'Professional expertise with proven results'}
                           </p>
