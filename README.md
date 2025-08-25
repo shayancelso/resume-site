@@ -122,8 +122,8 @@ The contact form uses **Resend** for reliable email delivery.
 2. **Get your API key** from the [API Keys page](https://resend.com/api-keys)
 3. **Add environment variables** to your deployment:
    ```env
-   RESEND_API_KEY=re_GXJ9jzYn_2oQHJHVopP1L1uCU9gLNxfzo
-   CONTACT_EMAIL=shayan.mirzazadeh@gmail.com
+   RESEND_API_KEY=ryour_api_key
+   CONTACT_EMAIL=address
    ```
 
 ### How it works:
