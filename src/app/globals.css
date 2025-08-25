@@ -279,10 +279,13 @@
     background: #ffffff !important;
   }
 
-  /* Catch any remaining gold/amber/yellow classes */
+  /* AGGRESSIVE: Catch any remaining gold/amber/yellow classes */
   [class*="gold"],
   [class*="amber"],
-  [class*="yellow"] {
+  [class*="yellow"],
+  [class*="Gold"],
+  [class*="Amber"],
+  [class*="Yellow"] {
     background-color: #ffffff !important;
     color: #000000 !important;
   }
@@ -292,6 +295,40 @@
   .bg-primary {
     background-color: #5C4033 !important;
     color: #ffffff !important;
+  }
+
+  /* NUCLEAR OPTION: Force all timeline cards to white background */
+  .timeline-card,
+  [class*="timeline"],
+  [class*="Timeline"],
+  .Card,
+  .card {
+    background-color: #ffffff !important;
+  }
+
+  /* Force header to white background */
+  header,
+  .header,
+  nav,
+  .nav {
+    background-color: #ffffff !important;
+  }
+
+  /* ULTIMATE FALLBACK: Override any potentially yellow/gold backgrounds */
+  div[style*="yellow"],
+  div[style*="gold"],
+  div[style*="amber"],
+  div[style*="background-color: rgb(255, 255"],
+  div[style*="background-color: rgb(248, 250"],
+  div[style*="background-color: rgb(254, 240"] {
+    background-color: #ffffff !important;
+  }
+
+  /* Force CSS variables to safe values */
+  :root {
+    --yellow: 255 255 255 !important;
+    --amber: 255 255 255 !important;
+    --gold: 92 64 51 !important;
   }
 }
 
