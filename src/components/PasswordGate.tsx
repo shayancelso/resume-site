@@ -48,7 +48,7 @@ export function PasswordGate({ children }: PasswordGateProps) {
         <motion.div
           animate={{ rotate: 360 }}
           transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-          className="w-8 h-8 border-2 border-gold border-t-transparent rounded-full"
+          className="w-8 h-8 border-2 border-chocolate border-t-transparent rounded-full"
         />
       </div>
     );
@@ -66,15 +66,15 @@ export function PasswordGate({ children }: PasswordGateProps) {
         transition={{ duration: 0.6 }}
         className="w-full max-w-md"
       >
-        <Card className="bg-slate-800/50 backdrop-blur-xl border-gold/20">
+        <Card className="bg-slate-800/50 backdrop-blur-xl border-chocolate/20">
           <CardHeader className="text-center pb-6">
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
-              className="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-4"
+              className="w-16 h-16 bg-chocolate/20 rounded-full flex items-center justify-center mx-auto mb-4"
             >
-              <Lock className="w-8 h-8 text-gold" />
+              <Lock className="w-8 h-8 text-chocolate" />
             </motion.div>
             <CardTitle className="text-2xl font-heading text-white font-bold">
               Resume Access
@@ -92,7 +92,7 @@ export function PasswordGate({ children }: PasswordGateProps) {
                   placeholder="Enter password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="pr-12 bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-400 focus:border-gold focus:ring-gold/20"
+                  className="pr-12 bg-slate-700/50 border-slate-600 text-white placeholder:text-slate-400 focus:border-chocolate focus:ring-gold/20"
                   required
                 />
                 <button

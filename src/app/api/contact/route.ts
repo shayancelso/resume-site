@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
         subject: `New Contact Form Message from ${name}`,
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2 style="color: #D4AF37; border-bottom: 2px solid #D4AF37; padding-bottom: 10px;">
+            <h2 style="color: #5C4033; border-bottom: 2px solid #5C4033; padding-bottom: 10px;">
               New Contact Form Submission
             </h2>
             
@@ -51,7 +51,7 @@ export async function POST(request: NextRequest) {
               <p><strong>Submitted:</strong> ${new Date().toLocaleString()}</p>
             </div>
             
-            <div style="background-color: #fff; padding: 20px; border-left: 4px solid #D4AF37; margin: 20px 0;">
+            <div style="background-color: #fff; padding: 20px; border-left: 4px solid #5C4033; margin: 20px 0;">
               <h3 style="margin-top: 0; color: #333;">Message</h3>
               <p style="line-height: 1.6; color: #555;">${message.replace(/\n/g, '<br>')}</p>
             </div>

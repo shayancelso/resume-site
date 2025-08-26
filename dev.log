@@ -196,8 +196,9 @@ digest: "1363575850"
 <w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename '/Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/server-development/0.pack.gz_' -> '/Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/server-development/0.pack.gz'
  ✓ Compiled in 2s (1559 modules)
  ✓ Compiled in 1036ms (1545 modules)
-l: 'stat',
-  path: '/Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/client-development/1.pack.gz'
+   Reload env: .env.local
+   Reload env: .env.local
+s/Vibes/Resume/.next/cache/webpack/client-development/1.pack.gz'
 }
  ⨯ unhandledRejection: [Error: ENOENT: no such file or directory, stat '/Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/client-development/1.pack.gz'] {
   errno: -2,
@@ -529,3 +530,18 @@ Import trace for requested module:
 <w> [webpack.cache.PackFileCacheStrategy] Restoring pack from /Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/client-development.pack.gz failed: TypeError: Cannot read properties of undefined (reading 'hasStartTime')
  ✓ Compiled in 450ms (1336 modules)
  ✓ Compiled in 293ms (1336 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Restoring pack from /Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/client-development.pack.gz failed: TypeError: Cannot read properties of undefined (reading 'hasStartTime')
+ ✓ Compiled in 314ms (666 modules)
+ ✓ Compiled in 137ms (666 modules)
+ ✓ Compiled in 130ms (666 modules)
+ ✓ Compiled in 141ms (666 modules)
+ ✓ Compiled in 123ms (666 modules)
+ ✓ Compiled in 152ms (666 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Restoring pack from /Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/client-development.pack.gz failed: TypeError: Cannot read properties of undefined (reading 'hasStartTime')
+ ✓ Compiled in 246ms (666 modules)
+ ✓ Compiled in 122ms (666 modules)
+   Reload env: .env.local
+ ✓ Compiled in 263ms (1322 modules)
+   Reload env: .env.local
+<w> [webpack.cache.PackFileCacheStrategy] Restoring pack from /Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/client-development.pack.gz failed: TypeError: Cannot read properties of undefined (reading 'hasStartTime')
+ ✓ Compiled in 256ms (1322 modules)

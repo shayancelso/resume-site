@@ -40,7 +40,7 @@ export function SkillRing({
             cx={size / 2}
             cy={size / 2}
             r={(size - 20) / 2}
-            stroke="rgba(233, 223, 199, 0.3)"
+            stroke="rgba(224, 224, 224, 0.3)"
             strokeWidth="8"
             fill="none"
           />
@@ -69,7 +69,7 @@ export function SkillRing({
           {/* Gradient definition */}
           <defs>
             <linearGradient id="skillGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#C8A96A" />
+              <stop offset="0%" stopColor="#5C4033" />
               <stop offset="100%" stopColor="#5D4037" />
             </linearGradient>
           </defs>
@@ -78,7 +78,7 @@ export function SkillRing({
         {/* Percentage in center */}
         <div className="absolute inset-0 flex items-center justify-center">
           <motion.span
-            className="text-xl font-bold text-gold"
+            className="text-xl font-bold text-chocolate"
             initial={{ opacity: 0, scale: 0 }}
             animate={isInView ? { 
               opacity: 1, 
