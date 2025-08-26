@@ -90,31 +90,31 @@ export default function HomePage() {
                   </h1>
                   
                   <p className="text-lg text-muted max-w-2xl text-balance">
-                    Proven account manager with expertise in client expansion, retention, and AI-driven process optimization. 
-                    <strong className="text-black">280% quota achievement</strong> and <strong className="text-black">100% client retention</strong> demonstrate 
-                    my commitment to measurable results and executive-level relationship building.
+                    Showcasing proven expertise in strategic account management, client expansion, and AI-driven process optimization. 
+                    <strong className="text-black">280% quota achievement</strong> and <strong className="text-black">100% client retention</strong> reflect 
+                    a track record of measurable results and executive-level relationship building.
                   </p>
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                   <Link href="/experience">
                     <div className="btn-primary group">
-                      Explore My Track Record
+                      View Experience Details
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </Link>
                   
-                  <Link href="/contact">
+                  <Link href="/about">
                     <div className="btn-outline">
-                      Let's Connect
+                      Learn More
                     </div>
                   </Link>
                 </div>
                 
                 <div className="mt-6 p-4 rounded-lg border border-neutral-200" style={{backgroundColor: '#fefefe'}}>
                   <p className="text-sm text-muted">
-                    👆 <strong className="text-black">Start here:</strong> See how I've consistently delivered 280%+ quota performance, 
-                    maintained 100% retention rates, and earned multiple recognition awards in 2024.
+                    👆 <strong className="text-black">Portfolio highlight:</strong> Explore documented achievements including 280%+ quota performance, 
+                    100% retention rates, and multiple recognition awards earned in 2024.
                   </p>
                 </div>
               </motion.div>
@@ -272,23 +272,23 @@ export default function HomePage() {
           <div className="container">
             <motion.div variants={itemVariants} className="text-center max-w-3xl mx-auto">
               <div className="card-clean p-12">
-                <h2 className="mb-4">Ready to explore what's possible?</h2>
+                <h2 className="mb-4">Explore My Professional Journey</h2>
                 <p className="text-lg text-muted mb-8">
-                  Discover how strategic account management and AI-driven process optimization 
-                  can deliver measurable results for your team.
+                  A comprehensive showcase of strategic account management expertise, 
+                  innovative process improvements, and measurable business impact.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <Link href="/experience">
                     <div className="btn-chocolate">
-                      View Detailed Experience
+                      View Full Experience
                       <ArrowRight className="w-4 h-4" />
                     </div>
                   </Link>
                   
-                  <Link href="/contact">
+                  <Link href="/skills">
                     <div className="btn-outline">
-                      Let's Connect
+                      View Skills
                     </div>
                   </Link>
                 </div>

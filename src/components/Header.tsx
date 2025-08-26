@@ -12,6 +12,7 @@ const navigation = [
   { name: 'About', href: '/about' },
   { name: 'Experience', href: '/experience' },
   { name: 'Skills', href: '/skills' },
+  { name: 'Projects', href: '/projects', badge: 'Coming Soon' },
   { name: 'Contact', href: '/contact' },
 ];
 
@@ -82,9 +83,14 @@ export function Header() {
                 >
                   <Link
                     href={item.href}
-                    className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-200 relative group"
+                    className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors duration-200 relative group flex items-center gap-2"
                   >
                     {item.name}
+                    {item.badge && (
+                      <span className="badge-minimal text-xs">
+                        {item.badge}
+                      </span>
+                    )}
                     <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-chocolate transition-all duration-200 group-hover:w-full" />
                   </Link>
                 </motion.div>
@@ -113,7 +119,7 @@ export function Header() {
               
               <Link href="/contact">
                 <Button size="sm">
-                  Get in Touch
+                  Connect
                 </Button>
               </Link>
             </div>
@@ -155,10 +161,15 @@ export function Header() {
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
+                    className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors flex items-center gap-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}
+                    {item.badge && (
+                      <span className="badge-minimal text-xs">
+                        {item.badge}
+                      </span>
+                    )}
                   </Link>
                 ))}
                 
@@ -183,7 +194,7 @@ export function Header() {
                   
                   <Link href="/contact">
                     <Button size="sm" onClick={() => setIsMenuOpen(false)}>
-                      Get in Touch
+                      Connect
                     </Button>
                   </Link>
                 </div>
@@ -205,7 +216,7 @@ export function Header() {
         <Link href="/contact">
           <Button className="rounded-full px-6 py-3 shadow-lg hover:shadow-xl">
             <Mail className="w-4 h-4 mr-2" />
-            Contact
+            Connect
           </Button>
         </Link>
       </motion.div>

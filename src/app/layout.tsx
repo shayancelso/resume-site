@@ -10,13 +10,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Shayan Mirzazadeh - Account Manager',
-  description: 'Account Manager specializing in expansions and renewals, focused on measurable ROI and executive alignment with AI-driven process improvements.',
+  title: 'Shayan Mirzazadeh - Strategic Account Manager Portfolio',
+  description: 'Portfolio showcasing proven expertise in strategic account management, client expansion, and AI-driven process optimization with documented results and achievements.',
   keywords: ['Account Manager', 'Sales', 'Expansion', 'Renewals', 'AI', 'SaaS', 'Client Success'],
   authors: [{ name: 'Shayan Mirzazadeh' }],
   openGraph: {
-    title: 'Shayan Mirzazadeh - Account Manager',
-    description: 'Account Manager specializing in expansions and renewals with AI-driven process improvements.',
+    title: 'Shayan Mirzazadeh - Strategic Account Manager Portfolio',
+    description: 'Portfolio showcasing proven expertise in strategic account management and AI-driven process optimization.',
     url: 'https://shayan-resume.vercel.app',
     siteName: 'Shayan Mirzazadeh',
     locale: 'en_US',
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Shayan Mirzazadeh - Account Manager',
-    description: 'Account Manager specializing in expansions and renewals with AI-driven process improvements.',
+    title: 'Shayan Mirzazadeh - Strategic Account Manager Portfolio',
+    description: 'Portfolio showcasing strategic account management expertise and AI-driven process optimization.',
   },
   robots: {
     index: true,
