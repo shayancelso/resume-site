@@ -93,7 +93,7 @@ export default function ContactPage() {
             Let's <span className="text-chocolate">Connect</span>
           </h1>
           <p className="text-xl text-muted max-w-3xl mx-auto">
-            Questions about my experience, methodologies, or strategic approach to account management? 
+            Have a question or want to start a conversation? 
             Feel free to reach out - I'm always happy to connect.
           </p>
         </motion.div>
@@ -149,7 +149,7 @@ export default function ContactPage() {
                     value={formData.message}
                     onChange={handleInputChange}
                     required
-                    placeholder="Ask me about my experience, share your thoughts, or just say hello..."
+                    placeholder="Share your thoughts, ask a question, or just say hello..."
                     rows={6}
                     className="w-full"
                   />

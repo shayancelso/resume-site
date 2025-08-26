@@ -622,3 +622,6 @@ Import trace for requested module:
 <w> [webpack.cache.PackFileCacheStrategy] Restoring pack from /Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/client-development.pack.gz failed: TypeError: Cannot read properties of undefined (reading 'hasStartTime')
  ✓ Compiled in 290ms (1330 modules)
  ✓ Compiled in 210ms (1330 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Restoring pack from /Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/client-development.pack.gz failed: TypeError: Cannot read properties of undefined (reading 'hasStartTime')
+ ✓ Compiled in 405ms (1330 modules)
+ ✓ Compiled in 266ms (663 modules)

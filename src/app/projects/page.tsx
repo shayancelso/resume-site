@@ -1,10 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Clock, Code, Star, ArrowRight, Wrench, Lightbulb, Zap } from 'lucide-react';
+import { Construction, Hammer, Wrench, HardHat, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ProjectsPage() {
@@ -31,26 +30,55 @@ export default function ProjectsPage() {
     },
   };
 
-  const upcomingProjects = [
-    {
-      icon: Wrench,
-      title: "Process Automation Framework",
-      description: "Comprehensive documentation of AI-driven workflow optimization methodologies",
-      category: "Automation"
-    },
-    {
-      icon: Lightbulb,
-      title: "Strategic Account Management Playbook",
-      description: "Best practices and frameworks for scaling account management excellence",
-      category: "Strategy"
-    },
-    {
-      icon: Zap,
-      title: "Performance Analytics Dashboard",
-      description: "Interactive showcase of key metrics and achievement patterns",
-      category: "Analytics"
+  // Floating construction tools animation
+  const floatingVariants = {
+    animate: {
+      y: [-10, 10, -10],
+      rotate: [-5, 5, -5],
+      transition: {
+        duration: 3,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
     }
-  ];
+  };
+
+  const floatingVariants2 = {
+    animate: {
+      y: [10, -10, 10],
+      rotate: [5, -5, 5],
+      transition: {
+        duration: 2.5,
+        repeat: Infinity,
+        ease: "easeInOut",
+        delay: 0.5
+      }
+    }
+  };
+
+  // Construction crane animation
+  const craneVariants = {
+    animate: {
+      rotate: [0, 2, -2, 0],
+      transition: {
+        duration: 4,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
+    }
+  };
+
+  // Progress bar animation
+  const progressVariants = {
+    animate: {
+      width: ["0%", "75%", "0%"],
+      transition: {
+        duration: 3,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
+    }
+  };
 
   return (
     <motion.div
@@ -66,67 +94,119 @@ export default function ProjectsPage() {
             Coming Soon
           </div>
           <h1 className="mb-6">
-            Featured <span className="text-chocolate">Projects</span>
+            Projects <span className="text-chocolate">Under Construction</span>
           </h1>
           <p className="text-xl text-muted max-w-3xl mx-auto">
-            Exciting projects showcasing innovative solutions, strategic frameworks, 
-            and process improvements are currently in development.
+            Exciting projects are currently in development. 
+            Check back soon to see what I've been working on!
           </p>
         </motion.div>
 
-        {/* Coming Soon Section */}
+        {/* Construction Animation Section */}
         <motion.div variants={itemVariants} className="mb-20">
-          <div className="card-clean p-12 text-center">
-            <div className="flex justify-center mb-6">
-              <div className="w-16 h-16 bg-chocolate/10 rounded-full flex items-center justify-center">
-                <Clock className="w-8 h-8 text-chocolate" />
+          <div className="relative card-clean p-16 text-center overflow-hidden" style={{background: 'linear-gradient(135deg, #f8f9ff 0%, #fff5e6 100%)'}}>
+            {/* Floating background elements */}
+            <div className="absolute inset-0 pointer-events-none">
+              {/* Construction tools floating around */}
+              <motion.div
+                variants={floatingVariants}
+                animate="animate"
+                className="absolute top-10 left-10 w-12 h-12 rounded-full flex items-center justify-center"
+                style={{background: 'linear-gradient(45deg, #ff9a56, #ffa726)'}}
+              >
+                <Hammer className="w-6 h-6 text-white" />
+              </motion.div>
+
+              <motion.div
+                variants={floatingVariants2}
+                animate="animate"
+                className="absolute top-16 right-16 w-12 h-12 rounded-full flex items-center justify-center"
+                style={{background: 'linear-gradient(45deg, #42a5f5, #64b5f6)'}}
+              >
+                <Wrench className="w-6 h-6 text-white" />
+              </motion.div>
+
+              <motion.div
+                variants={floatingVariants}
+                animate="animate"
+                className="absolute bottom-20 left-20 w-12 h-12 rounded-full flex items-center justify-center"
+                style={{background: 'linear-gradient(45deg, #66bb6a, #81c784)'}}
+              >
+                <HardHat className="w-6 h-6 text-white" />
+              </motion.div>
+
+              {/* Construction crane */}
+              <motion.div
+                variants={craneVariants}
+                animate="animate"
+                className="absolute top-4 right-4 text-6xl"
+                style={{color: '#f57c00'}}
+              >
+                🏗️
+              </motion.div>
+            </div>
+
+            {/* Main construction icon */}
+            <div className="relative z-10">
+              <motion.div
+                animate={{
+                  scale: [1, 1.1, 1],
+                  rotate: [0, 5, -5, 0]
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="flex justify-center mb-8"
+              >
+                <div className="w-24 h-24 rounded-full flex items-center justify-center shadow-lg"
+                     style={{background: 'linear-gradient(135deg, #ff6b35, #f7931e)'}}>
+                  <Construction className="w-12 h-12 text-white" />
+                </div>
+              </motion.div>
+              
+              <h2 className="mb-6 text-3xl font-bold">🚧 Work in Progress 🚧</h2>
+              <p className="text-lg text-muted mb-8 max-w-2xl mx-auto">
+                Great things take time to build! I'm currently crafting some amazing projects 
+                that will be worth the wait. 
+              </p>
+
+              {/* Animated progress bar */}
+              <div className="max-w-md mx-auto mb-8">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-sm font-medium text-muted">Progress</span>
+                  <span className="text-sm font-medium text-chocolate">Building...</span>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                  <motion.div
+                    variants={progressVariants}
+                    animate="animate"
+                    className="h-3 rounded-full"
+                    style={{
+                      background: 'linear-gradient(90deg, #ff6b35, #f7931e, #42a5f5)',
+                      backgroundSize: '200% 100%'
+                    }}
+                  />
+                </div>
+              </div>
+              
+              <div className="inline-flex items-center gap-2 font-medium" style={{color: '#ff6b35'}}>
+                <motion.div
+                  animate={{rotate: 360}}
+                  transition={{duration: 2, repeat: Infinity, ease: "linear"}}
+                >
+                  ⚡
+                </motion.div>
+                Expected Launch: Coming Soon!
+                <motion.div
+                  animate={{rotate: 360}}
+                  transition={{duration: 2, repeat: Infinity, ease: "linear", delay: 1}}
+                >
+                  ⚡
+                </motion.div>
               </div>
             </div>
-            
-            <h2 className="mb-4">Projects in Development</h2>
-            <p className="text-lg text-muted mb-8 max-w-2xl mx-auto">
-              I'm currently working on several exciting projects that will showcase practical applications 
-              of strategic account management, AI process optimization, and innovative business solutions. 
-              <strong className="text-black"> Stay tuned!</strong>
-            </p>
-            
-            <div className="inline-flex items-center gap-2 text-chocolate font-medium">
-              <Star className="w-4 h-4" />
-              Expected Launch: Q2 2025
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Preview Cards */}
-        <motion.div variants={itemVariants} className="mb-20">
-          <div className="text-center mb-12">
-            <h3 className="text-2xl font-heading font-bold mb-4">What's Coming</h3>
-            <p className="text-muted max-w-2xl mx-auto">
-              A sneak peek at the innovative projects and frameworks currently in development
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {upcomingProjects.map((project, index) => {
-              const IconComponent = project.icon;
-              return (
-                <motion.div
-                  key={project.title}
-                  variants={itemVariants}
-                  className="card-clean group hover:border-chocolate/20 transition-all duration-300"
-                >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-chocolate/10 rounded-lg flex items-center justify-center group-hover:bg-chocolate/20 transition-colors">
-                      <IconComponent className="w-5 h-5 text-chocolate" />
-                    </div>
-                    <span className="badge-minimal">{project.category}</span>
-                  </div>
-                  
-                  <h4 className="text-lg font-heading font-bold mb-3">{project.title}</h4>
-                  <p className="text-muted leading-relaxed">{project.description}</p>
-                </motion.div>
-              );
-            })}
           </div>
         </motion.div>
 
@@ -134,11 +214,11 @@ export default function ProjectsPage() {
         <motion.div variants={itemVariants} className="text-center mb-20">
           <div className="card-clean p-10 bg-section-alt border-neutral-300">
             <h3 className="text-2xl font-heading font-bold mb-4">
-              Interested in My Work?
+              Want to Stay Updated?
             </h3>
             <p className="text-lg text-muted mb-8 max-w-2xl mx-auto">
-              While these projects are in development, you can explore my proven track record 
-              of delivering exceptional results in strategic account management.
+              While the projects are in development, feel free to explore my experience 
+              and get in touch if you'd like to connect!
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
