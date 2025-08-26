@@ -132,7 +132,7 @@
   }
   
   .bg-section-alt {
-    background-color: #f8f8f8;
+    background-color: #fefefe;
   }
   
   /* Clean Card System */
@@ -148,7 +148,7 @@
   }
   
   .card-minimal {
-    background-color: #f8f8f8;
+    background-color: #fefefe;
     @apply rounded-lg p-6;
   }
   
@@ -188,9 +188,9 @@
   
   /* High Contrast Badge System */
   .badge-minimal {
-    background-color: #f0f0f0;
+    background-color: #fefefe;
     color: #000000;
-    border: 1px solid #d0d0d0;
+    border: 1px solid #e0e0e0;
     @apply px-3 py-1 rounded-full text-sm font-medium;
   }
   
@@ -250,7 +250,7 @@
     color: #000000 !important;
   }
   
-  /* Force remove any background colors - make them light gray like preferred sections */
+  /* Force remove any background colors - make them creamy white like preferred sections */
   .bg-green-50,
   .bg-blue-50,
   .bg-emerald-50,
@@ -279,7 +279,7 @@
   .bg-primary\/10,
   .bg-luxury,
   .bg-gradient-to-br {
-    background-color: #f0f0f0 !important;
+    background-color: #fefefe !important;
   }
 
   /* Override any yellow/gold gradients */
@@ -398,7 +398,7 @@
 /* Ensure all skill card icon backgrounds match the preferred sections */
 .bg-primary\/10,
 .bg-primary\/5 {
-  background-color: #f0f0f0 !important;
+  background-color: #fefefe !important;
 }
 
 /* Enhanced interactive elements */
