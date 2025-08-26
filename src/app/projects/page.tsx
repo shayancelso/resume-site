@@ -104,50 +104,10 @@ export default function ProjectsPage() {
 
         {/* Construction Animation Section */}
         <motion.div variants={itemVariants} className="mb-20">
-          <div className="relative card-clean p-16 text-center" style={{background: 'linear-gradient(135deg, #f8f9ff 0%, #fff5e6 100%)'}}>
-            {/* Floating background elements */}
-            <div className="absolute inset-4 pointer-events-none">
-              {/* Construction tools floating around */}
-              <motion.div
-                variants={floatingVariants}
-                animate="animate"
-                className="absolute top-8 left-8 w-12 h-12 rounded-full flex items-center justify-center shadow-lg"
-                style={{background: 'linear-gradient(45deg, #ff9a56, #ffa726)'}}
-              >
-                <Hammer className="w-6 h-6 text-white" />
-              </motion.div>
-
-              <motion.div
-                variants={floatingVariants2}
-                animate="animate"
-                className="absolute top-12 right-8 w-12 h-12 rounded-full flex items-center justify-center shadow-lg"
-                style={{background: 'linear-gradient(45deg, #42a5f5, #64b5f6)'}}
-              >
-                <Wrench className="w-6 h-6 text-white" />
-              </motion.div>
-
-              <motion.div
-                variants={floatingVariants}
-                animate="animate"
-                className="absolute bottom-16 left-12 w-12 h-12 rounded-full flex items-center justify-center shadow-lg"
-                style={{background: 'linear-gradient(45deg, #66bb6a, #81c784)'}}
-              >
-                <HardHat className="w-6 h-6 text-white" />
-              </motion.div>
-
-              {/* Construction crane */}
-              <motion.div
-                variants={craneVariants}
-                animate="animate"
-                className="absolute top-6 right-12 text-5xl"
-                style={{color: '#f57c00'}}
-              >
-                🏗️
-              </motion.div>
-            </div>
-
+          <div className="relative card-clean p-16 text-center overflow-hidden" style={{background: 'linear-gradient(135deg, #f0f8f0 0%, #e8f5e8 100%)'}}>
+            
             {/* Main construction icon */}
-            <div className="relative z-10">
+            <div className="relative z-0">
               <motion.div
                 animate={{
                   scale: [1, 1.1, 1],
@@ -161,7 +121,7 @@ export default function ProjectsPage() {
                 className="flex justify-center mb-8"
               >
                 <div className="w-24 h-24 rounded-full flex items-center justify-center shadow-lg"
-                     style={{background: 'linear-gradient(135deg, #ff6b35, #f7931e)'}}>
+                     style={{background: 'linear-gradient(135deg, #2e7d32, #388e3c)'}}>
                   <Construction className="w-12 h-12 text-white" />
                 </div>
               </motion.div>
@@ -184,14 +144,14 @@ export default function ProjectsPage() {
                     animate="animate"
                     className="h-3 rounded-full"
                     style={{
-                      background: 'linear-gradient(90deg, #ff6b35, #f7931e, #42a5f5)',
+                      background: 'linear-gradient(90deg, #2e7d32, #388e3c, #4caf50)',
                       backgroundSize: '200% 100%'
                     }}
                   />
                 </div>
               </div>
               
-              <div className="inline-flex items-center gap-2 font-medium" style={{color: '#ff6b35'}}>
+              <div className="inline-flex items-center gap-2 font-medium" style={{color: '#2e7d32'}}>
                 <motion.div
                   animate={{rotate: 360}}
                   transition={{duration: 2, repeat: Infinity, ease: "linear"}}
@@ -206,6 +166,47 @@ export default function ProjectsPage() {
                   ⚡
                 </motion.div>
               </div>
+            </div>
+
+            {/* Floating construction elements - IN FRONT */}
+            <div className="absolute inset-0 pointer-events-none z-20">
+              {/* Construction tools floating around */}
+              <motion.div
+                variants={floatingVariants}
+                animate="animate"
+                className="absolute top-10 left-10 w-12 h-12 rounded-full flex items-center justify-center shadow-lg"
+                style={{background: 'linear-gradient(45deg, #2e7d32, #388e3c)'}}
+              >
+                <Hammer className="w-6 h-6 text-white" />
+              </motion.div>
+
+              <motion.div
+                variants={floatingVariants2}
+                animate="animate"
+                className="absolute top-16 right-16 w-12 h-12 rounded-full flex items-center justify-center shadow-lg"
+                style={{background: 'linear-gradient(45deg, #1b5e20, #2e7d32)'}}
+              >
+                <Wrench className="w-6 h-6 text-white" />
+              </motion.div>
+
+              <motion.div
+                variants={floatingVariants}
+                animate="animate"
+                className="absolute bottom-20 left-20 w-12 h-12 rounded-full flex items-center justify-center shadow-lg"
+                style={{background: 'linear-gradient(45deg, #388e3c, #4caf50)'}}
+              >
+                <HardHat className="w-6 h-6 text-white" />
+              </motion.div>
+
+              {/* Construction crane */}
+              <motion.div
+                variants={craneVariants}
+                animate="animate"
+                className="absolute top-4 right-4 text-6xl z-30"
+                style={{color: '#2e7d32'}}
+              >
+                🏗️
+              </motion.div>
             </div>
           </div>
         </motion.div>
