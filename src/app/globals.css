@@ -32,27 +32,6 @@
     --chocolate: 92 64 51;    /* #5C4033 */
   }
 
-  .dark {
-    --background: 0 0 0;
-    --foreground: 255 255 255;
-    --card: 20 20 20;
-    --card-foreground: 255 255 255;
-    --popover: 20 20 20;
-    --popover-foreground: 255 255 255;
-    --primary: 139 105 85;
-    --primary-foreground: 0 0 0;
-    --secondary: 30 30 30;
-    --secondary-foreground: 255 255 255;
-    --muted: 40 40 40;
-    --muted-foreground: 180 180 180;
-    --accent: 139 105 85;
-    --accent-foreground: 0 0 0;
-    --destructive: 220 38 38;
-    --destructive-foreground: 255 255 255;
-    --border: 60 60 60;
-    --input: 60 60 60;
-    --ring: 139 105 85;
-  }
 }
 
 @layer base {
@@ -61,16 +40,13 @@
   }
   
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-white text-black font-sans;
     font-feature-settings: "rlig" 1, "calt" 1;
     overflow-x: hidden;
     line-height: 1.6;
-  }
-
-  /* Dark mode body styles */
-  .dark body {
-    background-color: #000000 !important;
-    color: #ffffff !important;
+    color: #000000 !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
   }
 
   /* Force main container backgrounds */
@@ -88,11 +64,8 @@
   
   /* High Contrast Typography */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-bold text-foreground;
-  }
-
-  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
-    color: #ffffff !important;
+    @apply font-heading font-bold text-black;
+    color: #000000 !important;
   }
   
   h1 {
@@ -120,11 +93,8 @@
   }
   
   p {
-    @apply text-base leading-relaxed text-foreground;
-  }
-
-  .dark p {
-    color: #ffffff !important;
+    @apply text-base leading-relaxed text-black;
+    color: #000000 !important;
   }
   
   /* Responsive Container */
@@ -144,14 +114,11 @@
     background-color: #fefefe;
   }
 
-  .dark .bg-section-alt {
-    background-color: #0a0a0a !important;
-  }
   
   /* Clean Card System */
   .card-clean {
-    @apply bg-card rounded-lg p-6;
-    border: 1px solid rgb(var(--border));
+    @apply bg-white rounded-lg p-6;
+    border: 1px solid #e5e5e5;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.2s ease;
   }
@@ -159,25 +126,12 @@
   .card-clean:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
-
-  .dark .card-clean {
-    background-color: #141414 !important;
-    border-color: #3c3c3c !important;
-    box-shadow: 0 1px 3px rgba(255, 255, 255, 0.1);
-  }
-
-  .dark .card-clean:hover {
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
-  }
   
   .card-minimal {
     background-color: #fefefe;
     @apply rounded-lg p-6;
   }
 
-  .dark .card-minimal {
-    background-color: #0f0f0f !important;
-  }
   
   /* High Contrast Button System */
   .btn-primary {
@@ -213,14 +167,6 @@
     background-color: #4a3329;
   }
 
-  .dark .btn-chocolate {
-    background-color: #D4A574;
-    color: #000000;
-  }
-
-  .dark .btn-chocolate:hover {
-    background-color: #C19B60;
-  }
   
   /* High Contrast Badge System */
   .badge-minimal {
@@ -230,11 +176,6 @@
     @apply px-3 py-1 rounded-full text-sm font-medium;
   }
 
-  .dark .badge-minimal {
-    background-color: #1a1a1a !important;
-    color: #ffffff !important;
-    border-color: #3c3c3c !important;
-  }
   
   .badge-chocolate {
     background-color: #5C4033;
@@ -242,10 +183,6 @@
     @apply px-3 py-1 rounded-full text-sm font-medium;
   }
 
-  .dark .badge-chocolate {
-    background-color: #D4A574;
-    color: #000000;
-  }
   
   .badge-outline {
     @apply bg-white border border-gray-300 px-3 py-1 rounded-full text-sm font-medium;
@@ -267,17 +204,11 @@
     font-weight: 600;
   }
 
-  .dark .text-chocolate {
-    color: #D4A574 !important;
-  }
   
   .text-muted {
     color: #404040 !important;
   }
 
-  .dark .text-muted {
-    color: #b4b4b4 !important;
-  }
   
   /* Ensure headline text is always readable */
   h1 .text-chocolate,
@@ -492,16 +423,6 @@ input:focus, textarea:focus, select:focus {
   border-color: #5C4033;
 }
 
-.dark input, .dark textarea, .dark select {
-  background-color: #1a1a1a !important;
-  border-color: #3c3c3c !important;
-  color: #ffffff !important;
-}
-
-.dark input:focus, .dark textarea:focus, .dark select:focus {
-  outline: 2px solid #D4A574;
-  border-color: #D4A574;
-}
 
 /* Links */
 a {
@@ -513,13 +434,6 @@ a:hover {
   color: #4a3329;
 }
 
-.dark a {
-  color: #D4A574;
-}
-
-.dark a:hover {
-  color: #C19B60;
-}
 
 /* Responsive Design */
 @media (max-width: 640px) {
@@ -576,7 +490,3 @@ svg {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.dark .glass {
-  background: rgba(0, 0, 0, 0.9);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}

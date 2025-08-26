@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { Button } from './ui/button';
-import { Moon, Sun, Menu, X, Download, Mail } from 'lucide-react';
+import { Menu, X, Download, Mail } from 'lucide-react';
 import { cn, copyToClipboard, downloadFile } from '@/lib/utils';
 import Link from 'next/link';
 
@@ -16,17 +16,10 @@ const navigation = [
 ];
 
 export function Header() {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark';
-    if (savedTheme) {
-      setTheme(savedTheme);
-      document.documentElement.classList.toggle('dark', savedTheme === 'dark');
-    }
-    
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
@@ -34,13 +27,6 @@ export function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-    document.documentElement.classList.toggle('dark', newTheme === 'dark');
-  };
 
   const handleEmailCopy = async () => {
     const success = await copyToClipboard('shayan.mirzazadeh@gmail.com');
@@ -125,19 +111,6 @@ export function Header() {
                 <Download className="h-4 w-4" />
               </Button>
               
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={toggleTheme}
-                className="hover:bg-chocolate/10"
-              >
-                {theme === 'light' ? (
-                  <Moon className="h-4 w-4" />
-                ) : (
-                  <Sun className="h-4 w-4" />
-                )}
-              </Button>
-              
               <Link href="/contact">
                 <Button size="sm">
                   Get in Touch
@@ -206,19 +179,6 @@ export function Header() {
                     aria-label="Download resume PDF"
                   >
                     <Download className="h-4 w-4" aria-hidden="true" />
-                  </Button>
-                  
-                  <Button
-                    variant="ghost"
-                    size="icon"
-                    onClick={toggleTheme}
-                    aria-label={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
-                  >
-                    {theme === 'light' ? (
-                      <Moon className="h-4 w-4" aria-hidden="true" />
-                    ) : (
-                      <Sun className="h-4 w-4" aria-hidden="true" />
-                    )}
                   </Button>
                   
                   <Link href="/contact">
