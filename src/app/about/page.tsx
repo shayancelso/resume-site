@@ -250,14 +250,14 @@ export default function AboutPage() {
           <div className="card-clean p-12 max-w-4xl mx-auto">
             <h2 className="mb-4 text-black">Let's Connect</h2>
             <p className="text-lg text-muted mb-8 max-w-2xl mx-auto">
-              Whether you're interested in discussing opportunities, exploring how AI can transform sales processes, 
-              or sharing insights about innovative account management strategies, I'd love to have a conversation.
+              Interested in learning more about my background, discussing industry insights, 
+              or sharing thoughts on professional development? I'm always open to meaningful conversations.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
                 <div className="btn-chocolate">
-                  Get in Touch
+                  Connect
                   <ArrowRight className="w-4 h-4" />
                 </div>
               </Link>

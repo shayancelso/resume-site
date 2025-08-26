@@ -635,3 +635,20 @@ Import trace for requested module:
  ✓ Compiled in 189ms (663 modules)
 <w> [webpack.cache.PackFileCacheStrategy] Restoring pack from /Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/client-development.pack.gz failed: TypeError: Cannot read properties of undefined (reading 'hasStartTime')
  ✓ Compiled in 254ms (663 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Restoring pack from /Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/client-development.pack.gz failed: TypeError: Cannot read properties of undefined (reading 'hasStartTime')
+ ✓ Compiled in 415ms (1330 modules)
+ ✓ Compiled in 191ms (1330 modules)
+<w> [webpack.cache.PackFileCacheStrategy] Restoring pack from /Users/shayanmirzazadeh/Documents/Vibes/Resume/.next/cache/webpack/client-development.pack.gz failed: TypeError: Cannot read properties of undefined (reading 'hasStartTime')
+ ✓ Compiled in 404ms (1330 modules)
+ ⨯ ./src/app/layout.tsx:6:1
+Module not found: Can't resolve '@vercel/analytics/next'
+[0m [90m 4 |[39m [36mimport[39m { [33mHeader[39m } [36mfrom[39m [32m'@/components/Header'[39m[33m;[39m[0m
+[0m [90m 5 |[39m [36mimport[39m { cn } [36mfrom[39m [32m'@/lib/utils'[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m 6 |[39m [36mimport[39m { [33mAnalytics[39m } [36mfrom[39m [32m'@vercel/analytics/next'[39m[33m;[39m[0m
+[0m [90m   |[39m [31m[1m^[22m[39m[0m
+[0m [90m 7 |[39m[0m
+[0m [90m 8 |[39m [36mconst[39m inter [33m=[39m [33mInter[39m({ [0m
+[0m [90m 9 |[39m   subsets[33m:[39m [[32m'latin'[39m][33m,[39m[0m
+
+https://nextjs.org/docs/messages/module-not-found
+ ✓ Compiled in 123ms (663 modules)
