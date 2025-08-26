@@ -104,14 +104,14 @@ export default function ProjectsPage() {
 
         {/* Construction Animation Section */}
         <motion.div variants={itemVariants} className="mb-20">
-          <div className="relative card-clean p-16 text-center overflow-hidden" style={{background: 'linear-gradient(135deg, #f8f9ff 0%, #fff5e6 100%)'}}>
+          <div className="relative card-clean p-16 text-center" style={{background: 'linear-gradient(135deg, #f8f9ff 0%, #fff5e6 100%)'}}>
             {/* Floating background elements */}
-            <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute inset-4 pointer-events-none">
               {/* Construction tools floating around */}
               <motion.div
                 variants={floatingVariants}
                 animate="animate"
-                className="absolute top-10 left-10 w-12 h-12 rounded-full flex items-center justify-center"
+                className="absolute top-8 left-8 w-12 h-12 rounded-full flex items-center justify-center shadow-lg"
                 style={{background: 'linear-gradient(45deg, #ff9a56, #ffa726)'}}
               >
                 <Hammer className="w-6 h-6 text-white" />
@@ -120,7 +120,7 @@ export default function ProjectsPage() {
               <motion.div
                 variants={floatingVariants2}
                 animate="animate"
-                className="absolute top-16 right-16 w-12 h-12 rounded-full flex items-center justify-center"
+                className="absolute top-12 right-8 w-12 h-12 rounded-full flex items-center justify-center shadow-lg"
                 style={{background: 'linear-gradient(45deg, #42a5f5, #64b5f6)'}}
               >
                 <Wrench className="w-6 h-6 text-white" />
@@ -129,7 +129,7 @@ export default function ProjectsPage() {
               <motion.div
                 variants={floatingVariants}
                 animate="animate"
-                className="absolute bottom-20 left-20 w-12 h-12 rounded-full flex items-center justify-center"
+                className="absolute bottom-16 left-12 w-12 h-12 rounded-full flex items-center justify-center shadow-lg"
                 style={{background: 'linear-gradient(45deg, #66bb6a, #81c784)'}}
               >
                 <HardHat className="w-6 h-6 text-white" />
@@ -139,7 +139,7 @@ export default function ProjectsPage() {
               <motion.div
                 variants={craneVariants}
                 animate="animate"
-                className="absolute top-4 right-4 text-6xl"
+                className="absolute top-6 right-12 text-5xl"
                 style={{color: '#f57c00'}}
               >
                 🏗️
