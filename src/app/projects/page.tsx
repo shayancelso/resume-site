@@ -1,9 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Construction, Hammer, Wrench, HardHat, ArrowRight } from 'lucide-react';
+import { Construction, ArrowRight, Sparkles } from 'lucide-react';
 import Link from 'next/link';
 
 export default function ProjectsPage() {
@@ -30,56 +29,6 @@ export default function ProjectsPage() {
     },
   };
 
-  // Floating construction tools animation
-  const floatingVariants = {
-    animate: {
-      y: [-10, 10, -10],
-      rotate: [-5, 5, -5],
-      transition: {
-        duration: 3,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }
-    }
-  };
-
-  const floatingVariants2 = {
-    animate: {
-      y: [10, -10, 10],
-      rotate: [5, -5, 5],
-      transition: {
-        duration: 2.5,
-        repeat: Infinity,
-        ease: "easeInOut",
-        delay: 0.5
-      }
-    }
-  };
-
-  // Construction crane animation
-  const craneVariants = {
-    animate: {
-      rotate: [0, 2, -2, 0],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }
-    }
-  };
-
-  // Progress bar animation
-  const progressVariants = {
-    animate: {
-      width: ["0%", "75%", "0%"],
-      transition: {
-        duration: 3,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }
-    }
-  };
-
   return (
     <motion.div
       variants={containerVariants}
@@ -103,11 +52,78 @@ export default function ProjectsPage() {
         </motion.div>
 
         {/* Construction Animation Section */}
-        <motion.div variants={itemVariants} className="mb-20">
-          <div className="relative card-clean p-16 text-center overflow-hidden" style={{background: 'linear-gradient(135deg, #f0f8f0 0%, #e8f5e8 100%)'}}>
+        <motion.div variants={itemVariants} className="mb-20 relative">
+          <div className="card-clean p-16 text-center" style={{background: 'linear-gradient(135deg, #1e3a2e 0%, #2d5a3d 50%, #3d7c47 100%)'}}>
             
-            {/* Main construction icon */}
-            <div className="relative z-0">
+            {/* Animated construction tools as decorative elements around the main content */}
+            <div className="absolute inset-0 pointer-events-none">
+              <motion.div
+                animate={{
+                  rotate: [0, 10, -10, 0],
+                  scale: [1, 1.1, 1]
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="absolute top-8 left-8 text-4xl opacity-30"
+              >
+                🔨
+              </motion.div>
+              
+              <motion.div
+                animate={{
+                  rotate: [0, -10, 10, 0],
+                  scale: [1, 1.2, 1]
+                }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1
+                }}
+                className="absolute top-12 right-8 text-4xl opacity-30"
+              >
+                🔧
+              </motion.div>
+              
+              <motion.div
+                animate={{
+                  rotate: [0, 5, -5, 0],
+                  y: [-5, 5, -5]
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 2
+                }}
+                className="absolute bottom-8 left-12 text-4xl opacity-30"
+              >
+                ⛑️
+              </motion.div>
+              
+              <motion.div
+                animate={{
+                  rotate: [0, 3, -3, 0],
+                  scale: [1, 1.05, 1]
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+                className="absolute top-6 right-16 text-5xl opacity-40"
+                style={{color: '#ffd700'}}
+              >
+                🏗️
+              </motion.div>
+            </div>
+
+            {/* Main content with proper z-index */}
+            <div className="relative z-10">
+              {/* Main construction icon */}
               <motion.div
                 animate={{
                   scale: [1, 1.1, 1],
@@ -120,93 +136,65 @@ export default function ProjectsPage() {
                 }}
                 className="flex justify-center mb-8"
               >
-                <div className="w-24 h-24 rounded-full flex items-center justify-center shadow-lg"
-                     style={{background: 'linear-gradient(135deg, #2e7d32, #388e3c)'}}>
+                <div className="w-24 h-24 rounded-full flex items-center justify-center shadow-2xl"
+                     style={{background: 'linear-gradient(135deg, #2e7d32, #43a047)'}}>
                   <Construction className="w-12 h-12 text-white" />
                 </div>
               </motion.div>
               
-              <h2 className="mb-6 text-3xl font-bold">🚧 Work in Progress 🚧</h2>
-              <p className="text-lg text-muted mb-8 max-w-2xl mx-auto">
+              <h2 className="mb-6 text-3xl font-bold text-white">🚧 Work in Progress 🚧</h2>
+              <p className="text-lg text-green-100 mb-8 max-w-2xl mx-auto">
                 Great things take time to build! I'm currently crafting some amazing projects 
-                that will be worth the wait. 
+                that will be worth the wait.
               </p>
 
               {/* Animated progress bar */}
               <div className="max-w-md mx-auto mb-8">
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm font-medium text-muted">Progress</span>
-                  <span className="text-sm font-medium text-chocolate">Building...</span>
+                  <span className="text-sm font-medium text-green-200">Progress</span>
+                  <span className="text-sm font-medium text-green-200">Building...</span>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden">
+                <div className="w-full bg-green-800/50 rounded-full h-3 overflow-hidden">
                   <motion.div
-                    variants={progressVariants}
-                    animate="animate"
+                    animate={{
+                      width: ["0%", "75%", "0%"],
+                      backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
                     className="h-3 rounded-full"
                     style={{
-                      background: 'linear-gradient(90deg, #2e7d32, #388e3c, #4caf50)',
+                      background: 'linear-gradient(90deg, #4caf50, #66bb6a, #81c784)',
                       backgroundSize: '200% 100%'
                     }}
                   />
                 </div>
               </div>
               
-              <div className="inline-flex items-center gap-2 font-medium" style={{color: '#2e7d32'}}>
+              <div className="inline-flex items-center gap-2 font-medium text-green-200">
                 <motion.div
-                  animate={{rotate: 360}}
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    rotate: [0, 180, 360]
+                  }}
                   transition={{duration: 2, repeat: Infinity, ease: "linear"}}
                 >
-                  ⚡
+                  <Sparkles className="w-5 h-5" />
                 </motion.div>
                 Expected Launch: Coming Soon!
                 <motion.div
-                  animate={{rotate: 360}}
+                  animate={{
+                    scale: [1, 1.2, 1],
+                    rotate: [360, 180, 0]
+                  }}
                   transition={{duration: 2, repeat: Infinity, ease: "linear", delay: 1}}
                 >
-                  ⚡
+                  <Sparkles className="w-5 h-5" />
                 </motion.div>
               </div>
-            </div>
-
-            {/* Floating construction elements - IN FRONT */}
-            <div className="absolute inset-0 pointer-events-none z-20">
-              {/* Construction tools floating around */}
-              <motion.div
-                variants={floatingVariants}
-                animate="animate"
-                className="absolute top-10 left-10 w-12 h-12 rounded-full flex items-center justify-center shadow-lg"
-                style={{background: 'linear-gradient(45deg, #2e7d32, #388e3c)'}}
-              >
-                <Hammer className="w-6 h-6 text-white" />
-              </motion.div>
-
-              <motion.div
-                variants={floatingVariants2}
-                animate="animate"
-                className="absolute top-16 right-16 w-12 h-12 rounded-full flex items-center justify-center shadow-lg"
-                style={{background: 'linear-gradient(45deg, #1b5e20, #2e7d32)'}}
-              >
-                <Wrench className="w-6 h-6 text-white" />
-              </motion.div>
-
-              <motion.div
-                variants={floatingVariants}
-                animate="animate"
-                className="absolute bottom-20 left-20 w-12 h-12 rounded-full flex items-center justify-center shadow-lg"
-                style={{background: 'linear-gradient(45deg, #388e3c, #4caf50)'}}
-              >
-                <HardHat className="w-6 h-6 text-white" />
-              </motion.div>
-
-              {/* Construction crane */}
-              <motion.div
-                variants={craneVariants}
-                animate="animate"
-                className="absolute top-4 right-4 text-6xl z-30"
-                style={{color: '#2e7d32'}}
-              >
-                🏗️
-              </motion.div>
             </div>
           </div>
         </motion.div>
