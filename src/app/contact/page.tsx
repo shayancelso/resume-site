@@ -63,32 +63,12 @@ export default function ContactPage() {
     });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitStatus('idle');
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setSubmitStatus('success');
-        setFormData({ name: '', email: '', message: '' });
-      } else {
-        setSubmitStatus('error');
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      setSubmitStatus('error');
-    } finally {
-      setIsSubmitting(false);
-    }
+    const subject = `Contact from ${formData.name}`;
+    const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
+    const mailtoLink = `mailto:shayan.mirzazadeh@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.open(mailtoLink, '_blank');
   };
 
   const handleCopy = async (text: string, field: string) => {
@@ -181,45 +161,14 @@ export default function ContactPage() {
                   </div>
                   
                   <Button 
-                    type="submit" 
-                    disabled={isSubmitting}
+                    type="submit"
                     className="btn-primary"
                   >
-                    {isSubmitting ? (
-                      <>
-                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2" />
-                        Sending...
-                      </>
-                    ) : (
-                      <>
-                        Send Message
-                        <Send className="ml-2 h-4 w-4" />
-                      </>
-                    )}
+                    Send Message
+                    <Send className="ml-2 h-4 w-4" />
                   </Button>
                 </div>
 
-                {submitStatus === 'success' && (
-                  <motion.div 
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="flex items-center gap-2 text-green-600 bg-green-50 p-3 rounded-lg"
-                  >
-                    <CheckCircle className="h-5 w-5" />
-                    <span>Message sent successfully! I'll get back to you soon.</span>
-                  </motion.div>
-                )}
-
-                {submitStatus === 'error' && (
-                  <motion.div 
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="flex items-center gap-2 text-red-600 bg-red-50 p-3 rounded-lg"
-                  >
-                    <XCircle className="h-5 w-5" />
-                    <span>Failed to send message. Please try again or use direct email.</span>
-                  </motion.div>
-                )}
               </form>
             </div>
           </motion.div>

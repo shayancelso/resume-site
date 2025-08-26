@@ -65,7 +65,18 @@
     font-feature-settings: "rlig" 1, "calt" 1;
     overflow-x: hidden;
     line-height: 1.6;
-    color: #000000;
+    color: #000000 !important;
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+  }
+
+  /* Force main container backgrounds */
+  main,
+  .main,
+  section,
+  .section,
+  div {
+    background-color: inherit;
   }
   
   html {
@@ -329,6 +340,34 @@
     --yellow: 255 255 255 !important;
     --amber: 255 255 255 !important;
     --gold: 92 64 51 !important;
+  }
+
+  /* NUCLEAR OPTION: Override EVERYTHING that could be yellow */
+  * {
+    background-color: inherit !important;
+  }
+
+  /* Force any element with yellow-like RGB values to white */
+  *[style*="rgb(255, 255, 0)"],
+  *[style*="rgb(255, 255, 102)"],
+  *[style*="rgb(255, 255, 153)"],
+  *[style*="rgb(255, 255, 204)"],
+  *[style*="rgb(255, 252, 153)"],
+  *[style*="rgb(254, 240, 138)"],
+  *[style*="rgb(253, 224, 71)"],
+  *[style*="background: yellow"],
+  *[style*="background-color: yellow"] {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+  }
+
+  /* Override any class that contains yellow/gold */
+  [class*="yellow" i],
+  [class*="gold" i],
+  [class*="amber" i] {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    color: #000000 !important;
   }
 }
 
