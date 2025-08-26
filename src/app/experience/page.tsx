@@ -71,7 +71,7 @@ export default function ExperiencePage() {
         <motion.div variants={itemVariants} className="mb-20">
           <div className="text-center mb-12">
             <div className="badge-minimal mb-4 inline-block">Career Journey</div>
-            <h2 className="mb-4">From startup operations to enterprise account management</h2>
+            <h2 className="mb-4">From startup operations to strategic account management</h2>
             <p className="text-lg text-muted max-w-2xl mx-auto">
               Each role has built on the foundation of the last, creating a unique blend of 
               operational excellence and strategic relationship management.

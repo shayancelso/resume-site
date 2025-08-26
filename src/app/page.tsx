@@ -73,41 +73,49 @@ export default function HomePage() {
               <motion.div variants={itemVariants} className="space-y-6 text-center lg:text-left">
                 <div className="space-y-4">
                   <div className="badge-chocolate inline-block">
-                    Account Manager & AI Enthusiast
+                    Strategic Account Manager
                   </div>
                   
                   <h1 className="text-balance hero-title">
-                    Expansions, renewals, and{' '}
+                    Driving{' '}
                     <motion.span 
                       className="text-chocolate"
                       initial={{ opacity: 0, y: 20 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.6, delay: 0.8 }}
                     >
-                      AI-enhanced workflows
+                      exceptional results
                     </motion.span>
+                    {' '}through strategic account management
                   </h1>
                   
                   <p className="text-lg text-muted max-w-2xl text-balance">
-                    Account Manager focused on measurable ROI and executive alignment. 
-                    Delivered 280% FY25 performance with AI-driven process improvements 
-                    and strategic client expansion.
+                    Proven account manager with expertise in client expansion, retention, and AI-driven process optimization. 
+                    <strong className="text-black">280% quota achievement</strong> and <strong className="text-black">100% client retention</strong> demonstrate 
+                    my commitment to measurable results and executive-level relationship building.
                   </p>
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                   <Link href="/experience">
-                    <div className="btn-primary">
-                      View Experience
-                      <ArrowRight className="w-4 h-4" />
+                    <div className="btn-primary group">
+                      Explore My Track Record
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </div>
                   </Link>
                   
                   <Link href="/contact">
                     <div className="btn-outline">
-                      Get in Touch
+                      Let's Connect
                     </div>
                   </Link>
+                </div>
+                
+                <div className="mt-6 p-4 rounded-lg border border-neutral-200" style={{backgroundColor: '#fefefe'}}>
+                  <p className="text-sm text-muted">
+                    👆 <strong className="text-black">Start here:</strong> See how I've consistently delivered 280%+ quota performance, 
+                    maintained 100% retention rates, and earned multiple recognition awards in 2024.
+                  </p>
                 </div>
               </motion.div>
 
@@ -264,22 +272,23 @@ export default function HomePage() {
           <div className="container">
             <motion.div variants={itemVariants} className="text-center max-w-3xl mx-auto">
               <div className="card-clean p-12">
-                <h2 className="mb-4">Ready to connect?</h2>
+                <h2 className="mb-4">Ready to explore what's possible?</h2>
                 <p className="text-lg text-muted mb-8">
-                  Let's discuss how AI-enhanced account management can drive measurable results for your organization.
+                  Discover how strategic account management and AI-driven process optimization 
+                  can deliver measurable results for your team.
                 </p>
                 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link href="/contact">
+                  <Link href="/experience">
                     <div className="btn-chocolate">
-                      Start a Conversation
+                      View Detailed Experience
                       <ArrowRight className="w-4 h-4" />
                     </div>
                   </Link>
                   
-                  <Link href="/experience">
+                  <Link href="/contact">
                     <div className="btn-outline">
-                      View Track Record
+                      Let's Connect
                     </div>
                   </Link>
                 </div>

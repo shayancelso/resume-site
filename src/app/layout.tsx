@@ -41,6 +41,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link 
           rel="preload" 
           href="https://api.fontshare.com/v2/css?f[]=clash-display@200,400,700&display=swap" 
