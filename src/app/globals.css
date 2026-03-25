@@ -6,487 +6,298 @@
 
 @layer base {
   :root {
-    /* Ultra Clean Color System - ONLY Black, White, Gray, Chocolate */
     --background: 255 255 255;
-    --foreground: 0 0 0;
+    --foreground: 24 24 27;
     --card: 255 255 255;
-    --card-foreground: 0 0 0;
+    --card-foreground: 24 24 27;
     --popover: 255 255 255;
-    --popover-foreground: 0 0 0;
-    --primary: 92 64 51;
+    --popover-foreground: 24 24 27;
+    --primary: 124 58 237;
     --primary-foreground: 255 255 255;
-    --secondary: 248 248 248;
-    --secondary-foreground: 0 0 0;
-    --muted: 248 248 248;
-    --muted-foreground: 64 64 64;
-    --accent: 92 64 51;
+    --secondary: 244 244 245;
+    --secondary-foreground: 24 24 27;
+    --muted: 244 244 245;
+    --muted-foreground: 113 113 122;
+    --accent: 124 58 237;
     --accent-foreground: 255 255 255;
     --destructive: 220 38 38;
-    --destructive-foreground: 248 250 252;
-    --border: 229 229 229;
-    --input: 229 229 229;
-    --ring: 92 64 51;
+    --destructive-foreground: 255 255 255;
+    --border: 228 228 231;
+    --input: 228 228 231;
+    --ring: 124 58 237;
     --radius: 0.5rem;
-    
-    /* Brand Colors - ONLY Chocolate Brown */
-    --chocolate: 92 64 51;    /* #5C4033 */
   }
 
-}
+  * { @apply border-border; }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  
   body {
-    @apply bg-white text-black font-sans;
+    background-color: #ffffff;
+    color: #18181b;
     font-feature-settings: "rlig" 1, "calt" 1;
     overflow-x: hidden;
     line-height: 1.6;
-    color: #000000 !important;
-    background-color: #ffffff !important;
-    background: #ffffff !important;
   }
 
-  /* Force main container backgrounds */
-  main,
-  .main,
-  section,
-  .section,
-  div {
-    background-color: inherit;
-  }
-  
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  /* High Contrast Typography */
+  html { scroll-behavior: smooth; }
+
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading font-bold text-black;
-    color: #000000 !important;
+    @apply font-heading font-bold;
+    color: #18181b;
   }
-  
-  h1 {
-    @apply text-3xl md:text-5xl leading-tight;
-  }
-  
-  h2 {
-    @apply text-2xl md:text-3xl leading-tight;
-  }
-  
-  h3 {
-    @apply text-xl md:text-2xl leading-tight;
-  }
-  
-  h4 {
-    @apply text-lg md:text-xl leading-tight;
-  }
-  
-  h5 {
-    @apply text-base md:text-lg leading-tight;
-  }
-  
-  h6 {
-    @apply text-sm md:text-base leading-tight;
-  }
-  
+  h1 { @apply text-3xl md:text-5xl leading-tight; }
+  h2 { @apply text-2xl md:text-3xl leading-tight; }
+  h3 { @apply text-xl md:text-2xl leading-tight; }
+  h4 { @apply text-lg md:text-xl leading-tight; }
+
   p {
-    @apply text-base leading-relaxed text-black;
-    color: #000000 !important;
+    @apply text-base leading-relaxed;
+    color: #52525b;
   }
-  
-  /* Responsive Container */
+
   .container {
     @apply mx-auto px-6 sm:px-8 lg:px-12;
     max-width: 1200px;
   }
+
+  a {
+    color: #7c3aed;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  a:hover { color: #6d28d9; }
 }
 
 @layer components {
-  /* Clean Background System */
-  .bg-neutral {
-    @apply bg-white;
-  }
-  
+  /* ── Backgrounds ── */
   .bg-section-alt {
-    background-color: #fefefe;
+    background-color: #faf8ff;
+  }
+  .bg-neutral {
+    background-color: #ffffff;
   }
 
-  
-  /* Clean Card System */
+  /* ── Glass ── */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  }
+  .glass {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  /* ── Cards ── */
   .card-clean {
-    @apply bg-white rounded-lg p-6;
-    border: 1px solid #e5e5e5;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.2s ease;
+    background-color: #ffffff;
+    border: 1px solid #e4e4e7;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
   .card-clean:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    border-color: rgba(124, 58, 237, 0.25);
+    box-shadow: 0 8px 30px rgba(124, 58, 237, 0.08);
+    transform: translateY(-2px);
   }
-  
   .card-minimal {
-    background-color: #fefefe;
+    background-color: #faf8ff;
     @apply rounded-lg p-6;
   }
 
-  
-  /* High Contrast Button System */
+  /* ── Buttons ── */
+  .btn-glow {
+    @apply px-6 py-3 rounded-lg font-medium inline-flex items-center justify-center gap-2;
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: #ffffff;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 12px rgba(124, 58, 237, 0.25);
+  }
+  .btn-glow:hover {
+    box-shadow: 0 4px 24px rgba(124, 58, 237, 0.35);
+    transform: translateY(-1px);
+    color: #ffffff;
+  }
+
+  .btn-glass {
+    @apply px-6 py-3 rounded-lg font-medium inline-flex items-center justify-center gap-2;
+    background: #ffffff;
+    border: 1px solid #e4e4e7;
+    color: #18181b;
+    transition: all 0.3s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  }
+  .btn-glass:hover {
+    border-color: rgba(124, 58, 237, 0.3);
+    box-shadow: 0 4px 16px rgba(124, 58, 237, 0.08);
+    color: #18181b;
+  }
+
   .btn-primary {
-    background-color: #000000;
-    color: #ffffff !important;
-    @apply px-6 py-3 rounded-lg font-medium transition-all duration-200 inline-flex items-center justify-center gap-2 border-0;
+    @apply px-6 py-3 rounded-lg font-medium inline-flex items-center justify-center gap-2 border-0;
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+    color: #ffffff;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 12px rgba(124, 58, 237, 0.25);
   }
-  
   .btn-primary:hover {
-    background-color: #333333;
-    color: #ffffff !important;
+    box-shadow: 0 4px 24px rgba(124, 58, 237, 0.35);
+    color: #ffffff;
   }
-  
+
   .btn-outline {
-    border: 2px solid #000000;
-    color: #000000;
-    background-color: transparent;
-    @apply px-6 py-3 rounded-lg font-medium transition-all duration-200 inline-flex items-center justify-center gap-2;
+    @apply px-6 py-3 rounded-lg font-medium inline-flex items-center justify-center gap-2;
+    border: 1px solid #e4e4e7;
+    color: #18181b;
+    background: transparent;
+    transition: all 0.3s;
   }
-  
   .btn-outline:hover {
-    background-color: #000000;
-    color: #ffffff;
+    border-color: rgba(124, 58, 237, 0.3);
+    background: #faf8ff;
+    color: #18181b;
   }
-  
+
   .btn-chocolate {
-    background-color: #5C4033;
+    @apply px-6 py-3 rounded-lg font-medium inline-flex items-center justify-center gap-2 border-0;
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
     color: #ffffff;
-    @apply px-6 py-3 rounded-lg font-medium transition-all duration-200 inline-flex items-center justify-center gap-2 border-0;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 12px rgba(124, 58, 237, 0.25);
   }
-  
   .btn-chocolate:hover {
-    background-color: #4a3329;
-  }
-
-  
-  /* High Contrast Badge System */
-  .badge-minimal {
-    background-color: #fefefe;
-    color: #000000;
-    border: 1px solid #e0e0e0;
-    @apply px-3 py-1 rounded-full text-sm font-medium;
-  }
-
-  
-  .badge-chocolate {
-    background-color: #5C4033;
+    box-shadow: 0 4px 24px rgba(124, 58, 237, 0.35);
     color: #ffffff;
+  }
+
+  /* ── Badges ── */
+  .badge-minimal {
     @apply px-3 py-1 rounded-full text-sm font-medium;
+    background: #f4f4f5;
+    border: 1px solid #e4e4e7;
+    color: #52525b;
   }
-
-  
+  .badge-chocolate {
+    @apply px-3 py-1 rounded-full text-sm font-medium;
+    background: #ede9fe;
+    border: 1px solid rgba(124, 58, 237, 0.2);
+    color: #7c3aed;
+  }
   .badge-outline {
-    @apply bg-white border border-gray-300 px-3 py-1 rounded-full text-sm font-medium;
-    color: #000000;
-  }
-  
-  /* Section Spacing */
-  .section-padding {
-    @apply py-12 md:py-20;
-  }
-  
-  /* Text Utilities - HIGH CONTRAST ONLY */
-  .text-balance {
-    text-wrap: balance;
-  }
-  
-  .text-chocolate {
-    color: #5C4033 !important;
-    font-weight: 600;
+    @apply px-3 py-1 rounded-full text-sm font-medium;
+    background: transparent;
+    border: 1px solid #e4e4e7;
+    color: #52525b;
   }
 
-  
-  .text-muted {
-    color: #404040 !important;
+  /* ── Layout ── */
+  .section-padding { @apply py-12 md:py-20; }
+
+  /* ── Gradient text ── */
+  .gradient-text {
+    background: linear-gradient(135deg, #7c3aed 0%, #6366f1 50%, #4f46e5 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  
-  /* Ensure headline text is always readable */
-  h1 .text-chocolate,
-  .hero-title .text-chocolate {
-    color: #5C4033 !important;
-    font-weight: 700;
-  }
-  
-  /* Override any unwanted colors */
-  .text-green-600,
-  .text-blue-600,
-  .text-emerald-600,
-  .text-teal-600,
-  .text-cyan-600,
-  .text-sky-600,
-  .text-indigo-600,
-  .text-purple-600,
-  .text-pink-600,
-  .text-rose-600,
-  .text-red-600,
-  .text-orange-600,
-  .text-amber-600,
-  .text-yellow-600,
-  .text-lime-600 {
-    color: #000000 !important;
-  }
-  
-  /* Force remove any background colors - make them creamy white like preferred sections */
-  .bg-green-50,
-  .bg-blue-50,
-  .bg-emerald-50,
-  .bg-teal-50,
-  .bg-cyan-50,
-  .bg-sky-50,
-  .bg-indigo-50,
-  .bg-purple-50,
-  .bg-pink-50,
-  .bg-rose-50,
-  .bg-red-50,
-  .bg-orange-50,
-  .bg-amber-50,
-  .bg-yellow-50,
-  .bg-yellow-100,
-  .bg-yellow-200,
-  .bg-yellow-300,
-  .bg-yellow-400,
-  .bg-yellow-500,
-  .bg-amber-100,
-  .bg-amber-200,
-  .bg-amber-300,
-  .bg-amber-400,
-  .bg-amber-500,
-  .bg-lime-50,
-  .bg-primary\/10,
-  .bg-luxury,
-  .bg-gradient-to-br {
-    background-color: #fefefe !important;
+  /* ── Text utilities ── */
+  .text-balance { text-wrap: balance; }
+  .text-chocolate { color: #7c3aed !important; font-weight: 600; }
+  .text-muted { color: #71717a !important; }
+
+  /* ── Dot grid ── */
+  .bg-dot-grid {
+    background-image: radial-gradient(rgba(0, 0, 0, 0.07) 1px, transparent 1px);
+    background-size: 24px 24px;
   }
 
-  /* Override any yellow/gold gradients */
-  .bg-gradient-to-r,
-  .bg-gradient-to-l,
-  .bg-gradient-to-t,
-  .bg-gradient-to-b {
-    background: #ffffff !important;
-  }
+  /* ── Rarity borders ── */
+  .rarity-legendary { border-left: 3px solid #f59e0b; }
+  .rarity-epic { border-left: 3px solid #8b5cf6; }
+  .rarity-rare { border-left: 3px solid #3b82f6; }
+  .rarity-uncommon { border-left: 3px solid #22c55e; }
 
-  /* AGGRESSIVE: Catch any remaining gold/amber/yellow classes */
-  [class*="gold"],
-  [class*="amber"],
-  [class*="yellow"],
-  [class*="Gold"],
-  [class*="Amber"],
-  [class*="Yellow"] {
-    background-color: #ffffff !important;
-    color: #000000 !important;
-  }
-
-  /* Override any Tailwind default button/badge variants that might have colors */
-  .bg-default,
-  .bg-primary {
-    background-color: #5C4033 !important;
-    color: #ffffff !important;
-  }
-
-  /* NUCLEAR OPTION: Force all timeline cards to white background */
-  .timeline-card,
-  [class*="timeline"],
-  [class*="Timeline"],
-  .Card,
-  .card {
-    background-color: #ffffff !important;
-  }
-
-  /* Force header to white background */
-  header,
-  .header,
-  nav,
-  .nav {
-    background-color: #ffffff !important;
-  }
-
-  /* ULTIMATE FALLBACK: Override any potentially yellow/gold backgrounds */
-  div[style*="yellow"],
-  div[style*="gold"],
-  div[style*="amber"],
-  div[style*="background-color: rgb(255, 255"],
-  div[style*="background-color: rgb(248, 250"],
-  div[style*="background-color: rgb(254, 240"] {
-    background-color: #ffffff !important;
-  }
-
-  /* Force CSS variables to safe values */
-  :root {
-    --yellow: 255 255 255 !important;
-    --amber: 255 255 255 !important;
-    --gold: 92 64 51 !important;
-  }
-
-  /* NUCLEAR OPTION: Override EVERYTHING that could be yellow */
-  * {
-    background-color: inherit !important;
-  }
-
-  /* Force any element with yellow-like RGB values to white */
-  *[style*="rgb(255, 255, 0)"],
-  *[style*="rgb(255, 255, 102)"],
-  *[style*="rgb(255, 255, 153)"],
-  *[style*="rgb(255, 255, 204)"],
-  *[style*="rgb(255, 252, 153)"],
-  *[style*="rgb(254, 240, 138)"],
-  *[style*="rgb(253, 224, 71)"],
-  *[style*="background: yellow"],
-  *[style*="background-color: yellow"] {
-    background-color: #ffffff !important;
-    background: #ffffff !important;
-  }
-
-  /* Override any class that contains yellow/gold */
-  [class*="yellow" i],
-  [class*="gold" i],
-  [class*="amber" i] {
-    background-color: #ffffff !important;
-    background: #ffffff !important;
-    color: #000000 !important;
+  /* ── Misc ── */
+  .hero-title { perspective: 1000px; }
+  .card-clean, .btn-primary, .btn-outline, .btn-glow, .btn-glass, .btn-chocolate {
+    will-change: transform;
+    backface-visibility: hidden;
   }
 }
 
-@layer utilities {
-  /* Remove all unwanted colors */
-  .text-primary {
-    color: #5C4033 !important;
-  }
-  
-  .text-secondary {
-    color: #404040 !important;
-  }
-  
-  .text-foreground {
-    color: #000000 !important;
-  }
-  
-  .text-muted-foreground {
-    color: #404040 !important;
-  }
-}
-
-/* Force override any system colors */
-* {
-  color: inherit;
-}
-
-/* Ensure all skill card icon backgrounds match the preferred sections */
-.bg-primary\/10,
-.bg-primary\/5 {
-  background-color: #fefefe !important;
-}
-
-/* Enhanced interactive elements */
-.card-clean {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.card-clean:hover {
-  transform: translateY(-2px);
-}
-
-/* Smooth animations for hero elements */
-.hero-title {
-  perspective: 1000px;
-}
-
-/* Performance optimizations for animations */
-.card-clean,
-.btn-primary,
-.btn-outline,
-.btn-chocolate {
-  will-change: transform;
-  backface-visibility: hidden;
-}
-
-/* High contrast form elements */
+/* ── Forms ── */
 input, textarea, select {
   @apply border rounded-lg px-4 py-2;
-  border-color: #d0d0d0;
-  color: #000000 !important;
   background-color: #ffffff;
+  border-color: #e4e4e7;
+  color: #18181b;
 }
-
 input:focus, textarea:focus, select:focus {
-  outline: 2px solid #5C4033;
-  border-color: #5C4033;
+  outline: 2px solid rgba(124, 58, 237, 0.4);
+  border-color: rgba(124, 58, 237, 0.4);
+}
+input::placeholder, textarea::placeholder { color: #a1a1aa; }
+
+/* ── SVG ── */
+svg, .lucide { color: inherit; }
+
+/* ── Keyframes ── */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+.animate-pulse-slow { animation: pulse-slow 6s ease-in-out infinite; }
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.animate-shimmer {
+  background-size: 200% 100%;
+  animation: shimmer 3s linear infinite;
 }
 
-
-/* Links */
-a {
-  color: #5C4033;
-  text-decoration: none;
+@keyframes unlock-flash {
+  0% { opacity: 0; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
 }
 
-a:hover {
-  color: #4a3329;
-}
-
-
-/* Responsive Design */
+/* ── Responsive ── */
 @media (max-width: 640px) {
-  .container {
-    @apply px-4;
-  }
-  
-  .section-padding {
-    @apply py-8;
-  }
-  
-  h1 {
-    @apply text-2xl;
-  }
-  
-  h2 {
-    @apply text-xl;
-  }
+  .container { @apply px-4; }
+  .section-padding { @apply py-8; }
+  h1 { @apply text-2xl; }
+  h2 { @apply text-xl; }
 }
 
-/* Accessibility - ensure high contrast */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  ::before,
-  ::after {
+  *, ::before, ::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }
 
-/* Touch targets */
 @media (hover: none) and (pointer: coarse) {
-  .btn-primary,
-  .btn-outline,
-  .btn-chocolate {
+  .btn-primary, .btn-outline, .btn-glow, .btn-glass, .btn-chocolate {
     @apply min-h-[44px] min-w-[44px];
   }
 }
 
-/* Remove any remaining unwanted styling */
-svg {
-  color: inherit;
+@layer utilities {
+  .text-primary { color: #7c3aed !important; }
+  .text-secondary { color: #52525b !important; }
+  .text-foreground { color: #18181b !important; }
+  .text-muted-foreground { color: #71717a !important; }
 }
 
-.lucide {
-  color: inherit;
+.bg-primary\/10, .bg-primary\/5 {
+  background-color: rgba(124, 58, 237, 0.08) !important;
 }
-
-/* Glass effect for header */
-.glass {
-  background: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-

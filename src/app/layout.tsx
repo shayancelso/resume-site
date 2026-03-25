@@ -3,7 +3,6 @@ import { Inter } from 'next/font/google';
 import './globals.css';
 import { Header } from '@/components/Header';
 import { cn } from '@/lib/utils';
-import { Analytics } from '@vercel/analytics/next';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -11,13 +10,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Shayan Mirzazadeh - Strategic Account Manager Portfolio',
-  description: 'Portfolio showcasing proven expertise in strategic account management, client expansion, and AI-driven process optimization with documented results and achievements.',
-  keywords: ['Account Manager', 'Sales', 'Expansion', 'Renewals', 'AI', 'SaaS', 'Client Success'],
+  title: 'Shayan Mirzazadeh — Sr. Account Manager | GTM & AI Strategy',
+  description: 'Sr. Account Manager driving 280% quota achievement through strategic GTM execution, AI-powered workflows, and 100% client retention.',
+  keywords: ['GTM', 'Account Manager', 'AI', 'Sales', 'Expansion', 'SaaS', 'Revenue', 'Strategy'],
   authors: [{ name: 'Shayan Mirzazadeh' }],
   openGraph: {
-    title: 'Shayan Mirzazadeh - Strategic Account Manager Portfolio',
-    description: 'Portfolio showcasing proven expertise in strategic account management and AI-driven process optimization.',
+    title: 'Shayan Mirzazadeh — Sr. Account Manager | GTM & AI Strategy',
+    description: 'Sr. Account Manager driving 280% quota achievement through strategic GTM execution and AI-powered workflows.',
     url: 'https://shayan-resume.vercel.app',
     siteName: 'Shayan Mirzazadeh',
     locale: 'en_US',
@@ -25,8 +24,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Shayan Mirzazadeh - Strategic Account Manager Portfolio',
-    description: 'Portfolio showcasing strategic account management expertise and AI-driven process optimization.',
+    title: 'Shayan Mirzazadeh — Sr. Account Manager | GTM & AI Strategy',
+    description: 'Sr. Account Manager driving 280% quota achievement through strategic GTM execution and AI-powered workflows.',
   },
   robots: {
     index: true,
@@ -61,7 +60,6 @@ export default function RootLayout({
         <main className="pt-20">
           {children}
         </main>
-        <Analytics />
       </body>
     </html>
   );
