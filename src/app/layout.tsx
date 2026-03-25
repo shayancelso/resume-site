@@ -17,15 +17,24 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Shayan Mirzazadeh — Sr. Account Manager | GTM & AI Strategy',
     description: 'Sr. Account Manager driving 280% quota achievement through strategic GTM execution and AI-powered workflows.',
-    url: 'https://shayan-resume.vercel.app',
+    url: 'https://shayanmirzazadeh.com',
     siteName: 'Shayan Mirzazadeh',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: '/images/shayan-hero.jpeg',
+        width: 1024,
+        height: 1024,
+        alt: 'Shayan Mirzazadeh',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Shayan Mirzazadeh — Sr. Account Manager | GTM & AI Strategy',
     description: 'Sr. Account Manager driving 280% quota achievement through strategic GTM execution and AI-powered workflows.',
+    images: ['/images/shayan-hero.jpeg'],
   },
   robots: {
     index: true,
